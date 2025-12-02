@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import precisianLogo from "@/assets/nd-precisian-logo.png";
+import precisianLogo from "@/assets/precisian-logo-footer.png";
 
 const Footer = () => {
   return (
