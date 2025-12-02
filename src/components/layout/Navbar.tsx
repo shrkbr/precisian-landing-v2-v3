@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
-import precisianLogo from "@/assets/precisian-logo.png";
+import precisianLogo from "@/assets/nd-precisian-logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
