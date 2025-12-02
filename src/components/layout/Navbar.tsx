@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import precisianLogo from "@/assets/precisian-logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,9 +31,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-display font-bold text-xl gradient-text">
-              Precisian
-            </span>
+            <img src={precisianLogo} alt="Precisian" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
