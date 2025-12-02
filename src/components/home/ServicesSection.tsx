@@ -56,6 +56,7 @@ const services = [
     title: "AI Insights",
     description: "Inteligência artificial para analytics preditivos e insights automatizados.",
     path: "/ai-insights",
+    wide: true,
   },
 ];
 
@@ -81,7 +82,7 @@ const ServicesSection = () => {
             <Link
               key={service.path}
               to={service.path}
-              className="group"
+              className={`group ${service.wide ? 'md:col-span-2 lg:col-span-2' : ''}`}
             >
               <div className="card-gradient p-6 rounded-xl border border-border hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
