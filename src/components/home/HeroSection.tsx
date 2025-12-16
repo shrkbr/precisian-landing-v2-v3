@@ -18,14 +18,13 @@ const HeroSection = () => {
           animationDelay: "0.1s"
         }}>
             Nós trazemos{" "}
-            <span className="gradient-text">clareza e certeza</span> de todos os dados de investimento e performance
+            <span className="gradient-text">clareza e certeza</span> para todos os dados
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.2s"
         }}>
-            Através de soluções customizadas, que se tornam propriedade dos nossos clientes. 
-            Afinal, seus dados são o core do negócio.
+            Conte com nosso time de <span className="text-primary font-semibold">Intelligence Partners</span> para trazer integração, análise e insights de dados em tempo real alimentados por IA, para que você tome a melhor decisão de investimento toda vez.
           </p>
 
           
