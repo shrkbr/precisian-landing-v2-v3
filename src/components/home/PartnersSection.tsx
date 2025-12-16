@@ -1,13 +1,23 @@
 const partners = [
   "Google Analytics",
-  "Google 360",
   "Google Tag Manager",
   "Google Cloud Platform",
-  "Salesforce",
+  "Looker Studio",
+  "Google Ads",
+  "Facebook Ads",
+  "Google Merchant",
   "Google Meridian",
-  "Optimizely",
-  "Appsflyer",
+  "Big Query",
+  "Microsoft Fabric",
+  "Azure",
   "PowerBI",
+  "N8N",
+  "Supabase",
+  "VTEX",
+  "Magento",
+  "Shopify",
+  "Salesforce",
+  "Appsflyer",
 ];
 
 const PartnersSection = () => {
