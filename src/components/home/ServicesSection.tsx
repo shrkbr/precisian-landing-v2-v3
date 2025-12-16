@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Package, GitBranch, BarChart3, LineChart, Settings, Brain, PieChart, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Package, BarChart3, Settings, Brain, PieChart, Sparkles } from "lucide-react";
 
 const featuredServices = [
   {
     icon: Calendar,
-    title: "Precisian Events",
+    title: "Precisian Journey",
     description: "Gestão completa de eventos para analytics com rastreamento avançado da jornada do cliente.",
     path: "/precisian-events",
   },
@@ -16,14 +15,20 @@ const featuredServices = [
     path: "/precisian-sku",
   },
   {
-    icon: GitBranch,
-    title: "Precisian Attribution",
-    description: "Atribuição avançada além do last click. Descubra o verdadeiro valor de cada canal.",
-    path: "/precisian-attribution",
+    icon: Brain,
+    title: "Precisian MMM",
+    description: "Marketing Mix Modeling de próxima geração com IA para entender a contribuição real.",
+    path: "/google-meridian",
+  },
+  {
+    icon: PieChart,
+    title: "Precisian Clarity",
+    description: "Transforme dados em decisões com visualizações poderosas e dashboards customizados.",
+    path: "/data-visualization",
   },
 ];
 
-const services = [
+const otherServices = [
   {
     icon: BarChart3,
     title: "GA4 Optimization",
@@ -31,28 +36,10 @@ const services = [
     path: "/ga4-optimization",
   },
   {
-    icon: LineChart,
-    title: "GA360",
-    description: "Analytics de nível enterprise para negócios de alto volume com dados não amostrados.",
-    path: "/ga360",
-  },
-  {
     icon: Settings,
     title: "GTM Setup",
     description: "Gerenciamento ágil de tags sem dependência de desenvolvedores.",
     path: "/gtm-setup",
-  },
-  {
-    icon: Brain,
-    title: "Google Meridian MMM",
-    description: "Marketing Mix Modeling de próxima geração com IA para entender a contribuição real.",
-    path: "/google-meridian",
-  },
-  {
-    icon: PieChart,
-    title: "Data Visualization",
-    description: "Transforme dados em decisões com visualizações poderosas e dashboards customizados.",
-    path: "/data-visualization",
   },
   {
     icon: Sparkles,
@@ -80,7 +67,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Featured Precisian Products */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {featuredServices.map((service) => (
             <Link
               key={service.path}
@@ -108,9 +95,14 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Other Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service) => (
+        {/* Outras Soluções */}
+        <div className="text-center mb-8">
+          <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground">
+            Outras Soluções
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {otherServices.map((service) => (
             <Link
               key={service.path}
               to={service.path}
