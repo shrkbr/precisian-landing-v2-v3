@@ -3,27 +3,27 @@ import { useState } from "react";
 const steps = [
   {
     number: "01",
-    title: "Behavior Mapping + Events",
+    title: "Comportamento do usuário e Mapeamento de eventos",
     description: "Mapeamento completo de todas as interações críticas do usuário",
   },
   {
     number: "02",
-    title: "Integration",
+    title: "Integração e Centralização dos dados",
     description: "Conexão de todas as fontes de dados em uma visão unificada",
   },
   {
     number: "03",
-    title: "Availability",
+    title: "Governança e Disponibilidade dos dados",
     description: "Dados sempre acessíveis e prontos para análise",
   },
   {
     number: "04",
-    title: "Attribution",
+    title: "Modelo de atribuição inteligente",
     description: "Atribuição precisa do valor de cada canal de marketing",
   },
   {
     number: "05",
-    title: "Visual Insights",
+    title: "Insights visuais em tempo real e preditivos",
     description: "Dashboards intuitivos que transformam dados em decisões",
   },
 ];
@@ -39,8 +39,8 @@ const MethodologySection = () => {
             Nossa Metodologia
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 mb-4">
-            Data Efficiency Quotient{" "}
-            <span className="gradient-text">(DEQ)</span>
+            Data Value Quotient{" "}
+            <span className="gradient-text">(DVQ)</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Um framework completo para transformar dados brutos em vantagem competitiva
@@ -53,7 +53,7 @@ const MethodologySection = () => {
           <div className="hidden lg:block relative h-[500px]">
             {/* Center Circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center z-10">
-              <span className="font-display font-bold text-xl gradient-text">DEQ</span>
+              <span className="font-display font-bold text-xl gradient-text">DVQ</span>
             </div>
 
             {/* Connecting Circle Ring */}
