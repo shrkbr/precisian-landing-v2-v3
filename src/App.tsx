@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrecisianEvents from "./pages/PrecisianEvents";
 import PrecisianSKU from "./pages/PrecisianSKU";
+import PrecisianCore from "./pages/PrecisianCore";
 import PrecisianAttribution from "./pages/PrecisianAttribution";
 import GA4Optimization from "./pages/GA4Optimization";
 import GA360 from "./pages/GA360";
@@ -14,6 +15,7 @@ import GTMSetup from "./pages/GTMSetup";
 import GoogleMeridian from "./pages/GoogleMeridian";
 import DataVisualization from "./pages/DataVisualization";
 import AIInsights from "./pages/AIInsights";
+import AdTechs from "./pages/AdTechs";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/precisian-events" element={<PrecisianEvents />} />
           <Route path="/precisian-sku" element={<PrecisianSKU />} />
+          <Route path="/precisian-core" element={<PrecisianCore />} />
           <Route path="/precisian-attribution" element={<PrecisianAttribution />} />
           <Route path="/ga4-optimization" element={<GA4Optimization />} />
           <Route path="/ga360" element={<GA360 />} />
@@ -34,6 +37,7 @@ const App = () => (
           <Route path="/google-meridian" element={<GoogleMeridian />} />
           <Route path="/data-visualization" element={<DataVisualization />} />
           <Route path="/ai-insights" element={<AIInsights />} />
+          <Route path="/adtechs" element={<AdTechs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
