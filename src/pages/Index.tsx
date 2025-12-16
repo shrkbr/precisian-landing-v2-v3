@@ -8,8 +8,8 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <MethodologySection />
       <ServicesSection />
+      <MethodologySection />
       <PartnersSection />
     </Layout>
   );
