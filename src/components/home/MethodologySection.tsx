@@ -1,30 +1,52 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     title: "Comportamento do usuário e Mapeamento de eventos",
     description: "Mapeamento completo de todas as interações críticas do usuário",
+    solutions: [
+      { name: "Precisian Journey", path: "/precisian-events" },
+      { name: "GTM Setup", path: "/gtm-setup" },
+    ],
   },
   {
     number: "02",
     title: "Integração e Centralização dos dados",
     description: "Conexão de todas as fontes de dados em uma visão unificada",
+    solutions: [
+      { name: "Precisian Journey", path: "/precisian-events" },
+      { name: "Precisian SKU", path: "/precisian-sku" },
+    ],
   },
   {
     number: "03",
     title: "Governança e Disponibilidade dos dados",
     description: "Dados sempre acessíveis e prontos para análise",
+    solutions: [
+      { name: "GA4 Optimization", path: "/ga4-optimization" },
+      { name: "GTM Setup", path: "/gtm-setup" },
+    ],
   },
   {
     number: "04",
     title: "Modelo de atribuição inteligente",
     description: "Atribuição precisa do valor de cada canal de marketing",
+    solutions: [
+      { name: "Precisian MMM", path: "/google-meridian" },
+      { name: "GA4 Optimization", path: "/ga4-optimization" },
+    ],
   },
   {
     number: "05",
     title: "Insights visuais em tempo real e preditivos",
     description: "Dashboards intuitivos que transformam dados em decisões",
+    solutions: [
+      { name: "Precisian Clarity", path: "/data-visualization" },
+      { name: "AI Insights", path: "/ai-insights" },
+    ],
   },
 ];
 
@@ -127,7 +149,7 @@ const MethodologySection = () => {
                     
                     {/* Tooltip Card */}
                     <div
-                      className={`absolute left-1/2 -translate-x-1/2 w-56 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 ${
+                      className={`absolute left-1/2 -translate-x-1/2 w-64 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 ${
                         activeStep === index
                           ? "opacity-100 visible"
                           : "opacity-0 invisible"
@@ -136,9 +158,24 @@ const MethodologySection = () => {
                       <h4 className="font-display font-semibold text-foreground text-sm mb-1">
                         {step.title}
                       </h4>
-                      <p className="text-muted-foreground text-xs">
+                      <p className="text-muted-foreground text-xs mb-3">
                         {step.description}
                       </p>
+                      <div className="border-t border-border pt-3">
+                        <span className="text-xs text-muted-foreground font-medium mb-2 block">Soluções relacionadas:</span>
+                        <div className="flex flex-col gap-1.5">
+                          {step.solutions.map((solution) => (
+                            <Link
+                              key={solution.path}
+                              to={solution.path}
+                              className="flex items-center justify-between text-xs text-primary hover:text-primary/80 transition-colors group/link"
+                            >
+                              <span>{solution.name}</span>
+                              <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </button>
                 </div>
@@ -202,9 +239,24 @@ const MethodologySection = () => {
                     <h3 className="font-display font-semibold text-foreground mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-muted-foreground mb-3">
                       {step.description}
                     </p>
+                    <div className="border-t border-border pt-3">
+                      <span className="text-xs text-muted-foreground font-medium mb-2 block">Soluções relacionadas:</span>
+                      <div className="flex flex-wrap gap-2">
+                        {step.solutions.map((solution) => (
+                          <Link
+                            key={solution.path}
+                            to={solution.path}
+                            className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors bg-primary/10 px-2 py-1 rounded-full"
+                          >
+                            <span>{solution.name}</span>
+                            <ArrowRight className="w-3 h-3" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
