@@ -11,14 +11,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const services = [
-  { name: "Precisian Events", path: "/precisian-events" },
+  { name: "Precisian Journey", path: "/precisian-events" },
   { name: "Precisian SKU", path: "/precisian-sku" },
-  { name: "Precisian Attribution", path: "/precisian-attribution" },
+  { name: "Precisian Core", path: "/precisian-core" },
+  { name: "Precisian MMM", path: "/google-meridian" },
+  { name: "Precisian Clarity", path: "/data-visualization" },
   { name: "GA4 Optimization", path: "/ga4-optimization" },
-  { name: "GA360", path: "/ga360" },
-  { name: "GTM Setup & Optimization", path: "/gtm-setup" },
-  { name: "Google Meridian MMM", path: "/google-meridian" },
-  { name: "Data Visualization", path: "/data-visualization" },
+  { name: "GTM Setup", path: "/gtm-setup" },
+  { name: "AdTechs", path: "/adtechs" },
   { name: "AI Insights", path: "/ai-insights" },
 ];
 
