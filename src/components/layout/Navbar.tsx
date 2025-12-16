@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Eye, ShieldCheck, Search, Bell } from "lucide-react";
 import precisianLogo from "@/assets/nd-precisian-logo.png";
 import {
   DropdownMenu,
@@ -20,6 +20,13 @@ const services = [
   { name: "GTM Setup", path: "/gtm-setup" },
   { name: "AdTechs", path: "/adtechs" },
   { name: "AI Insights", path: "/ai-insights" },
+];
+
+const tools = [
+  { name: "Heimdall", icon: Eye, description: "Converse com seus dados" },
+  { name: "Trusty", icon: ShieldCheck, description: "Auditor de GA4" },
+  { name: "ARGOS", icon: Search, description: "Análise de concorrentes" },
+  { name: "Vulcano", icon: Bell, description: "Alertas de Tags" },
 ];
 
 const Navbar = () => {
@@ -60,6 +67,29 @@ const Navbar = () => {
                     >
                       {service.name}
                     </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="nav" className="gap-1">
+                  Tools <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-card border-border">
+                {tools.map((tool) => (
+                  <DropdownMenuItem key={tool.name} className="cursor-pointer hover:bg-secondary">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <tool.icon className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <div className="font-medium text-foreground">{tool.name}</div>
+                        <div className="text-xs text-muted-foreground">{tool.description}</div>
+                      </div>
+                    </div>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -108,6 +138,17 @@ const Navbar = () => {
                     {service.name}
                   </Button>
                 </Link>
+              ))}
+              <div className="py-2">
+                <span className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  Tools
+                </span>
+              </div>
+              {tools.map((tool) => (
+                <Button key={tool.name} variant="ghost" className="w-full justify-start pl-6 gap-3">
+                  <tool.icon className="h-4 w-4 text-primary" />
+                  {tool.name}
+                </Button>
               ))}
               <Button variant="hero" className="mt-4">
                 Contact Us
