@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, Package, BarChart3, Settings, Brain, PieChart, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Package, BarChart3, Settings, Brain, PieChart, Sparkles, Database, Megaphone } from "lucide-react";
 
 const featuredServices = [
   {
@@ -13,6 +13,12 @@ const featuredServices = [
     title: "Precisian SKU",
     description: "Gestão inteligente de catálogo de produtos com dados sempre atualizados em todas as plataformas.",
     path: "/precisian-sku",
+  },
+  {
+    icon: Database,
+    title: "Precisian Core",
+    description: "Envio de dados de vendas entre plataformas e conciliação com canais de mídia.",
+    path: "/precisian-core",
   },
   {
     icon: Brain,
@@ -42,6 +48,12 @@ const otherServices = [
     path: "/gtm-setup",
   },
   {
+    icon: Megaphone,
+    title: "AdTechs",
+    description: "Configuração completa das ferramentas de mídia paga incluindo Server-Side para eventos.",
+    path: "/adtechs",
+  },
+  {
     icon: Sparkles,
     title: "AI Insights",
     description: "Inteligência artificial para analytics preditivos e insights automatizados.",
@@ -67,7 +79,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Featured Precisian Products */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
           {featuredServices.map((service) => (
             <Link
               key={service.path}
@@ -101,7 +113,7 @@ const ServicesSection = () => {
             Outras Soluções
           </h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {otherServices.map((service) => (
             <Link
               key={service.path}
