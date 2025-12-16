@@ -290,6 +290,16 @@ const MethodologySection = () => {
           <p className="hidden lg:block text-center text-muted-foreground text-sm mt-6">
             Clique em cada etapa para explorar
           </p>
+
+          {/* CTA Button */}
+          <div className="text-center mt-10">
+            <button className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105">
+              Qual é o seu Quociente de valor?
+            </button>
+            <p className="text-muted-foreground text-sm mt-4">
+              Dê o primeiro passo para descobrir
+            </p>
+          </div>
         </div>
       </div>
     </section>
