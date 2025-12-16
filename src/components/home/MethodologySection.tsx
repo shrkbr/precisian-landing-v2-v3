@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Package, Database, Brain, PieChart, BarChart3, Settings, Megaphone, Sparkles } from "lucide-react";
 
 const steps = [
   {
@@ -8,8 +8,10 @@ const steps = [
     title: "Comportamento do usuário e Mapeamento de eventos",
     description: "Mapeamento completo de todas as interações críticas do usuário",
     solutions: [
-      { name: "Precisian Journey", path: "/precisian-events" },
-      { name: "GTM Setup", path: "/gtm-setup" },
+      { name: "Precisian Journey", path: "/precisian-events", icon: Calendar },
+      { name: "Precisian Core", path: "/precisian-core", icon: Database },
+      { name: "GTM Setup", path: "/gtm-setup", icon: Settings },
+      { name: "AdTechs", path: "/adtechs", icon: Megaphone },
     ],
   },
   {
@@ -17,8 +19,8 @@ const steps = [
     title: "Integração e Centralização dos dados",
     description: "Conexão de todas as fontes de dados em uma visão unificada",
     solutions: [
-      { name: "Precisian Journey", path: "/precisian-events" },
-      { name: "Precisian SKU", path: "/precisian-sku" },
+      { name: "Precisian Journey", path: "/precisian-events", icon: Calendar },
+      { name: "Precisian SKU", path: "/precisian-sku", icon: Package },
     ],
   },
   {
@@ -26,8 +28,8 @@ const steps = [
     title: "Governança e Disponibilidade dos dados",
     description: "Dados sempre acessíveis e prontos para análise",
     solutions: [
-      { name: "GA4 Optimization", path: "/ga4-optimization" },
-      { name: "GTM Setup", path: "/gtm-setup" },
+      { name: "GA4 Optimization", path: "/ga4-optimization", icon: BarChart3 },
+      { name: "GTM Setup", path: "/gtm-setup", icon: Settings },
     ],
   },
   {
@@ -35,8 +37,8 @@ const steps = [
     title: "Modelo de atribuição inteligente",
     description: "Atribuição precisa do valor de cada canal de marketing",
     solutions: [
-      { name: "Precisian MMM", path: "/google-meridian" },
-      { name: "GA4 Optimization", path: "/ga4-optimization" },
+      { name: "Precisian MMM", path: "/google-meridian", icon: Brain },
+      { name: "GA4 Optimization", path: "/ga4-optimization", icon: BarChart3 },
     ],
   },
   {
@@ -44,8 +46,8 @@ const steps = [
     title: "Insights visuais em tempo real e preditivos",
     description: "Dashboards intuitivos que transformam dados em decisões",
     solutions: [
-      { name: "Precisian Clarity", path: "/data-visualization" },
-      { name: "AI Insights", path: "/ai-insights" },
+      { name: "Precisian Clarity", path: "/data-visualization", icon: PieChart },
+      { name: "AI Insights", path: "/ai-insights", icon: Sparkles },
     ],
   },
 ];
@@ -149,7 +151,7 @@ const MethodologySection = () => {
                     
                     {/* Tooltip Card */}
                     <div
-                      className={`absolute left-1/2 -translate-x-1/2 w-64 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 ${
+                      className={`absolute left-1/2 -translate-x-1/2 w-72 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 ${
                         activeStep === index
                           ? "opacity-100 visible"
                           : "opacity-0 invisible"
@@ -163,15 +165,17 @@ const MethodologySection = () => {
                       </p>
                       <div className="border-t border-border pt-3">
                         <span className="text-xs text-muted-foreground font-medium mb-2 block">Soluções relacionadas:</span>
-                        <div className="flex flex-col gap-1.5">
+                        <div className="grid grid-cols-2 gap-2">
                           {step.solutions.map((solution) => (
                             <Link
                               key={solution.path}
                               to={solution.path}
-                              className="flex items-center justify-between text-xs text-primary hover:text-primary/80 transition-colors group/link"
+                              className="flex items-center gap-2 p-2 rounded-lg bg-primary/5 hover:bg-primary/15 border border-primary/20 hover:border-primary/40 transition-all group/link"
                             >
-                              <span>{solution.name}</span>
-                              <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                              <div className="w-6 h-6 rounded-md bg-primary/20 flex items-center justify-center shrink-0">
+                                <solution.icon className="w-3.5 h-3.5 text-primary" />
+                              </div>
+                              <span className="text-xs font-medium text-foreground group-hover/link:text-primary transition-colors truncate">{solution.name}</span>
                             </Link>
                           ))}
                         </div>
@@ -244,15 +248,17 @@ const MethodologySection = () => {
                     </p>
                     <div className="border-t border-border pt-3">
                       <span className="text-xs text-muted-foreground font-medium mb-2 block">Soluções relacionadas:</span>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="grid grid-cols-2 gap-2">
                         {step.solutions.map((solution) => (
                           <Link
                             key={solution.path}
                             to={solution.path}
-                            className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors bg-primary/10 px-2 py-1 rounded-full"
+                            className="flex items-center gap-2 p-2 rounded-lg bg-primary/5 hover:bg-primary/15 border border-primary/20 hover:border-primary/40 transition-all group/link"
                           >
-                            <span>{solution.name}</span>
-                            <ArrowRight className="w-3 h-3" />
+                            <div className="w-6 h-6 rounded-md bg-primary/20 flex items-center justify-center shrink-0">
+                              <solution.icon className="w-3.5 h-3.5 text-primary" />
+                            </div>
+                            <span className="text-xs font-medium text-foreground group-hover/link:text-primary transition-colors">{solution.name}</span>
                           </Link>
                         ))}
                       </div>
