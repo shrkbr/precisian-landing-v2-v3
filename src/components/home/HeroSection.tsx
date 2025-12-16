@@ -38,21 +38,21 @@ const HeroSection = () => {
                 <Database className="h-6 w-6 text-primary mr-2" />
                 <span className="font-display text-3xl font-bold text-foreground">100+</span>
               </div>
-              <p className="text-sm text-muted-foreground">Projects Delivered</p>
+              <p className="text-sm text-muted-foreground">Projetos entregues</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <BarChart3 className="h-6 w-6 text-primary mr-2" />
-                <span className="font-display text-3xl font-bold text-foreground">200M+</span>
+                <span className="font-display text-3xl font-bold text-foreground">+5 anos</span>
               </div>
-              <p className="text-sm text-muted-foreground">Events Tracked</p>
+              <p className="text-sm text-muted-foreground">Experiência de mercado</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <Zap className="h-6 w-6 text-primary mr-2" />
                 <span className="font-display text-3xl font-bold text-foreground">99.9%</span>
               </div>
-              <p className="text-sm text-muted-foreground">Data Accuracy</p>
+              <p className="text-sm text-muted-foreground">Acurácia dos dados</p>
             </div>
           </div>
         </div>
