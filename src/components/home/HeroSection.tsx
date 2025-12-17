@@ -24,7 +24,7 @@ const HeroSection = () => {
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up" style={{
           animationDelay: "0.2s"
         }}>
-            Conte com nosso time de <span className="text-primary font-semibold">Intelligence Partners</span> para trazer integração, análise e insights de dados em tempo real alimentados por IA, para que você tome a melhor decisão de investimento toda vez.
+            Conte com nosso time de <span className="text-primary font-semibold">Intelligence Partners</span> para trazer integração, análise e insights de dados em tempo real alimentados por IA
           </p>
 
           
