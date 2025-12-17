@@ -24,7 +24,7 @@ const PrecisianSKU = () => {
             </p>
           </ContentSection>
 
-          <ContentSection title="Gestão de Feed de Produtos">
+          <ContentSection title="Nossa Jornada de Implementação">
             <SKUFlowchart />
           </ContentSection>
 
