@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import EventsFlowchart from "@/components/services/EventsFlowchart";
+import EventMappingDemo from "@/components/services/EventMappingDemo";
 import { Calendar } from "lucide-react";
 
 const PrecisianEvents = () => {
@@ -17,13 +18,16 @@ const PrecisianEvents = () => {
         <div className="max-w-5xl">
           <ContentSection title="O Que Entregamos">
             <p>
-              Implementação completa de arquitetura de eventos personalizada para o seu negócio. 
-              Realizamos o mapeamento detalhado de todas as interações críticas do usuário, 
-              desde o primeiro contato até a conversão e além.
+              Mapeamento completo de todos os eventos relevantes do seu negócio, configurados e 
+              enviados para <strong className="text-foreground">múltiplas plataformas simultaneamente</strong>. 
+              Não nos limitamos ao Google Analytics—integramos com Meta Ads, Google Ads, Pinterest Ads, 
+              TikTok Ads e ferramentas de CRM como HubSpot e RD Station.
             </p>
             <p>
-              Criamos e configuramos eventos customizados no GA4, integramos com todas as plataformas que geram conversões.  
+              Cada interação do usuário é traduzida para o formato específico de cada plataforma, 
+              garantindo que seus dados de conversão alimentem todas as suas ferramentas de marketing e vendas.
             </p>
+            <EventMappingDemo />
           </ContentSection>
 
           <ContentSection title="Nossa Jornada de Implementação">
