@@ -3,51 +3,66 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Eye, ShieldCheck, Search, Bell } from "lucide-react";
 import precisianLogo from "@/assets/nd-precisian-logo.png";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-const services = [
-  { name: "Precisian Journey", path: "/precisian-events" },
-  { name: "Precisian SKU", path: "/precisian-sku" },
-  { name: "Precisian Core", path: "/precisian-core" },
-  { name: "Precisian MMM", path: "/google-meridian" },
-  { name: "Precisian Clarity", path: "/data-visualization" },
-  { name: "GA4 Optimization", path: "/ga4-optimization" },
-  { name: "GTM Setup", path: "/gtm-setup" },
-  { name: "AdTechs", path: "/adtechs" },
-  { name: "AI Insights", path: "/ai-insights" },
-];
-
-const tools = [
-  { name: "Heimdall", icon: Eye, description: "Converse com seus dados" },
-  { name: "Trusty", icon: ShieldCheck, description: "Auditor de GA4" },
-  { name: "ARGOS", icon: Search, description: "Análise de concorrentes" },
-  { name: "Vulcano", icon: Bell, description: "Alertas de Tags" },
-];
-
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+const services = [{
+  name: "Precisian Journey",
+  path: "/precisian-events"
+}, {
+  name: "Precisian SKU",
+  path: "/precisian-sku"
+}, {
+  name: "Precisian Core",
+  path: "/precisian-core"
+}, {
+  name: "Precisian MMM",
+  path: "/google-meridian"
+}, {
+  name: "Precisian Clarity",
+  path: "/data-visualization"
+}, {
+  name: "GA4 Optimization",
+  path: "/ga4-optimization"
+}, {
+  name: "GTM Setup",
+  path: "/gtm-setup"
+}, {
+  name: "AdTechs",
+  path: "/adtechs"
+}, {
+  name: "AI Insights",
+  path: "/ai-insights"
+}];
+const tools = [{
+  name: "Heimdall",
+  icon: Eye,
+  description: "Converse com seus dados"
+}, {
+  name: "Trusty",
+  icon: ShieldCheck,
+  description: "Auditor de GA4"
+}, {
+  name: "ARGOS",
+  icon: Search,
+  description: "Análise de concorrentes"
+}, {
+  name: "Vulcano",
+  icon: Bell,
+  description: "Alertas de Tags"
+}];
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
+  return <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <img src={precisianLogo} alt="Precisian" className="h-10 w-auto" />
+            <img alt="Precisian" className="h-10 w-auto" src="/lovable-uploads/72e5ca20-ba74-4847-961a-26a031880eb7.png" />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             <Link to="/">
-              <Button
-                variant="nav"
-                className={location.pathname === "/" ? "text-foreground" : ""}
-              >
+              <Button variant="nav" className={location.pathname === "/" ? "text-foreground" : ""}>
                 Home
               </Button>
             </Link>
@@ -59,16 +74,11 @@ const Navbar = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 bg-card border-border">
-                {services.map((service) => (
-                  <DropdownMenuItem key={service.path} asChild>
-                    <Link
-                      to={service.path}
-                      className="cursor-pointer hover:bg-secondary"
-                    >
+                {services.map(service => <DropdownMenuItem key={service.path} asChild>
+                    <Link to={service.path} className="cursor-pointer hover:bg-secondary">
                       {service.name}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
+                  </DropdownMenuItem>)}
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -79,8 +89,7 @@ const Navbar = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 bg-card border-border">
-                {tools.map((tool) => (
-                  <DropdownMenuItem key={tool.name} className="cursor-pointer hover:bg-secondary">
+                {tools.map(tool => <DropdownMenuItem key={tool.name} className="cursor-pointer hover:bg-secondary">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                         <tool.icon className="h-4 w-4 text-primary" />
@@ -90,8 +99,7 @@ const Navbar = () => {
                         <div className="text-xs text-muted-foreground">{tool.description}</div>
                       </div>
                     </div>
-                  </DropdownMenuItem>
-                ))}
+                  </DropdownMenuItem>)}
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -101,22 +109,13 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
+          <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            {isOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
+        {isOpen && <div className="lg:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-2">
               <Link to="/" onClick={() => setIsOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start">
@@ -128,37 +127,26 @@ const Navbar = () => {
                   Services
                 </span>
               </div>
-              {services.map((service) => (
-                <Link
-                  key={service.path}
-                  to={service.path}
-                  onClick={() => setIsOpen(false)}
-                >
+              {services.map(service => <Link key={service.path} to={service.path} onClick={() => setIsOpen(false)}>
                   <Button variant="ghost" className="w-full justify-start pl-6">
                     {service.name}
                   </Button>
-                </Link>
-              ))}
+                </Link>)}
               <div className="py-2">
                 <span className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   Tools
                 </span>
               </div>
-              {tools.map((tool) => (
-                <Button key={tool.name} variant="ghost" className="w-full justify-start pl-6 gap-3">
+              {tools.map(tool => <Button key={tool.name} variant="ghost" className="w-full justify-start pl-6 gap-3">
                   <tool.icon className="h-4 w-4 text-primary" />
                   {tool.name}
-                </Button>
-              ))}
+                </Button>)}
               <Button variant="hero" className="mt-4">
                 Contact Us
               </Button>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navbar;
