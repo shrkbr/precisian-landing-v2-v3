@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { BarChart3, CheckCircle, Target, Users, Shield, LineChart, Search, Settings, Database, BadgeCheck } from "lucide-react";
+import { BarChart3, CheckCircle, Target, Users, Shield, Search, Settings, Database, BadgeCheck } from "lucide-react";
 
 const diagnosticSteps = [
   {
@@ -87,11 +87,6 @@ const GA4Optimization = () => {
                 icon={Target}
                 title="Rastreamento de Eventos Personalizado"
                 description="Rastreamento de eventos customizado para seu modelo de negócio específico."
-              />
-              <FeatureCard
-                icon={LineChart}
-                title="Métricas Preditivas"
-                description="Métricas preditivas e recursos avançados de segmentação de audiências."
               />
               <FeatureCard
                 icon={Users}
