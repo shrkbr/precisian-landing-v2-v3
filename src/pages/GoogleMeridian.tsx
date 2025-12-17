@@ -11,7 +11,7 @@ const GoogleMeridian = () => {
         icon={Brain}
         title="Precisian MMM"
         subtitle="Modelagem de Mix de Marketing de Nova Geração com IA"
-        description="O Google Meridian traz a modelagem de mix de marketing para a era de privacidade. Nosso serviço ajuda você a entender a verdadeira contribuição do marketing em todos os canais, online e offline."
+        description="Nosso serviço ajuda você a entender a verdadeira contribuição do marketing em todos os canais, online e offline."
       >
         <div className="max-w-4xl">
           <ContentSection title="O Que Entregamos">
