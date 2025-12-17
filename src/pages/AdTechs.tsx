@@ -4,7 +4,7 @@ import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Megaphone, Server, Target, Zap, Shield, RefreshCw, BarChart3, Settings, ShoppingBag, ArrowRight } from "lucide-react";
+import { Megaphone, Server, Target, Zap, Shield, RefreshCw, BarChart3, Settings, ShoppingBag, ArrowRight, Package, Tags } from "lucide-react";
 
 const AdTechs = () => {
   return (
@@ -114,6 +114,16 @@ const AdTechs = () => {
                 icon={Settings}
                 title="Conversions API"
                 description="Implementação das APIs de conversão (CAPI) de todas as plataformas para dados server-side confiáveis."
+              />
+              <FeatureCard
+                icon={Package}
+                title="Integração de Catálogo"
+                description="Envio correto de todos os produtos para Google Merchant, Meta Catalog e outras plataformas de mídia."
+              />
+              <FeatureCard
+                icon={Tags}
+                title="Implementação via GTM"
+                description="Configuração profissional de tags através do Google Tag Manager para gestão centralizada e escalável."
               />
             </div>
           </ContentSection>
