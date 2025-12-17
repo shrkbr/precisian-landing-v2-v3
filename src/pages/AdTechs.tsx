@@ -2,7 +2,9 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { Megaphone, Server, Target, Zap, Shield, RefreshCw, BarChart3, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Megaphone, Server, Target, Zap, Shield, RefreshCw, BarChart3, Settings, ShoppingBag, ArrowRight } from "lucide-react";
 
 const AdTechs = () => {
   return (
@@ -49,6 +51,40 @@ const AdTechs = () => {
                 title="Dados Mais Completos"
                 description="Capture conversões que seriam perdidas com tracking client-side tradicional, aumentando volume de dados."
               />
+            </div>
+          </ContentSection>
+
+          <ContentSection title="Catálogo de Produtos">
+            <p className="mb-6">
+              Garantimos que todos os produtos cadastrados na sua plataforma de e-commerce sejam enviados 
+              corretamente para as ferramentas de mídia paga, principalmente Google Merchant Center e 
+              Catálogo de Produtos da Meta.
+            </p>
+            <p className="mb-6">
+              Podemos utilizar soluções nativas como XML e integrações de aplicativos, ou desenvolver 
+              soluções personalizadas de acordo com suas necessidades específicas.
+            </p>
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border border-primary/20">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <ShoppingBag className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-display font-semibold text-foreground mb-2">Precisian SKU</h4>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Nossa solução especializada em gestão de feeds de produtos. Criamos APIs personalizadas 
+                    para extrair, manipular e enviar dados de produtos para qualquer plataforma, com 
+                    atualização em tempo real de preços, estoque e informações, além de rótulos personalizados 
+                    que não existem em integrações nativas.
+                  </p>
+                  <Button asChild>
+                    <Link to="/precisian-sku" className="inline-flex items-center gap-2">
+                      Conheça o Precisian SKU
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </ContentSection>
 
