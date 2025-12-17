@@ -2,7 +2,53 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart, BookCheck } from "lucide-react";
+import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart, BookCheck, CheckCircle2, Shield, Eye, Zap, Clock, Target, Layers } from "lucide-react";
+
+const qualitySteps = [
+  {
+    icon: Eye,
+    title: "Modo Preview",
+    description: "Testes rigorosos no modo Preview do GTM para validar cada disparo.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Validação de Dados",
+    description: "Verificação da precisão dos dados e identificação de inconsistências.",
+  },
+  {
+    icon: Shield,
+    title: "Conformidade LGPD",
+    description: "Garantia de conformidade com regulamentações de privacidade.",
+  },
+  {
+    icon: Zap,
+    title: "Deploy Seguro",
+    description: "Testes em staging antes do deploy em produção.",
+  },
+];
+
+const gtmBenefits = [
+  {
+    icon: Clock,
+    title: "Agilidade no Lançamento",
+    description: "Reduz o tempo de lançamento de campanhas de marketing.",
+  },
+  {
+    icon: Target,
+    title: "Independência Técnica",
+    description: "Elimina dependência de equipes de desenvolvimento para atualizações.",
+  },
+  {
+    icon: Layers,
+    title: "Centralização",
+    description: "Mantém uma única fonte de verdade para todos os códigos de rastreamento.",
+  },
+  {
+    icon: GitBranch,
+    title: "Flexibilidade",
+    description: "Oferece flexibilidade para testar e iterar rapidamente.",
+  },
+];
 
 const GTMSetup = () => {
   return (
@@ -60,22 +106,56 @@ const GTMSetup = () => {
           </ContentSection>
 
           <ContentSection title="Garantia de Qualidade">
-            <p>
-              Toda implementação passa por testes rigorosos no modo Preview do GTM. 
-              Validamos a precisão dos dados, verificamos conflitos de tags e garantimos conformidade com a LGPD.
+            <p className="mb-8">
+              Toda implementação passa por um processo rigoroso de validação para garantir precisão e confiabilidade dos dados.
             </p>
-            <p>
-              Nosso processo de rollout inclui testes em ambiente de staging antes do deploy em produção.
-            </p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {qualitySteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative text-center p-6 rounded-xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+                  >
+                    <div className="w-12 h-12 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h4 className="font-display font-semibold text-foreground mb-2 text-sm">
+                      {step.title}
+                    </h4>
+                    <p className="text-muted-foreground text-xs leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </ContentSection>
 
           <ContentSection title="Por Que o GTM é Importante">
-            <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Reduz o tempo de lançamento de campanhas de marketing</li>
-              <li>Elimina dependência de equipes de desenvolvimento para atualizações de tags</li>
-              <li>Mantém uma única fonte de verdade para todos os códigos de rastreamento</li>
-              <li>Oferece flexibilidade para testar e iterar rapidamente</li>
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              {gtmBenefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group flex items-start gap-4 p-5 rounded-xl card-gradient border border-border hover:border-primary/30 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold text-foreground mb-1">
+                        {benefit.title}
+                      </h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </ContentSection>
         </div>
       </ServicePageLayout>
