@@ -9,7 +9,7 @@ const GoogleMeridian = () => {
     <Layout>
       <ServicePageLayout
         icon={Brain}
-        title="Google Meridian MMM Implementation & Optimization"
+        title="MMM Implementação & Otimização"
         subtitle="Next-Generation Marketing Mix Modeling with AI"
         description="Google Meridian brings marketing mix modeling into the privacy-first era. Our service helps you understand true marketing contribution across all channels, online and offline."
       >
