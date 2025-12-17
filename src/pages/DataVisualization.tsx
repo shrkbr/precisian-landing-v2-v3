@@ -2,7 +2,8 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import ClarityFlowchart from "@/components/services/ClarityFlowchart";
-import { PieChart } from "lucide-react";
+import FeatureCard from "@/components/services/FeatureCard";
+import { PieChart, BarChart3, Activity, Zap } from "lucide-react";
 
 const DataVisualization = () => {
   return (
@@ -21,6 +22,15 @@ const DataVisualization = () => {
             <p>
               Nossos designs priorizam clareza, permitindo compreensão rápida de dados complexos.
             </p>
+          </ContentSection>
+
+          <ContentSection title="Soluções de Dashboard">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <FeatureCard icon={BarChart3} title="Dashboards Executivos" description="KPIs e tendências de alto nível para tomada de decisão da liderança." />
+              <FeatureCard icon={Activity} title="Performance de Marketing" description="Detalhamento por campanha com métricas de performance em tempo real." />
+              <FeatureCard icon={PieChart} title="Analytics de E-commerce" description="Receita, conversão, ticket médio e rastreamento de comportamento do cliente." />
+              <FeatureCard icon={Zap} title="Monitoramento em Tempo Real" description="Dashboards de métricas críticas com atualizações instantâneas." />
+            </div>
           </ContentSection>
 
           <ContentSection title="Nossa Jornada de Implementação">
