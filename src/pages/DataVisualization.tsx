@@ -3,8 +3,8 @@ import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import ClarityFlowchart from "@/components/services/ClarityFlowchart";
 import ImplementationModels from "@/components/services/ImplementationModels";
+import ClarityCaseStudies from "@/components/services/ClarityCaseStudies";
 import { PieChart, BarChart3, Activity, Zap, Layers, Target, Gauge, Smartphone } from "lucide-react";
-
 const capabilities = [
   {
     icon: BarChart3,
@@ -112,6 +112,13 @@ const DataVisualization = () => {
               <li>Alinhe equipes em torno de métricas compartilhadas</li>
               <li>Acelere a tomada de decisão com insights sempre disponíveis</li>
             </ul>
+          </ContentSection>
+
+          <ContentSection title="Cases de Sucesso">
+            <p className="mb-8">
+              Veja como transformamos dados complexos em dashboards que impulsionam decisões estratégicas.
+            </p>
+            <ClarityCaseStudies />
           </ContentSection>
         </div>
       </ServicePageLayout>
