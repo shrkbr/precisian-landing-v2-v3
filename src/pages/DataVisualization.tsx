@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import ClarityFlowchart from "@/components/services/ClarityFlowchart";
+import ImplementationModels from "@/components/services/ImplementationModels";
 import { PieChart, BarChart3, Activity, Zap, Layers, Target, Gauge, Smartphone } from "lucide-react";
 
 const capabilities = [
@@ -68,6 +69,13 @@ const DataVisualization = () => {
 
           <ContentSection title="Nossa Jornada de Implementação">
             <ClarityFlowchart />
+          </ContentSection>
+
+          <ContentSection title="Modelos de Implementação">
+            <p className="mb-8">
+              Escolha o modelo que melhor se adapta às necessidades e momento do seu negócio.
+            </p>
+            <ImplementationModels />
           </ContentSection>
 
           <ContentSection title="O Que Nos Diferencia">
