@@ -2,82 +2,56 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { PieChart, BarChart3, Activity, Zap } from "lucide-react";
-
+import { PieChart, BarChart3, Activity, Smartphone, Zap, Users } from "lucide-react";
 const DataVisualization = () => {
-  return (
-    <Layout>
-      <ServicePageLayout
-        icon={PieChart}
-        title="Visualização de Dados"
-        subtitle="Transforme Dados em Decisões com Visualizações Poderosas"
-        description="Dados brutos contam histórias incompletas. Nosso serviço de visualização de dados cria dashboards e relatórios intuitivos que impulsionam ações em toda sua organização."
-      >
+  return <Layout>
+      <ServicePageLayout icon={PieChart} title="Data Visualization" subtitle="Transform Data into Decisions with Powerful Visualizations" description="Raw data tells incomplete stories. Our data visualization service creates intuitive dashboards and reports that drive action across your organization.">
         <div className="max-w-4xl">
-          <ContentSection title="O Que Entregamos">
+          <ContentSection title="What We Deliver">
             <p>
-              Dashboards customizados em Looker Studio (Data Studio), Power BI ou Tableau adaptados para diferentes stakeholders. 
-              Conectamos múltiplas fontes de dados—GA4, Google Ads, Meta Ads, sistemas CRM e mais—em visões unificadas.
+              Dashboards customizados em Looker Studio (Data Studio), Power BI ou Tableau adaptados para diferentes stakeholders. Conectamos múltiplas fontes de dados, GA4, Google Ads, Meta Ads, sistemas CRM e mais, em visões unificadas.
             </p>
             <p>
-              Nossos designs priorizam clareza, permitindo compreensão rápida de dados complexos.
+              Our designs prioritize clarity, enabling quick comprehension of complex data.
             </p>
           </ContentSection>
 
-          <ContentSection title="Soluções de Dashboard">
+          <ContentSection title="Dashboard Solutions">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <FeatureCard
-                icon={BarChart3}
-                title="Dashboards Executivos"
-                description="KPIs de alto nível e tendências para tomada de decisão da liderança."
-              />
-              <FeatureCard
-                icon={Activity}
-                title="Performance de Marketing"
-                description="Detalhes a nível de campanha com métricas de performance em tempo real."
-              />
-              <FeatureCard
-                icon={PieChart}
-                title="Analytics de E-commerce"
-                description="Receita, conversão, ticket médio e rastreamento de comportamento do cliente."
-              />
-              <FeatureCard
-                icon={Zap}
-                title="Monitoramento em Tempo Real"
-                description="Dashboards de métricas críticas com atualizações instantâneas."
-              />
+              <FeatureCard icon={BarChart3} title="Executive Dashboards" description="High-level KPIs and trends for leadership decision making." />
+              <FeatureCard icon={Activity} title="Marketing Performance" description="Campaign-level detail with real-time performance metrics." />
+              <FeatureCard icon={PieChart} title="E-commerce Analytics" description="Revenue, conversion, AOV, and customer behavior tracking." />
+              <FeatureCard icon={Zap} title="Real-time Monitoring" description="Critical metrics dashboards with instant updates." />
             </div>
           </ContentSection>
 
-          <ContentSection title="Princípios de Design">
+          <ContentSection title="Design Principles">
             <p>
-              Seguimos as melhores práticas de visualização de dados: hierarquia clara, tipos de gráficos apropriados, 
-              comparações contextuais e designs responsivos para mobile.
+              We follow data visualization best practices: clear hierarchy, appropriate chart types, 
+              contextual comparisons, and mobile-responsive designs.
             </p>
             <p>
-              Cada dashboard conta uma história, guiando usuários da visão geral aos detalhes.
-            </p>
-          </ContentSection>
-
-          <ContentSection title="Excelência Técnica">
-            <p>
-              Recursos avançados incluem campos calculados, comparações de períodos, capacidades de drill-down 
-              e filtros interativos. Otimizamos a performance dos dashboards para carregamento rápido mesmo com grandes volumes de dados.
+              Every dashboard tells a story, guiding users from overview to detail.
             </p>
           </ContentSection>
 
-          <ContentSection title="Impacto nos Negócios">
+          <ContentSection title="Technical Excellence">
+            <p>
+              Advanced features include calculated fields, date range comparisons, drill-down capabilities, 
+              and interactive filters. We optimize dashboard performance for fast loading even with large datasets.
+            </p>
+          </ContentSection>
+
+          <ContentSection title="Business Impact">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Democratize o acesso a dados em toda sua organização</li>
-              <li>Habilite analytics self-service que reduzem solicitações de relatórios</li>
-              <li>Alinhe equipes em torno de métricas compartilhadas</li>
-              <li>Acelere a tomada de decisões com insights sempre disponíveis</li>
+              <li>Democratize data access across your organization</li>
+              <li>Enable self-service analytics that reduce reporting requests</li>
+              <li>Align teams around shared metrics</li>
+              <li>Accelerate decision-making with always-available insights</li>
             </ul>
           </ContentSection>
         </div>
       </ServicePageLayout>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default DataVisualization;
