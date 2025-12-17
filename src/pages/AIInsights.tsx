@@ -10,81 +10,81 @@ const AIInsights = () => {
       <ServicePageLayout
         icon={Sparkles}
         title="AI Insights"
-        subtitle="Harness Artificial Intelligence for Predictive Analytics"
-        description="The future of analytics is predictive, not just descriptive. Our AI Insights service applies machine learning to your data, uncovering patterns humans might miss and forecasting future outcomes."
+        subtitle="Inteligência Artificial para Análises Preditivas"
+        description="O futuro da análise de dados é preditivo, não apenas descritivo. Nosso serviço de AI Insights aplica machine learning aos seus dados, descobrindo padrões que humanos poderiam não perceber e prevendo resultados futuros."
       >
         <div className="max-w-4xl">
-          <ContentSection title="What We Deliver">
+          <ContentSection title="O Que Entregamos">
             <p>
-              Custom AI models trained on your business data to predict customer behavior, forecast revenue, 
-              identify churn risk, and optimize marketing performance.
+              Modelos de IA customizados treinados com os dados do seu negócio para prever comportamento do cliente, 
+              projetar receita, identificar risco de churn e otimizar performance de marketing.
             </p>
             <p>
-              We implement automated anomaly detection that alerts you to significant changes in real-time.
+              Implementamos detecção automatizada de anomalias que alerta você sobre mudanças significativas em tempo real.
             </p>
           </ContentSection>
 
-          <ContentSection title="AI Applications">
+          <ContentSection title="Aplicações de IA">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <FeatureCard
                 icon={Users}
                 title="Customer Lifetime Value"
-                description="Predict CLV to focus resources on highest-value customer segments."
+                description="Previsão de CLV para focar recursos nos segmentos de clientes de maior valor."
               />
               <FeatureCard
                 icon={AlertTriangle}
-                title="Churn Prediction"
-                description="Churn probability scoring and prevention strategies."
+                title="Previsão de Churn"
+                description="Pontuação de probabilidade de churn e estratégias de prevenção."
               />
               <FeatureCard
                 icon={Gift}
-                title="Product Recommendations"
-                description="AI-powered recommendation engines for personalization."
+                title="Recomendação de Produtos"
+                description="Motores de recomendação alimentados por IA para personalização."
               />
               <FeatureCard
                 icon={DollarSign}
-                title="Price Optimization"
-                description="Dynamic pricing models based on demand patterns."
+                title="Otimização de Preços"
+                description="Modelos de precificação dinâmica baseados em padrões de demanda."
               />
               <FeatureCard
                 icon={BarChart3}
-                title="Demand Forecasting"
-                description="Accurate demand forecasting for inventory and planning."
+                title="Previsão de Demanda"
+                description="Previsão precisa de demanda para estoque e planejamento."
               />
               <FeatureCard
                 icon={MessageSquare}
-                title="Natural Language Insights"
-                description="Automated insight generation with natural language explanations."
+                title="Insights em Linguagem Natural"
+                description="Geração automatizada de insights com explicações em linguagem natural."
               />
             </div>
           </ContentSection>
 
-          <ContentSection title="Our Technology Stack">
+          <ContentSection title="Nossa Stack de Tecnologia">
             <p>
-              We leverage Google Cloud AI, BigQuery ML, TensorFlow, and custom Python models depending on your needs. 
-              All models are explainable—we don't provide black boxes.
+              Utilizamos Google Cloud AI, BigQuery ML, TensorFlow e modelos Python customizados de acordo com suas necessidades. 
+              Todos os modelos são explicáveis — não entregamos caixas-pretas.
             </p>
             <p>
-              You'll understand why the AI makes each prediction.
+              Você entenderá o porquê de cada previsão feita pela IA.
             </p>
           </ContentSection>
 
-          <ContentSection title="Implementation Approach">
+          <ContentSection title="Abordagem de Implementação">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Discovery phase to identify high-impact use cases</li>
-              <li>Data preparation and feature engineering</li>
-              <li>Model development and validation</li>
-              <li>Integration into your existing workflows</li>
-              <li>Ongoing monitoring and refinement</li>
+              <li>Fase de descoberta para identificar casos de uso de alto impacto</li>
+              <li>Preparação de dados e engenharia de features</li>
+              <li>Desenvolvimento e validação de modelos</li>
+              <li>Integração com seus workflows existentes</li>
+              <li>Monitoramento contínuo e refinamento</li>
             </ul>
           </ContentSection>
 
-          <ContentSection title="Ideal For">
+          <ContentSection title="Ideal Para">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Organizations with sufficient data volume for model training</li>
-              <li>Businesses seeking competitive differentiation through analytics</li>
-              <li>Teams ready to act on predictive insights</li>
-              <li>Companies committed to data-driven culture</li>
+              <li>Organizações com volume de dados suficiente para treinamento de modelos</li>
+              <li>Empresas buscando diferenciação competitiva através de analytics</li>
+              <li>Times prontos para agir com base em insights preditivos</li>
+              <li>Empresas comprometidas com cultura data-driven</li>
             </ul>
           </ContentSection>
         </div>
