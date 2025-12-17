@@ -5,7 +5,7 @@ import FeatureCard from "@/components/services/FeatureCard";
 import { Database, ArrowLeftRight, CheckCircle, Shield, RefreshCw, Building2, Target, TrendingUp, CheckCircle2 } from "lucide-react";
 const PrecisianCore = () => {
   return <Layout>
-      <ServicePageLayout icon={Database} title="Precisian Core" subtitle="Envio de Dados de Vendas e Conciliação com Mídia" description="Centralize seus dados de vendas e conecte-os diretamente aos canais de mídia para uma visão completa do seu funil de conversão." cases={["E-commerce", "Varejo", "Marketplaces", "Indústria"]}>
+      <ServicePageLayout icon={Database} title="Precisian Core" subtitle="Envio de Dados de Vendas e Conciliação com Mídia" description="Centralize seus dados de vendas e conecte-os diretamente aos canais de mídia para uma visão completa do seu funil de conversão.">
         <div className="max-w-4xl">
           <ContentSection title="O Que Entregamos">
             <p>
