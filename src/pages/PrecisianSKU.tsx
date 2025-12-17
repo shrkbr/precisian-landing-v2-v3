@@ -11,7 +11,7 @@ const PrecisianSKU = () => {
         icon={Package}
         title="Precisian SKU"
         subtitle="Gestão Inteligente de Catálogo de Produtos"
-        description="Disponibilize Seus Produtos em Todas as Plataformas com Dados Sempre Atualizados. Ter produtos excelentes não é suficiente—eles precisam estar visíveis, atualizados e otimizados em cada plataforma."
+        description="Disponibilize Seus Produtos em Todas as Plataformas com Dados Sempre Atualizados. Ter produtos excelentes não é suficiente, eles precisam estar visíveis, atualizados e otimizados em cada plataforma."
         cases={["Fabricante Online", "Pague Menos", "Adcos", "Angeloni"]}
       >
         <div className="max-w-4xl">
