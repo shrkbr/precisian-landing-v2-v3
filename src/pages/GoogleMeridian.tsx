@@ -3,79 +3,49 @@ import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
 import { Brain, TrendingUp, PieChart, LineChart, Target, Lightbulb } from "lucide-react";
-
 const GoogleMeridian = () => {
-  return (
-    <Layout>
-      <ServicePageLayout
-        icon={Brain}
-        title="Precisian MMM"
-        subtitle="Modelagem de Mix de Marketing de Nova Geração com IA"
-        description="Nosso serviço ajuda você a entender a verdadeira contribuição do marketing em todos os canais, online e offline."
-      >
+  return <Layout>
+      <ServicePageLayout icon={Brain} title="Google Meridian MMM Implementation & Optimization" subtitle="Next-Generation Marketing Mix Modeling with AI" description="Google Meridian brings marketing mix modeling into the privacy-first era. Our service helps you understand true marketing contribution across all channels, online and offline.">
         <div className="max-w-4xl">
-          <ContentSection title="O Que Entregamos">
+          <ContentSection title="What We Deliver">
             <p>
-              Implementação completa do Meridian incluindo preparação de dados, configuração do modelo e calibração. 
-              Integramos seus dados de investimento em marketing, dados de conversão e fatores externos para construir modelos preditivos precisos.
+              Implementação completa, incluindo preparação de dados, configuração do modelo e calibração. Integramos seus dados de investimento em marketing, dados de conversão e fatores externos para construir modelos preditivos precisos.
             </p>
             <p>
-              Nossa análise revela incrementalidade, alocação ideal de orçamento e desempenho previsto.
+              Our analysis reveals incrementality, optimal budget allocation, and forecasted performance.
             </p>
           </ContentSection>
 
-          <ContentSection title="Insights Estratégicos">
+          <ContentSection title="Strategic Insights">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <FeatureCard
-                icon={TrendingUp}
-                title="Contribuição Incremental"
-                description="Verdadeira contribuição incremental de cada canal de marketing revelada através de modelagem avançada."
-              />
-              <FeatureCard
-                icon={PieChart}
-                title="Alocação de Orçamento"
-                description="Recomendações de alocação ideal de orçamento baseadas em análise estatística."
-              />
-              <FeatureCard
-                icon={LineChart}
-                title="ROI Cross-Channel"
-                description="Mensuração de ROI em canais online e offline em uma visão unificada."
-              />
-              <FeatureCard
-                icon={Target}
-                title="Planejamento de Cenários"
-                description="Planejamento de cenários e análise what-if para tomada de decisão estratégica."
-              />
-              <FeatureCard
-                icon={Lightbulb}
-                title="Retornos Decrescentes"
-                description="Identificação de retornos decrescentes para cada canal para otimizar investimento."
-              />
+              <FeatureCard icon={TrendingUp} title="Incremental Contribution" description="True incremental contribution of each marketing channel revealed through advanced modeling." />
+              <FeatureCard icon={PieChart} title="Budget Allocation" description="Optimal budget allocation recommendations based on statistical analysis." />
+              <FeatureCard icon={LineChart} title="Cross-Channel ROI" description="ROI measurement across online and offline channels in a unified view." />
+              <FeatureCard icon={Target} title="Scenario Planning" description="Scenario planning and what-if analysis for strategic decision making." />
+              <FeatureCard icon={Lightbulb} title="Diminishing Returns" description="Identification of diminishing returns for each channel to optimize spend." />
             </div>
           </ContentSection>
 
-          <ContentSection title="Nosso Processo">
+          <ContentSection title="Our Process">
             <p>
-              Coleta e preparação de dados de todas as plataformas de marketing, sistemas de vendas e fontes de dados externas. 
-              Treinamento do modelo com métodos de inferência Bayesiana. Calibração usando experimentos e testes holdout.
+              Data collection and preparation from all marketing platforms, sales systems, and external data sources. 
+              Model training with Bayesian inference methods. Calibration using experiments and holdout tests.
             </p>
             <p>
-              Refinamento contínuo conforme novos dados se tornam disponíveis garante que seu modelo permaneça preciso ao longo do tempo.
+              Ongoing refinement as new data becomes available ensures your model stays accurate over time.
             </p>
           </ContentSection>
 
-          <ContentSection title="Ideal Para">
+          <ContentSection title="Perfect For">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Marcas com investimento significativo em mídia em múltiplos canais</li>
-              <li>Organizações que buscam comprovar ROI de marketing para stakeholders</li>
-              <li>Empresas prontas para ir além dos modelos de atribuição</li>
-              <li>Companhias planejando orçamentos anuais de mídia com confiança</li>
+              <li>Brands with significant media investment across multiple channels</li>
+              <li>Organizations seeking to prove marketing ROI to stakeholders</li>
+              <li>Businesses ready to move beyond attribution models</li>
+              <li>Companies planning annual media budgets with confidence</li>
             </ul>
           </ContentSection>
         </div>
       </ServicePageLayout>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default GoogleMeridian;
