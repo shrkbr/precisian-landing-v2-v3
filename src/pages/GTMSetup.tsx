@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart, BookCheck, CheckCircle2, Shield, Eye, Zap, Clock, Target, Layers } from "lucide-react";
+import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart, BookCheck, CheckCircle2, Shield, Eye, Zap, Clock, Target, Layers, Tags, Send, FileText, BarChart3 } from "lucide-react";
 
 const qualitySteps = [
   {
@@ -47,6 +47,29 @@ const gtmBenefits = [
     icon: GitBranch,
     title: "Flexibilidade",
     description: "Oferece flexibilidade para testar e iterar rapidamente.",
+  },
+];
+
+const verificationFeatures = [
+  {
+    icon: Tags,
+    title: "Análise de Tags",
+    description: "Verificação completa de todas as tags configuradas e seus acionadores.",
+  },
+  {
+    icon: Send,
+    title: "Destino dos Eventos",
+    description: "Mapeamento de para quais ferramentas cada evento está sendo enviado.",
+  },
+  {
+    icon: FileText,
+    title: "Parâmetros Enviados",
+    description: "Documentação detalhada de todos os parâmetros configurados em cada tag.",
+  },
+  {
+    icon: BarChart3,
+    title: "Otimização de Códigos",
+    description: "Análise da quantidade de códigos e recomendações de otimização.",
   },
 ];
 
@@ -102,6 +125,47 @@ const GTMSetup = () => {
                 title="E-commerce Aprimorado"
                 description="Configuração de rastreamento de e-commerce aprimorado para visibilidade completa do funil de compra."
               />
+            </div>
+          </ContentSection>
+
+          <ContentSection title="Confiabilidade e Visualização">
+            <p className="mb-6">
+              Desenvolvemos um método exclusivo de verificação das configurações do Google Tag Manager que analisa diversos fatores, 
+              desde a configuração das Tags e acionadores, até a quantidade de códigos utilizados, garantindo total otimização.
+            </p>
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border border-primary/20 mb-6">
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent rounded-2xl"></div>
+              <div className="relative">
+                <h4 className="font-display font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Eye className="h-5 w-5 text-primary" />
+                  Plano de Mensuração Visual
+                </h4>
+                <p className="text-muted-foreground text-sm mb-6">
+                  Ao final, entregamos um plano de mensuração visual e prático, apresentando todas as Tags configuradas, 
+                  para quais ferramentas estão sendo enviados os eventos, quais os parâmetros enviados e muito mais.
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {verificationFeatures.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="group text-center p-4 rounded-xl bg-background/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+                      >
+                        <div className="w-10 h-10 mx-auto rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <h5 className="font-medium text-foreground text-xs mb-1">
+                          {feature.title}
+                        </h5>
+                        <p className="text-muted-foreground text-[10px] leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </ContentSection>
 
