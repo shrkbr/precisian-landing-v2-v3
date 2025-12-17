@@ -28,6 +28,7 @@ const PrecisianCore = () => {
 
           <ContentSection title="Benefícios para Seu Negócio">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+              <li><strong>Redução da diferença de receita</strong> entre a plataforma de e-commerce e as ferramentas de Marketing Digital</li>
               <li>Atribuição precisa do ROI de cada canal de mídia</li>
               <li>Otimização de campanhas baseada em vendas reais, não apenas conversões online</li>
               <li>Visibilidade completa do funil: do clique à venda final</li>
