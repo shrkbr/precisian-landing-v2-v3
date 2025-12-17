@@ -2,7 +2,7 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart } from "lucide-react";
+import { Settings, Folder, Code, Bug, GitBranch, ShoppingCart, BookCheck } from "lucide-react";
 
 const GTMSetup = () => {
   return (
@@ -33,8 +33,13 @@ const GTMSetup = () => {
               />
               <FeatureCard
                 icon={Code}
-                title="Implementação de Data Layer"
-                description="Rastreamento de eventos customizado via implementação robusta de Data Layer."
+                title="Revisão de Data Layer"
+                description="Análise e otimização da estrutura de Data Layer existente para garantir rastreamento preciso."
+              />
+              <FeatureCard
+                icon={BookCheck}
+                title="Governança e Boas Práticas"
+                description="Método desenvolvido pelo time de nomenclatura e organização para garantir otimização do container."
               />
               <FeatureCard
                 icon={Bug}
