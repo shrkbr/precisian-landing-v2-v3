@@ -11,7 +11,7 @@ const GA4Optimization = () => {
         icon={BarChart3}
         title="GA4 Optimization"
         subtitle="Maximize o Potencial do Seu Google Analytics 4"
-        description="A migração para o GA4 representa uma mudança de paradigma em como entendemos o comportamento do usuário. Nosso serviço de otimização GA4 garante que seu negócio extraia o máximo valor dessa poderosa plataforma."
+        description="Nosso serviço de otimização GA4 garante que seu negócio extraia o máximo valor dessa poderosa plataforma."
       >
         <div className="max-w-4xl">
           <ContentSection title="O Que Entregamos">
