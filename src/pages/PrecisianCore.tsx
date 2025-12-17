@@ -20,7 +20,7 @@ const PrecisianCore = () => {
           <ContentSection title="Funcionalidades Principais">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <FeatureCard icon={ArrowLeftRight} title="Integração Multi-Plataforma" description="Conectamos sua plataformas de e-commerce e sistemas de PDV às plataformas de mídia como Google, Meta, TikTok, CRM e mais." />
-              <FeatureCard icon={CheckCircle} title="Conciliação Automática" description="Cruzamento automático de dados de vendas com conversões reportadas, identificando discrepâncias e ajustando atribuições." />
+              <FeatureCard icon={CheckCircle} title="Conciliação de Atribuição" description="Cruzamento automático de dados de vendas com conversões reportadas, identificando discrepâncias e ajustando atribuições." />
               <FeatureCard icon={Shield} title="Dados Seguros" description="Transmissão criptografada e anonimização de dados sensíveis seguindo LGPD e melhores práticas de privacidade." />
               <FeatureCard icon={RefreshCw} title="Sincronização em Tempo Real" description="Dados de vendas enviados continuamente para otimização de campanhas com informações sempre atualizadas." />
             </div>
