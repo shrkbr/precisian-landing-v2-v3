@@ -2,76 +2,76 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { PieChart, BarChart3, Activity, Smartphone, Zap, Users } from "lucide-react";
+import { PieChart, BarChart3, Activity, Zap } from "lucide-react";
 
 const DataVisualization = () => {
   return (
     <Layout>
       <ServicePageLayout
         icon={PieChart}
-        title="Data Visualization"
-        subtitle="Transform Data into Decisions with Powerful Visualizations"
-        description="Raw data tells incomplete stories. Our data visualization service creates intuitive dashboards and reports that drive action across your organization."
+        title="Visualização de Dados"
+        subtitle="Transforme Dados em Decisões com Visualizações Poderosas"
+        description="Dados brutos contam histórias incompletas. Nosso serviço de visualização de dados cria dashboards e relatórios intuitivos que impulsionam ações em toda sua organização."
       >
         <div className="max-w-4xl">
-          <ContentSection title="What We Deliver">
+          <ContentSection title="O Que Entregamos">
             <p>
-              Custom dashboards in Looker Studio (Data Studio), Power BI, or Tableau tailored to different stakeholders. 
-              We connect multiple data sources—GA4, Google Ads, Meta Ads, CRM systems, and more—into unified views.
+              Dashboards customizados em Looker Studio (Data Studio), Power BI ou Tableau adaptados para diferentes stakeholders. 
+              Conectamos múltiplas fontes de dados—GA4, Google Ads, Meta Ads, sistemas CRM e mais—em visões unificadas.
             </p>
             <p>
-              Our designs prioritize clarity, enabling quick comprehension of complex data.
+              Nossos designs priorizam clareza, permitindo compreensão rápida de dados complexos.
             </p>
           </ContentSection>
 
-          <ContentSection title="Dashboard Solutions">
+          <ContentSection title="Soluções de Dashboard">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               <FeatureCard
                 icon={BarChart3}
-                title="Executive Dashboards"
-                description="High-level KPIs and trends for leadership decision making."
+                title="Dashboards Executivos"
+                description="KPIs de alto nível e tendências para tomada de decisão da liderança."
               />
               <FeatureCard
                 icon={Activity}
-                title="Marketing Performance"
-                description="Campaign-level detail with real-time performance metrics."
+                title="Performance de Marketing"
+                description="Detalhes a nível de campanha com métricas de performance em tempo real."
               />
               <FeatureCard
                 icon={PieChart}
-                title="E-commerce Analytics"
-                description="Revenue, conversion, AOV, and customer behavior tracking."
+                title="Analytics de E-commerce"
+                description="Receita, conversão, ticket médio e rastreamento de comportamento do cliente."
               />
               <FeatureCard
                 icon={Zap}
-                title="Real-time Monitoring"
-                description="Critical metrics dashboards with instant updates."
+                title="Monitoramento em Tempo Real"
+                description="Dashboards de métricas críticas com atualizações instantâneas."
               />
             </div>
           </ContentSection>
 
-          <ContentSection title="Design Principles">
+          <ContentSection title="Princípios de Design">
             <p>
-              We follow data visualization best practices: clear hierarchy, appropriate chart types, 
-              contextual comparisons, and mobile-responsive designs.
+              Seguimos as melhores práticas de visualização de dados: hierarquia clara, tipos de gráficos apropriados, 
+              comparações contextuais e designs responsivos para mobile.
             </p>
             <p>
-              Every dashboard tells a story, guiding users from overview to detail.
-            </p>
-          </ContentSection>
-
-          <ContentSection title="Technical Excellence">
-            <p>
-              Advanced features include calculated fields, date range comparisons, drill-down capabilities, 
-              and interactive filters. We optimize dashboard performance for fast loading even with large datasets.
+              Cada dashboard conta uma história, guiando usuários da visão geral aos detalhes.
             </p>
           </ContentSection>
 
-          <ContentSection title="Business Impact">
+          <ContentSection title="Excelência Técnica">
+            <p>
+              Recursos avançados incluem campos calculados, comparações de períodos, capacidades de drill-down 
+              e filtros interativos. Otimizamos a performance dos dashboards para carregamento rápido mesmo com grandes volumes de dados.
+            </p>
+          </ContentSection>
+
+          <ContentSection title="Impacto nos Negócios">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Democratize data access across your organization</li>
-              <li>Enable self-service analytics that reduce reporting requests</li>
-              <li>Align teams around shared metrics</li>
-              <li>Accelerate decision-making with always-available insights</li>
+              <li>Democratize o acesso a dados em toda sua organização</li>
+              <li>Habilite analytics self-service que reduzem solicitações de relatórios</li>
+              <li>Alinhe equipes em torno de métricas compartilhadas</li>
+              <li>Acelere a tomada de decisões com insights sempre disponíveis</li>
             </ul>
           </ContentSection>
         </div>
