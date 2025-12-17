@@ -2,7 +2,8 @@ import Layout from "@/components/layout/Layout";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
-import { BarChart3, CheckCircle, Target, Users, Shield, Search, Settings, Database, BadgeCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BarChart3, CheckCircle, Target, Users, Shield, Search, Settings, Database, BadgeCheck, AlertTriangle, Copy, Crosshair, Link2, Zap } from "lucide-react";
 
 const diagnosticSteps = [
   {
@@ -24,6 +25,44 @@ const diagnosticSteps = [
     icon: BadgeCheck,
     title: "Certificação de Qualidade",
     description: "Garantia de que tudo está configurado e otimizado, gerando assertividade nos dados.",
+  },
+];
+
+const auditIssues = [
+  {
+    icon: AlertTriangle,
+    title: "(not set) em relatórios",
+    description: "Parâmetros ausentes e dados não classificados em dimensões críticas.",
+    impact: "Crítico",
+    impactColor: "text-red-500",
+  },
+  {
+    icon: Copy,
+    title: "Eventos duplicados",
+    description: "Disparos múltiplos do mesmo evento que inflam todas as métricas.",
+    impact: "Crítico",
+    impactColor: "text-red-500",
+  },
+  {
+    icon: Crosshair,
+    title: "Conversões mal configuradas",
+    description: "Eventos de conversão com regras incorretas ou atribuição distorcida.",
+    impact: "Atenção",
+    impactColor: "text-yellow-500",
+  },
+  {
+    icon: Link2,
+    title: "UTMs inconsistentes",
+    description: "Nomenclatura desordenada entre canais impossibilita análise correta.",
+    impact: "Atenção",
+    impactColor: "text-yellow-500",
+  },
+  {
+    icon: Zap,
+    title: "Tags quebradas após deploys",
+    description: "Implementações que param de funcionar após atualizações no site.",
+    impact: "Crítico",
+    impactColor: "text-red-500",
   },
 ];
 
@@ -101,15 +140,45 @@ const GA4Optimization = () => {
             </div>
           </ContentSection>
 
-          <ContentSection title="Nossa Abordagem">
-            <p>
-              Começamos entendendo seus KPIs e objetivos de negócio. Em seguida, mapeamos interações críticas dos usuários, 
-              configuramos medição aprimorada e implementamos dimensões customizadas relevantes para seu processo de tomada de decisão.
+          <ContentSection title="Faça uma avaliação gratuita do seu GA4">
+            <p className="mb-8">
+              Desenvolvemos uma ferramenta onde você conecta a sua propriedade e ela gera uma auditoria automaticamente 
+              do seu Google Analytics 4, detectando erros, duplicações e falhas de configuração que distorcem seus relatórios, 
+              falhas de atribuição e muito mais.
             </p>
-            <p>
-              Nossa otimização inclui configuração de fluxos de dados, refinamento do rastreamento de conversões 
-              e integração com Google Ads e outras plataformas de marketing.
-            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              {auditIssues.map((issue, index) => {
+                const Icon = issue.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-gradient-to-br from-card/80 to-card/40 p-5 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+                      <Icon className="h-5 w-5 text-orange-500" />
+                    </div>
+                    <h4 className="font-display font-semibold text-foreground mb-2 text-sm">
+                      {issue.title}
+                    </h4>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+                      {issue.description}
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-muted-foreground">Impacto:</span>
+                      <span className={`text-xs font-medium ${issue.impactColor} flex items-center gap-1`}>
+                        <span className={`w-2 h-2 rounded-full ${issue.impact === 'Crítico' ? 'bg-red-500' : 'bg-yellow-500'}`}></span>
+                        {issue.impact}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex justify-center">
+              <Button size="lg" className="px-8">
+                Faça sua auditoria grátis
+              </Button>
+            </div>
           </ContentSection>
 
           <ContentSection title="Para Quem é Indicado">
