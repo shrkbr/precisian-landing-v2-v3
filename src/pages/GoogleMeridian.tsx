@@ -3,49 +3,58 @@ import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import FeatureCard from "@/components/services/FeatureCard";
 import { Brain, TrendingUp, PieChart, LineChart, Target, Lightbulb } from "lucide-react";
+
 const GoogleMeridian = () => {
-  return <Layout>
-      <ServicePageLayout icon={Brain} title="Google Meridian MMM Implementation & Optimization" subtitle="Next-Generation Marketing Mix Modeling with AI" description="Google Meridian brings marketing mix modeling into the privacy-first era. Our service helps you understand true marketing contribution across all channels, online and offline.">
+  return (
+    <Layout>
+      <ServicePageLayout 
+        icon={Brain} 
+        title="MMM Implementação & Otimização" 
+        subtitle="Modelagem de Mix de Marketing de Nova Geração com IA" 
+        description="Nosso serviço ajuda você a entender a verdadeira contribuição do marketing em todos os canais, online e offline."
+      >
         <div className="max-w-4xl">
-          <ContentSection title="What We Deliver">
+          <ContentSection title="O Que Entregamos">
             <p>
               Implementação completa, incluindo preparação de dados, configuração do modelo e calibração. Integramos seus dados de investimento em marketing, dados de conversão e fatores externos para construir modelos preditivos precisos.
             </p>
             <p>
-              Our analysis reveals incrementality, optimal budget allocation, and forecasted performance.
+              Nossa análise revela incrementalidade, alocação ideal de orçamento e desempenho projetado.
             </p>
           </ContentSection>
 
-          <ContentSection title="Strategic Insights">
+          <ContentSection title="Insights Estratégicos">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <FeatureCard icon={TrendingUp} title="Incremental Contribution" description="True incremental contribution of each marketing channel revealed through advanced modeling." />
-              <FeatureCard icon={PieChart} title="Budget Allocation" description="Optimal budget allocation recommendations based on statistical analysis." />
-              <FeatureCard icon={LineChart} title="Cross-Channel ROI" description="ROI measurement across online and offline channels in a unified view." />
-              <FeatureCard icon={Target} title="Scenario Planning" description="Scenario planning and what-if analysis for strategic decision making." />
-              <FeatureCard icon={Lightbulb} title="Diminishing Returns" description="Identification of diminishing returns for each channel to optimize spend." />
+              <FeatureCard icon={TrendingUp} title="Contribuição Incremental" description="Contribuição incremental real de cada canal de marketing revelada através de modelagem avançada." />
+              <FeatureCard icon={PieChart} title="Alocação de Orçamento" description="Recomendações de alocação ideal de orçamento baseadas em análise estatística." />
+              <FeatureCard icon={LineChart} title="ROI Cross-Channel" description="Medição de ROI em canais online e offline em uma visão unificada." />
+              <FeatureCard icon={Target} title="Planejamento de Cenários" description="Planejamento de cenários e análise what-if para tomada de decisões estratégicas." />
+              <FeatureCard icon={Lightbulb} title="Retornos Decrescentes" description="Identificação de retornos decrescentes para cada canal para otimizar investimentos." />
             </div>
           </ContentSection>
 
-          <ContentSection title="Our Process">
+          <ContentSection title="Nosso Processo">
             <p>
-              Data collection and preparation from all marketing platforms, sales systems, and external data sources. 
-              Model training with Bayesian inference methods. Calibration using experiments and holdout tests.
+              Coleta e preparação de dados de todas as plataformas de marketing, sistemas de vendas e fontes de dados externas. 
+              Treinamento do modelo com métodos de inferência Bayesiana. Calibração usando experimentos e testes de holdout.
             </p>
             <p>
-              Ongoing refinement as new data becomes available ensures your model stays accurate over time.
+              Refinamento contínuo conforme novos dados ficam disponíveis garante que seu modelo permaneça preciso ao longo do tempo.
             </p>
           </ContentSection>
 
-          <ContentSection title="Perfect For">
+          <ContentSection title="Ideal Para">
             <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-              <li>Brands with significant media investment across multiple channels</li>
-              <li>Organizations seeking to prove marketing ROI to stakeholders</li>
-              <li>Businesses ready to move beyond attribution models</li>
-              <li>Companies planning annual media budgets with confidence</li>
+              <li>Marcas com investimento significativo em mídia em múltiplos canais</li>
+              <li>Organizações buscando provar ROI de marketing para stakeholders</li>
+              <li>Empresas prontas para ir além dos modelos de atribuição</li>
+              <li>Companhias planejando orçamentos anuais de mídia com confiança</li>
             </ul>
           </ContentSection>
         </div>
       </ServicePageLayout>
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default GoogleMeridian;
