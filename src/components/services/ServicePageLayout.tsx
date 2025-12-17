@@ -46,7 +46,7 @@ const ServicePageLayout = ({
 
             <div className="animate-fade-up" style={{ animationDelay: "0.3s" }}>
               <Button variant="hero" size="lg">
-                Get Started
+                Comece agora
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>

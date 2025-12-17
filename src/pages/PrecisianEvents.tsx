@@ -11,7 +11,7 @@ const PrecisianEvents = () => {
     <Layout>
       <ServicePageLayout 
         icon={Calendar} 
-        title="Precisian Events" 
+        title="Precisian Journey"
         subtitle="Gestão Completa de Evento" 
         description="Entenda a Jornada Completa do Seu Cliente com Rastreamento Avançado de Eventos. A qualidade das suas decisões depende da qualidade dos seus dados." 
       >
