@@ -92,7 +92,7 @@ const ServicePageLayout = ({
             Entre em contato conosco e descubra como podemos ajudar seu negócio.
           </p>
           <Button variant="hero" size="xl">
-            Contact Us
+            Fale conosco
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
