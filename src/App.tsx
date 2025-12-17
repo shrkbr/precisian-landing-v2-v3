@@ -16,6 +16,7 @@ import GoogleMeridian from "./pages/GoogleMeridian";
 import DataVisualization from "./pages/DataVisualization";
 import AIInsights from "./pages/AIInsights";
 import AdTechs from "./pages/AdTechs";
+import IntelligencePartner from "./pages/IntelligencePartner";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/data-visualization" element={<DataVisualization />} />
           <Route path="/ai-insights" element={<AIInsights />} />
           <Route path="/adtechs" element={<AdTechs />} />
+          <Route path="/intelligence-partner" element={<IntelligencePartner />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

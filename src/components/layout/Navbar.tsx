@@ -5,6 +5,9 @@ import { Menu, X, ChevronDown, Eye, ShieldCheck, Search, Bell } from "lucide-rea
 import precisianLogo from "@/assets/nd-precisian-logo.png";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 const services = [{
+  name: "Intelligence Partner",
+  path: "/intelligence-partner"
+}, {
   name: "Precisian Journey",
   path: "/precisian-events"
 }, {
