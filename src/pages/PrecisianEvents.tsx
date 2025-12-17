@@ -3,6 +3,7 @@ import ServicePageLayout from "@/components/services/ServicePageLayout";
 import ContentSection from "@/components/services/ContentSection";
 import EventsFlowchart from "@/components/services/EventsFlowchart";
 import EventMappingDemo from "@/components/services/EventMappingDemo";
+import CaseStudiesSection from "@/components/services/CaseStudiesSection";
 import { Calendar } from "lucide-react";
 
 const PrecisianEvents = () => {
@@ -13,7 +14,6 @@ const PrecisianEvents = () => {
         title="Precisian Events" 
         subtitle="Gestão Completa de Evento" 
         description="Entenda a Jornada Completa do Seu Cliente com Rastreamento Avançado de Eventos. A qualidade das suas decisões depende da qualidade dos seus dados." 
-        cases={["BCMED", "Irrah", "A. DIAS", "Pague Menos", "Angeloni", "Tecnospeed"]}
       >
         <div className="max-w-5xl">
           <ContentSection title="O Que Entregamos">
@@ -36,6 +36,8 @@ const PrecisianEvents = () => {
             </p>
             <EventsFlowchart />
           </ContentSection>
+
+          <CaseStudiesSection />
         </div>
       </ServicePageLayout>
     </Layout>
