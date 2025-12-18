@@ -4,6 +4,7 @@ import MethodologySection from "@/components/home/MethodologySection";
 import MarketsSection from "@/components/home/MarketsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import PartnersSection from "@/components/home/PartnersSection";
+import AuditOSSection from "@/components/home/AuditOSSection";
 import ContactFormSection from "@/components/home/ContactFormSection";
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
       <ServicesSection />
       <MarketsSection />
       <PartnersSection />
+      <AuditOSSection />
       <ContactFormSection />
     </Layout>
   );
