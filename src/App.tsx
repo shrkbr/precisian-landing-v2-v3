@@ -17,6 +17,7 @@ import DataVisualization from "./pages/DataVisualization";
 import AIInsights from "./pages/AIInsights";
 import AdTechs from "./pages/AdTechs";
 import IntelligencePartner from "./pages/IntelligencePartner";
+import SobreNos from "./pages/SobreNos";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/ai-insights" element={<AIInsights />} />
           <Route path="/adtechs" element={<AdTechs />} />
           <Route path="/intelligence-partner" element={<IntelligencePartner />} />
+          <Route path="/sobre-nos" element={<SobreNos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
