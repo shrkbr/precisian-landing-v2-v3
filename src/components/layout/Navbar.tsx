@@ -70,6 +70,12 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Link to="/sobre-nos">
+              <Button variant="nav" className={location.pathname === "/sobre-nos" ? "text-foreground" : ""}>
+                Sobre Nós
+              </Button>
+            </Link>
+
             <Button variant="hero" size="sm" className="ml-4">
               Contrate Agora
             </Button>
@@ -99,6 +105,11 @@ const Navbar = () => {
                     {service.name}
                   </Button>
                 </Link>)}
+              <Link to="/sobre-nos" onClick={() => setIsOpen(false)}>
+                <Button variant="ghost" className="w-full justify-start mt-2">
+                  Sobre Nós
+                </Button>
+              </Link>
               <Button variant="hero" className="mt-4">
                 Contrate Agora
               </Button>
