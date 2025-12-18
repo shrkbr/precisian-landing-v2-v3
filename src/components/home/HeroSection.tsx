@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center bg-background overflow-hidden">
+    <section className="relative py-20 md:py-28 flex items-center bg-background overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
