@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Zap } from "lucide-react";
 
 const painPoints = [
   "Discrepância de valor entre plataformas",
@@ -314,8 +314,9 @@ const ContactFormSection = () => {
                   </>
                 )}
               </Button>
-              <p className="text-sm text-muted-foreground mt-4">
-                Responderemos em até 24 horas úteis
+              <p className="text-sm text-muted-foreground mt-4 flex items-center justify-center gap-2">
+                <Zap className="w-4 h-4 text-primary fill-primary" />
+                Respondemos na velocidade da luz
               </p>
             </div>
           </form>
