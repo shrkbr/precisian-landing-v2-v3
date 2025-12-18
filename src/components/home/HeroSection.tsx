@@ -17,10 +17,9 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Right Side - Description */}
           <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Um time de Web analistas apaixonados por dados, focados em soluções de data analytics para alavancar projetos de Marketing Digital. Conte com nossa inteligência para trazer integrações, análise e insights em tempo real alimentados por IA.
+              Um time de <span className="text-primary font-semibold">Web Analytics</span> apaixonados por dados, focados em soluções de data analytics para alavancar projetos de Marketing Digital. Conte com nossa inteligência para trazer integrações, análise e insights em tempo real alimentados por IA.
             </p>
           </div>
         </div>
