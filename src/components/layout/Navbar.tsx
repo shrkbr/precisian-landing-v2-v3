@@ -12,7 +12,7 @@ const services = [{
   name: "Precisian Journey",
   path: "/precisian-events"
 }, {
-  name: "Precisian SKU",
+  name: "Precisian Catalog",
   path: "/precisian-sku"
 }, {
   name: "Precisian Core",

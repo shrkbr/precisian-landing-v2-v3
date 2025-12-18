@@ -97,7 +97,7 @@ const SKUFlowchart = () => {
       {/* Advantages Section */}
       <div className="pt-8 border-t border-border/50">
         <h4 className="font-display font-semibold text-foreground text-xl mb-6 text-center">
-          Vantagens do Precisian SKU
+          Vantagens do Precisian Catalog
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {advantages.map((advantage, index) => {

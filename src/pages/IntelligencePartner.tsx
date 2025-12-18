@@ -201,7 +201,7 @@ const advantages = [
 
 const deliverables = [
   "Implementação completa de eventos (Precisian Journey)",
-  "Gestão de catálogo de produtos (Precisian SKU)",
+  "Gestão de catálogo de produtos (Precisian Catalog)",
   "Integração de vendas e atribuição (Precisian Core)",
   "Modelagem de atribuição avançada (Precisian MMM)",
   "Dashboards e visualização de dados (Precisian Clarity)",
@@ -433,7 +433,7 @@ const IntelligencePartner = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { name: "Precisian Journey", path: "/precisian-events", desc: "Mapeamento de eventos" },
-              { name: "Precisian SKU", path: "/precisian-sku", desc: "Gestão de catálogo" },
+              { name: "Precisian Catalog", path: "/precisian-sku", desc: "Gestão de catálogo" },
               { name: "Precisian Core", path: "/precisian-core", desc: "Integração de vendas" },
               { name: "Precisian MMM", path: "/google-meridian", desc: "Modelagem de atribuição" },
               { name: "Precisian Clarity", path: "/data-visualization", desc: "Visualização de dados" },

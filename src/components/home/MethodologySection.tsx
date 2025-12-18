@@ -20,7 +20,7 @@ const steps = [
     description: "Conexão de todas as fontes de dados em uma visão unificada",
     solutions: [
       { name: "Precisian Journey", path: "/precisian-events", icon: Calendar },
-      { name: "Precisian SKU", path: "/precisian-sku", icon: Package },
+      { name: "Precisian Catalog", path: "/precisian-sku", icon: Package },
     ],
   },
   {

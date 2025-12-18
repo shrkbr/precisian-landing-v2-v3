@@ -70,7 +70,7 @@ const AdTechs = () => {
                   <ShoppingBag className="h-6 w-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-display font-semibold text-foreground mb-2">Precisian SKU</h4>
+                  <h4 className="font-display font-semibold text-foreground mb-2">Precisian Catalog</h4>
                   <p className="text-muted-foreground text-sm mb-4">
                     Nossa solução especializada em gestão de feeds de produtos. Criamos APIs personalizadas 
                     para extrair, manipular e enviar dados de produtos para qualquer plataforma, com 
@@ -79,7 +79,7 @@ const AdTechs = () => {
                   </p>
                   <Button asChild>
                     <Link to="/precisian-sku" className="inline-flex items-center gap-2">
-                      Conheça o Precisian SKU
+                      Conheça o Precisian Catalog
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>

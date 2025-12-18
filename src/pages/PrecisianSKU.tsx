@@ -10,7 +10,7 @@ const PrecisianSKU = () => {
     <Layout>
       <ServicePageLayout
         icon={Package}
-        title="Precisian SKU"
+        title="Precisian Catalog"
         subtitle="Gestão Inteligente de Catálogo de Produtos"
         description="Disponibilize Seus Produtos em Todas as Plataformas com Dados Sempre Atualizados. Ter produtos excelentes não é suficiente, eles precisam estar visíveis, atualizados e otimizados em cada plataforma."
       >
