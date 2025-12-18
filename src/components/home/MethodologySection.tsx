@@ -58,23 +58,32 @@ const MethodologySection = () => {
   return (
     <section className="py-24 bg-card overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase">
-            Nossa Metodologia
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 mb-4">
-            Data Value Quotient{" "}
-            <span className="gradient-text">(DVQ)</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Um framework completo para transformar dados brutos em vantagem competitiva
-          </p>
-        </div>
+        {/* Desktop: Two Column Layout */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_1.5fr] gap-12 items-center">
+          {/* Left: Title */}
+          <div>
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Nossa Metodologia
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 mb-4">
+              Data Value Quotient{" "}
+              <span className="gradient-text">(DVQ)</span>
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Um framework completo para transformar dados brutos em vantagem competitiva
+            </p>
+            
+            {/* CTA Button */}
+            <button className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105">
+              Qual é o seu Quociente de valor?
+            </button>
+            <p className="text-muted-foreground text-sm mt-4">
+              Clique nas etapas para explorar
+            </p>
+          </div>
 
-        {/* Circular Process Visualization */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Desktop: Circular Layout */}
-          <div className="hidden lg:block relative h-[500px]">
+          {/* Right: Circular Process Visualization */}
+          <div className="relative">
             {/* Center Circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center z-10">
               <span className="font-display font-bold text-xl gradient-text">DVQ</span>
@@ -218,9 +227,24 @@ const MethodologySection = () => {
               );
             })}
           </div>
+        </div>
 
-          {/* Mobile/Tablet: Vertical Timeline */}
-          <div className="lg:hidden relative">
+        {/* Mobile/Tablet: Title + Vertical Timeline */}
+        <div className="lg:hidden">
+          <div className="text-center mb-10">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+              Nossa Metodologia
+            </span>
+            <h2 className="font-display text-3xl font-bold mt-4 mb-4">
+              Data Value Quotient{" "}
+              <span className="gradient-text">(DVQ)</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Um framework completo para transformar dados brutos em vantagem competitiva
+            </p>
+          </div>
+
+          <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20" />
             
             <div className="space-y-8">
@@ -269,29 +293,7 @@ const MethodologySection = () => {
             </div>
           </div>
 
-          {/* Active Step Detail (Desktop) */}
-          {activeStep !== null && (
-            <div className="hidden lg:block mt-8 text-center animate-fade-in">
-              <div className="inline-block card-gradient px-8 py-4 rounded-xl border border-primary/30">
-                <span className="text-primary font-display font-bold mr-3">
-                  {steps[activeStep].number}
-                </span>
-                <span className="text-foreground font-semibold">
-                  {steps[activeStep].title}
-                </span>
-                <p className="text-muted-foreground text-sm mt-2 max-w-md">
-                  {steps[activeStep].description}
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Instruction text */}
-          <p className="hidden lg:block text-center text-muted-foreground text-sm mt-6">
-            Clique em cada etapa para explorar
-          </p>
-
-          {/* CTA Button */}
+          {/* CTA Button Mobile */}
           <div className="text-center mt-10">
             <button className="px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105">
               Qual é o seu Quociente de valor?
