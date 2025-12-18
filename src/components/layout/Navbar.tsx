@@ -71,7 +71,7 @@ const Navbar = () => {
             </DropdownMenu>
 
             <Button variant="hero" size="sm" className="ml-4">
-              Fale conosco
+              Contrate Agora
             </Button>
           </div>
 
@@ -100,7 +100,7 @@ const Navbar = () => {
                   </Button>
                 </Link>)}
               <Button variant="hero" className="mt-4">
-                Fale conosco
+                Contrate Agora
               </Button>
             </div>
           </div>}
