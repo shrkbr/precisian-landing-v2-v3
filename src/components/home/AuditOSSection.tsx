@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Zap, Brain, ChartBar, Link2, CheckCircle } from "lucide-react";
+import { Shield, Zap, Brain, ChartBar, Link2 } from "lucide-react";
 import auditosLogo from "@/assets/auditos-logo.png";
 
 const features = [
@@ -108,27 +108,8 @@ const AuditOSSection = () => {
           </div>
         </div>
 
-        {/* Results preview */}
+        {/* CTA Button */}
         <div className="text-center">
-          <div className="inline-flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Dados brutos detalhados</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Score de qualidade</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Insights com IA</span>
-            </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <CheckCircle className="h-5 w-5 text-primary" />
-              <span>Sugestões práticas</span>
-            </div>
-          </div>
-
           <Button variant="hero" size="xl" className="glow-primary">
             Faça uma análise gratuita agora
           </Button>
