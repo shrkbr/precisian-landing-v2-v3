@@ -5,6 +5,9 @@ import ClarityFlowchart from "@/components/services/ClarityFlowchart";
 import ImplementationModels from "@/components/services/ImplementationModels";
 import ClarityCaseStudies from "@/components/services/ClarityCaseStudies";
 import { PieChart, BarChart3, Activity, Zap, Layers, Target, Gauge, Smartphone } from "lucide-react";
+import dashboard1 from "@/assets/dashboard1.png";
+import dashboard2 from "@/assets/dashboard2.png";
+import dashboard3 from "@/assets/dashboard3.png";
 const capabilities = [
   {
     icon: BarChart3,
@@ -65,6 +68,57 @@ const DataVisualization = () => {
             <p>
               Nossos designs priorizam clareza, permitindo compreensão rápida de dados complexos.
             </p>
+          </ContentSection>
+
+          <ContentSection title="Modelos de Dashboard">
+            <p className="mb-8">
+              Confira alguns exemplos de dashboards desenvolvidos pela nossa equipe para diferentes segmentos e necessidades.
+            </p>
+            <div className="grid gap-6">
+              <div className="group relative overflow-hidden rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                <img 
+                  src={dashboard1} 
+                  alt="Dashboard de Performance - Visão geral com métricas de sessões, cliques, conversões e ROAS" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div>
+                    <h4 className="font-display font-semibold text-foreground mb-1">Dashboard de Performance</h4>
+                    <p className="text-muted-foreground text-sm">Visão consolidada de métricas de tráfego, conversões e receita com integração multi-plataforma.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="group relative overflow-hidden rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                  <img 
+                    src={dashboard2} 
+                    alt="Dashboard de Digital Trade - Análise de produtos, categorias e campanhas" 
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                      <h4 className="font-display font-semibold text-foreground mb-1">Digital Trade & Strategy</h4>
+                      <p className="text-muted-foreground text-sm">Análise de produtos, categorias e performance de campanhas por persona.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="group relative overflow-hidden rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                  <img 
+                    src={dashboard3} 
+                    alt="Dashboard de Canais - Análise de funil e metas de performance" 
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                      <h4 className="font-display font-semibold text-foreground mb-1">Análise de Canais & Metas</h4>
+                      <p className="text-muted-foreground text-sm">Funil de conversão, sell-out por canal e acompanhamento de metas em tempo real.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ContentSection>
 
           <ContentSection title="Nossa Jornada de Implementação">
