@@ -17,7 +17,18 @@ import {
   Shield,
   Zap,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Server,
+  Package,
+  Database,
+  PieChart,
+  Brain,
+  Megaphone,
+  Activity,
+  RefreshCw,
+  Globe,
+  Tag,
+  LayoutDashboard
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -45,26 +56,123 @@ const responsibilities = [
   }
 ];
 
-const expertise = [
+// Expertise Técnica - Ferramentas de Analytics
+const analyticsTools = [
   {
     icon: Settings,
     title: "Google Tag Manager",
-    description: "Especialista em configuração, manutenção e novas implementações de tags e triggers."
+    description: "Configuração, manutenção e novas implementações de tags, triggers e variáveis. GTM Web e Server-Side."
   },
   {
     icon: BarChart3,
-    title: "Google Analytics",
-    description: "Domínio completo de GA4, desde setup inicial até análises avançadas e atribuição."
+    title: "Google Analytics 4",
+    description: "Setup completo, eventos customizados, e-commerce avançado, audiences, atribuição e análises."
   },
   {
-    icon: Smartphone,
-    title: "Apps & Firebase",
-    description: "Implementação correta de Firebase e AppsFlyer para tracking completo em aplicativos."
+    icon: Server,
+    title: "Server-Side Tracking",
+    description: "GTM Server-Side, Conversions API (Meta, TikTok, LinkedIn), bypass de bloqueadores e ITP Safari."
   },
   {
     icon: FileText,
     title: "Plano de Mensuração",
-    description: "Criação de plano completo mapeando todas as frentes, ferramentas e domínios do projeto."
+    description: "Documentação completa mapeando eventos, parâmetros, fontes de dados e regras de negócio."
+  }
+];
+
+// Expertise Técnica - Plataformas de Mídia
+const adPlatforms = [
+  {
+    icon: Megaphone,
+    title: "Google Ads",
+    description: "Conversões, remarketing, Enhanced Conversions, Offline Conversions e integração com GA4."
+  },
+  {
+    icon: Globe,
+    title: "Meta Ads",
+    description: "Pixel, Conversions API (CAPI), catálogo de produtos, eventos customizados e atribuição."
+  },
+  {
+    icon: Activity,
+    title: "TikTok Ads",
+    description: "TikTok Pixel, Events API, eventos de e-commerce e configuração de públicos."
+  },
+  {
+    icon: Tag,
+    title: "Outras Plataformas",
+    description: "LinkedIn, Pinterest, Twitter/X, Microsoft Ads, Criteo, RTB House e programáticas."
+  }
+];
+
+// Expertise Técnica - Apps e Mobile
+const mobileTools = [
+  {
+    icon: Smartphone,
+    title: "Firebase Analytics",
+    description: "Implementação completa de Firebase para tracking de eventos, conversões e públicos em apps."
+  },
+  {
+    icon: Layers,
+    title: "AppsFlyer",
+    description: "Atribuição mobile, deep links, eventos in-app e integração com plataformas de mídia."
+  },
+  {
+    icon: RefreshCw,
+    title: "Cross-Device",
+    description: "Rastreamento unificado entre web e app, atribuição cross-device e jornadas omnichannel."
+  },
+  {
+    icon: Target,
+    title: "Push & Engagement",
+    description: "Configuração de eventos para campanhas de push, in-app messages e automações."
+  }
+];
+
+// Expertise Técnica - Dados e Visualização
+const dataTools = [
+  {
+    icon: Package,
+    title: "Gestão de Catálogo (SKU)",
+    description: "Feeds de produtos para Google Merchant, Meta Catalog, TikTok Shop com rótulos customizados."
+  },
+  {
+    icon: Database,
+    title: "Integração de Vendas (Core)",
+    description: "APIs para envio de dados de vendas, conciliação com mídia e atribuição offline."
+  },
+  {
+    icon: PieChart,
+    title: "Dashboards (Clarity)",
+    description: "Looker Studio, Power BI e Tableau com KPIs customizados e múltiplas fontes de dados."
+  },
+  {
+    icon: Brain,
+    title: "MMM & Atribuição",
+    description: "Modelagem de Mix de Marketing, atribuição avançada e análise de incrementalidade."
+  }
+];
+
+// Expertise Técnica - E-commerce e CRM
+const ecommerceTools = [
+  {
+    icon: LayoutDashboard,
+    title: "Plataformas de E-commerce",
+    description: "VTEX, Shopify, WooCommerce, Magento, VNDA, Tray e integrações customizadas."
+  },
+  {
+    icon: Database,
+    title: "Data Layer",
+    description: "Estruturação e otimização de data layer para e-commerce, checkout e carrinho."
+  },
+  {
+    icon: Users,
+    title: "CRM & Automação",
+    description: "HubSpot, RD Station, Salesforce, Pipedrive e integração com eventos de marketing."
+  },
+  {
+    icon: Code,
+    title: "APIs & Integrações",
+    description: "Desenvolvimento de APIs customizadas para conectar sistemas e automatizar fluxos de dados."
   }
 ];
 
@@ -140,15 +248,98 @@ const IntelligencePartner = () => {
 
         {/* Expertise Técnica */}
         <ContentSection title="Expertise Técnica">
-          <div className="grid md:grid-cols-2 gap-6">
-            {expertise.map((item) => (
-              <FeatureCard
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
+          <p className="mb-8">
+            O Intelligence Partner domina todas as ferramentas e tecnologias necessárias para uma operação completa de Web Analytics.
+          </p>
+
+          {/* Analytics & Tracking */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <BarChart3 className="h-5 w-5 text-primary" />
+              Analytics & Tracking
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {analyticsTools.map((item) => (
+                <FeatureCard
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Plataformas de Mídia */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Megaphone className="h-5 w-5 text-primary" />
+              Plataformas de Mídia Paga
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {adPlatforms.map((item) => (
+                <FeatureCard
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Apps & Mobile */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Smartphone className="h-5 w-5 text-primary" />
+              Apps & Mobile
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {mobileTools.map((item) => (
+                <FeatureCard
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Dados & Visualização */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <PieChart className="h-5 w-5 text-primary" />
+              Dados, Visualização & Atribuição
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {dataTools.map((item) => (
+                <FeatureCard
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* E-commerce & CRM */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <LayoutDashboard className="h-5 w-5 text-primary" />
+              E-commerce, CRM & Integrações
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {ecommerceTools.map((item) => (
+                <FeatureCard
+                  key={item.title}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
           </div>
         </ContentSection>
 
