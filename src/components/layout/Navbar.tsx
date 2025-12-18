@@ -76,7 +76,10 @@ const Navbar = () => {
               </Button>
             </Link>
 
-            <Button variant="hero" size="sm" className="ml-4">
+            <Button variant="outline" size="sm" className="ml-4">
+              Faça uma auditoria gratuita do seu GA4
+            </Button>
+            <Button variant="hero" size="sm" className="ml-2">
               Contrate Agora
             </Button>
           </div>
@@ -110,7 +113,10 @@ const Navbar = () => {
                   Sobre Nós
                 </Button>
               </Link>
-              <Button variant="hero" className="mt-4">
+              <Button variant="outline" className="mt-4">
+                Faça uma auditoria gratuita do seu GA4
+              </Button>
+              <Button variant="hero" className="mt-2">
                 Contrate Agora
               </Button>
             </div>
