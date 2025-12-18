@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, Brain, ChartBar, Link2, CheckCircle } from "lucide-react";
+import auditosLogo from "@/assets/auditos-logo.png";
 
 const features = [
   {
@@ -36,8 +37,8 @@ const AuditOSSection = () => {
           <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
             Ferramenta Exclusiva
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Conheça o <span className="gradient-text">AuditOS</span>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 flex items-center justify-center gap-4 flex-wrap">
+            Conheça o <img src={auditosLogo} alt="AuditOS" className="h-10 md:h-14 inline-block" />
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Sistema de inteligência desenvolvido pela Precisian que audita, valida e orquestra 
