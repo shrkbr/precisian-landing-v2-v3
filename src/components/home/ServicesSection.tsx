@@ -10,7 +10,7 @@ const featuredServices = [
   },
   {
     icon: Package,
-    title: "Precisian SKU",
+    title: "Precisian Catalog",
     description: "Gestão inteligente de catálogo de produtos com dados sempre atualizados em todas as plataformas.",
     path: "/precisian-sku",
   },
