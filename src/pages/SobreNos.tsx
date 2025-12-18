@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { Users, Award, Building2, Globe, Target, Zap, TrendingUp, CheckCircle } from "lucide-react";
+import { Users, Award, Building2, Globe, Zap, TrendingUp, CheckCircle } from "lucide-react";
+import nacaoDigitalLogo from "@/assets/nacao-digital-logo.png";
 
 const SobreNos = () => {
   return (
@@ -30,13 +31,12 @@ const SobreNos = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Target className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                  Nação Digital
-                </h2>
+              <div className="mb-6">
+                <img 
+                  src={nacaoDigitalLogo} 
+                  alt="Nação Digital" 
+                  className="h-10 md:h-12 w-auto"
+                />
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 A Nação Digital é uma agência de marketing digital focada em performance 
