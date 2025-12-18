@@ -47,23 +47,39 @@ const MarketsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {markets.map((market, index) => (
-            <div
-              key={index}
-              className="group card-gradient p-8 rounded-2xl border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5"
-            >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <market.icon className="h-7 w-7 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                {market.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {market.description}
-              </p>
+        {/* Timeline-style list */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+            
+            <div className="space-y-6">
+              {markets.map((market, index) => (
+                <div
+                  key={index}
+                  className="group relative flex items-start gap-6 md:gap-8 pl-2"
+                >
+                  {/* Icon circle */}
+                  <div className="relative z-10 w-10 h-10 md:w-14 md:h-14 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center flex-shrink-0 group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300">
+                    <market.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 pb-6 pt-1">
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2">
+                      <h3 className="font-display text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {market.title}
+                      </h3>
+                      <div className="hidden md:block h-px flex-1 bg-border group-hover:bg-primary/30 transition-colors" />
+                    </div>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                      {market.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">
