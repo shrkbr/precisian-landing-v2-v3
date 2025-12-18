@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <img alt="Precisian" className="h-10 w-auto" src="/lovable-uploads/72e5ca20-ba74-4847-961a-26a031880eb7.png" />
+            <img alt="Precisian" className="h-10 w-auto" src="/lovable-uploads/adc5ea8b-1c39-4445-8911-d8573bff0664.png" />
           </Link>
 
           {/* Desktop Navigation */}
