@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { Users, Award, Building2, Globe, Zap, TrendingUp, CheckCircle } from "lucide-react";
 import nacaoDigitalLogo from "@/assets/nacao-digital-logo.png";
+import fcamaraLogo from "@/assets/fcamara-logo.png";
 
 const SobreNos = () => {
   return (
@@ -115,13 +116,12 @@ const SobreNos = () => {
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-accent-foreground" />
-                </div>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                  FCamara
-                </h2>
+              <div className="mb-6">
+                <img 
+                  src={fcamaraLogo} 
+                  alt="FCamara" 
+                  className="h-10 md:h-12 w-auto"
+                />
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Fazemos parte de um dos maiores grupos de tecnologia e inovação do Brasil. 
