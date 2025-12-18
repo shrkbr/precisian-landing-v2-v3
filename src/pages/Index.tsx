@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <ServicesSection />
       <MethodologySection />
+      <ServicesSection />
       <MarketsSection />
       <PartnersSection />
       <SalesBoostSection />
