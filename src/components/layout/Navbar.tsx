@@ -73,7 +73,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="nav" className="gap-1">
-                  Services <ChevronDown className="h-4 w-4" />
+                  Soluções <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56 bg-card border-border">
@@ -88,7 +88,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="nav" className="gap-1">
-                  Tools <ChevronDown className="h-4 w-4" />
+                  Ferramentas <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 bg-card border-border">
@@ -127,7 +127,7 @@ const Navbar = () => {
               </Link>
               <div className="py-2">
                 <span className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  Services
+                  Soluções
                 </span>
               </div>
               {services.map(service => <Link key={service.path} to={service.path} onClick={() => setIsOpen(false)}>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 </Link>)}
               <div className="py-2">
                 <span className="px-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  Tools
+                  Ferramentas
                 </span>
               </div>
               {tools.map(tool => <Button key={tool.name} variant="ghost" className="w-full justify-start pl-6 gap-3">
