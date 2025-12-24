@@ -4,45 +4,37 @@ export function PartnerSection() {
   const { partner } = content;
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-gray-900 to-gray-950">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="text-center mb-16">
-          <span className="font-mono text-sm text-cyan-400 tracking-wider mb-4 block">
-            {partner.eyebrow}
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            {partner.h2}
-          </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">{partner.text}</p>
-        </header>
+    <section className="py-24 px-6 bg-[#030303]">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Header */}
+          <div>
+            <span className="font-mono text-sm text-[#FD68B3] tracking-wider mb-6 block uppercase">
+              {partner.eyebrow}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-6">
+              {partner.h2}
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed">{partner.text}</p>
+          </div>
 
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {partner.features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 text-center hover:border-cyan-500/30 transition-colors"
-            >
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-cyan-500/10 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-cyan-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
+          {/* Right: Features */}
+          <div className="space-y-4">
+            {partner.features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 bg-[#0a0a0a]/50 border border-white/5 rounded-lg p-4"
+              >
+                <span className="inline-flex items-center justify-center w-10 h-10 bg-[#FD68B3]/20 text-[#FD68B3] text-sm font-bold rounded shrink-0">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="text-white font-semibold mb-1">{feature.title}</h3>
+                  <p className="text-gray-500 text-sm">{feature.description}</p>
+                </div>
               </div>
-              <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm">{feature.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

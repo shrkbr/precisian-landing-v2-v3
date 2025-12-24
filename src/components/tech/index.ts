@@ -34,6 +34,7 @@ import { TechFooter } from './TechFooter';
 import { TerminalCard } from './TerminalCard';
 import { SectionHeader } from './SectionHeader';
 import { CaseCard } from './CaseCard';
+import { DiagnosticConsole } from './DiagnosticConsole';
 import { useTypingEffect, useMultiLineTyping } from '../../hooks/tech/useTypingEffect';
 import { usePrefersReducedMotion, useAnimationConfig } from '../../hooks/tech/usePrefersReducedMotion';
 
@@ -97,6 +98,7 @@ export {
   TerminalCard,
   SectionHeader,
   CaseCard,
+  DiagnosticConsole,
 
   // Hooks
   useTypingEffect,

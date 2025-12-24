@@ -1,69 +1,110 @@
 import { useState, useEffect } from 'react';
 
 interface TerminalCardProps {
-  logs: string[];
+  logs?: string[];
   className?: string;
+  showProgress?: boolean;
 }
 
-export function TerminalCard({ logs, className = '' }: TerminalCardProps) {
-  const [visibleLines, setVisibleLines] = useState<number>(0);
-  const [currentText, setCurrentText] = useState<string>('');
-  const [isTyping, setIsTyping] = useState(true);
+const defaultLogs = [
+  '> init_sequence --target=ga4_stream',
+  '> Connecting to Precisian Kernel...',
+  '> Access granted. Level 1 Diagnostics.',
+  '> Detecting attribution bias...',
+  '> Reconciling GA4 vs Media vs Ops...',
+  '> DVQ score computed.',
+];
+
+export function TerminalCard({ logs = defaultLogs, className = '', showProgress = true }: TerminalCardProps) {
+  const [visibleLines, setVisibleLines] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (visibleLines >= logs.length) {
-      setIsTyping(false);
-      return;
-    }
+    if (visibleLines >= logs.length) return;
 
-    const line = logs[visibleLines];
-    let charIndex = 0;
+    const timer = setTimeout(() => {
+      setVisibleLines((prev) => prev + 1);
+      setProgress(Math.round(((visibleLines + 1) / logs.length) * 100));
+    }, 800);
 
-    const typeChar = () => {
-      if (charIndex < line.length) {
-        setCurrentText(line.slice(0, charIndex + 1));
-        charIndex++;
-        setTimeout(typeChar, 30 + Math.random() * 20);
-      } else {
-        setTimeout(() => {
-          setVisibleLines((prev) => prev + 1);
-          setCurrentText('');
-        }, 500);
-      }
-    };
-
-    const timer = setTimeout(typeChar, 300);
     return () => clearTimeout(timer);
-  }, [visibleLines, logs]);
+  }, [visibleLines, logs.length]);
 
   return (
-    <div className={`bg-gray-900/80 border border-gray-700 rounded-lg overflow-hidden ${className}`}>
-      {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 border-b border-gray-700">
-        <div className="w-3 h-3 rounded-full bg-red-500" />
-        <div className="w-3 h-3 rounded-full bg-yellow-500" />
-        <div className="w-3 h-3 rounded-full bg-green-500" />
-        <span className="ml-2 text-xs text-gray-500 font-mono">precisian_terminal</span>
-      </div>
+    <div className={`relative border border-white/10 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-sm p-1 ${className}`}>
+      {/* Corner borders */}
+      <div className="corner-border corner-tl" />
+      <div className="corner-border corner-tr" />
+      <div className="corner-border corner-bl" />
+      <div className="corner-border corner-br" />
 
-      {/* Terminal Content */}
-      <div className="p-4 font-mono text-sm min-h-[200px]">
-        {logs.slice(0, visibleLines).map((line, index) => (
-          <div key={index} className="text-green-400 mb-1">
-            {line}
+      <div className="h-full w-full bg-black/40 border border-white/5 relative overflow-hidden flex flex-col font-mono text-xs">
+        {/* Terminal Header */}
+        <div className="h-8 border-b border-white/10 flex items-center justify-between px-4 bg-white/5">
+          <span className="text-gray-500">TERMINAL: DVQ_CORE</span>
+          <div className="flex gap-2">
+            <div className="w-2 h-2 rounded-full bg-red-500/60" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+            <div className="w-2 h-2 rounded-full bg-green-500/60" />
           </div>
-        ))}
-        {visibleLines < logs.length && (
-          <div className="text-green-400 mb-1">
-            {currentText}
-            <span className="animate-pulse">▊</span>
+        </div>
+
+        {/* Terminal Content */}
+        <div className="p-6 flex-1 overflow-hidden relative min-h-[280px]">
+          {/* Scan line */}
+          <div className="scan-line" />
+
+          <div className="space-y-2 text-gray-400">
+            {logs.slice(0, visibleLines).map((line, index) => (
+              <div key={index} className="flex gap-4">
+                <span className="text-gray-600 select-none">{String(index + 1).padStart(3, '0')}</span>
+                <span className={line.includes('CRITICAL') ? 'text-red-500' : line.includes('Connecting') || line.includes('computed') ? 'text-[#FD68B3]' : ''}>
+                  {line}
+                </span>
+              </div>
+            ))}
+
+            {/* Progress indicator */}
+            {showProgress && visibleLines > 0 && visibleLines < logs.length && (
+              <div className="my-4 border-l-2 border-[#FD68B3]/20 pl-4 py-2 bg-[#FD68B3]/5">
+                <div className="flex justify-between mb-1">
+                  <span>Scanning Events</span>
+                  <span className="text-[#FD68B3]">{progress}%</span>
+                </div>
+                <div className="w-full bg-gray-800 h-1">
+                  <div
+                    className="bg-[#FD68B3] h-full transition-all duration-500"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Awaiting command */}
+            {visibleLines >= logs.length && (
+              <div className="flex gap-4 mt-4 animate-pulse">
+                <span className="text-gray-600">_</span>
+                <span className="text-[#FD68B3]">Awaiting command input</span>
+              </div>
+            )}
           </div>
-        )}
-        {!isTyping && (
-          <div className="text-cyan-400 animate-pulse">
-            {'>'} <span className="animate-pulse">▊</span>
+        </div>
+
+        {/* Terminal Footer */}
+        <div className="h-12 border-t border-white/10 grid grid-cols-3 divide-x divide-white/10">
+          <div className="flex flex-col justify-center px-4">
+            <span className="text-[10px] text-gray-600 uppercase">Latency</span>
+            <span className="text-[#FD68B3]">12ms</span>
           </div>
-        )}
+          <div className="flex flex-col justify-center px-4">
+            <span className="text-[10px] text-gray-600 uppercase">Uptime</span>
+            <span className="text-white">99.99%</span>
+          </div>
+          <div className="flex flex-col justify-center px-4 bg-red-500/10">
+            <span className="text-[10px] text-red-400 uppercase">DVQ Risk</span>
+            <span className="text-red-500">High</span>
+          </div>
+        </div>
       </div>
     </div>
   );

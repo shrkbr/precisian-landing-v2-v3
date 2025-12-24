@@ -1,71 +1,71 @@
 import { useState, useEffect } from 'react';
-import { content } from '@/content/pt';
 
-export function TechNav() {
+interface TechNavProps {
+  onDiagnosticClick?: () => void;
+}
+
+export function TechNav({ onDiagnosticClick }: TechNavProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToCTA = () => {
-    const element = document.querySelector('#cta');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToSection = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' : 'bg-transparent'
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#030303]/80 backdrop-blur-md border-b border-white/5'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="/" className="flex items-center">
-            <span
-              className="text-2xl font-bold tracking-tight text-white"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
-            >
-              PRECIS<span className="text-pink-500">IA</span>N
-            </span>
-          </a>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {content.nav.items.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <button
-            onClick={scrollToCTA}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all transform hover:scale-105"
+      <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <a href="/" className="flex items-center">
+          <span
+            className="text-xl font-bold tracking-tight text-white"
+            style={{ fontFamily: '"Eurostile", "Orbitron", sans-serif' }}
           >
-            {content.nav.cta}
+            PRECIS<span className="text-[#FD68B3]">IA</span>N
+          </span>
+        </a>
+
+        {/* Nav Links */}
+        <nav className="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-wider">
+          <button
+            onClick={() => scrollToSection('#protocol')}
+            className="text-gray-400 hover:text-[#FD68B3] transition-colors"
+          >
+            Protocol
           </button>
-        </div>
+          <button
+            onClick={() => scrollToSection('#modules')}
+            className="text-gray-400 hover:text-[#FD68B3] transition-colors"
+          >
+            Modules
+          </button>
+          <button
+            onClick={() => scrollToSection('#proof')}
+            className="text-gray-400 hover:text-[#FD68B3] transition-colors"
+          >
+            Proof
+          </button>
+        </nav>
+
+        {/* CTA - Opens Diagnostic Console */}
+        <button
+          onClick={onDiagnosticClick}
+          className="flex items-center justify-center border border-[#FD68B3]/50 bg-[#FD68B3]/10 hover:bg-[#FD68B3] text-[#FD68B3] hover:text-black transition-all px-6 py-2 text-xs font-bold font-mono uppercase tracking-wider"
+        >
+          Run Diagnostic
+        </button>
       </div>
-    </nav>
+    </header>
   );
 }

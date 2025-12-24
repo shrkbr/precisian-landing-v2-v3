@@ -42,7 +42,7 @@ export const content = {
     eyebrow: '// DATA VALUE QUOTIENT',
     h2: 'This is not a dashboard problem.',
     h2b: "It's a decision integrity problem.",
-    text: 'We call the value of having 100% correct data across the full journey the Data Value Quotient (DVQ).',
+    text: 'DVQ is the reliability score of your decision system. The higher the DVQ, the more you can trust your data-driven decisions.',
     trademark: 'DVQ™ is a proprietary decision integrity framework developed by ND Precisian.',
     pillars: [
       {
@@ -231,7 +231,7 @@ export const content = {
   partner: {
     eyebrow: '// CONTINUOUS OPERATION',
     h2: 'Data Intelligence Partner',
-    text: 'Not a project. A continuous operation ensuring your data infrastructure evolves with your business.',
+    text: 'Continuous operation. Always-on governance. Continuous releases. Your data infrastructure evolves with your business.',
     features: [
       {
         title: 'Integrated Infrastructure',
@@ -297,6 +297,55 @@ export const content = {
       loading: 'Running checks...',
       success: "Diagnostic request received. We'll contact you.",
     },
+  },
+
+  diagnosticConsole: {
+    title: 'Diagnostic Console',
+    subtitle: 'init_sequence --target=your_stack',
+    steps: {
+      input: {
+        title: 'Initialize Scan',
+        fields: {
+          url: 'Website URL',
+          platform: 'Platform',
+          email: 'Corporate Email',
+        },
+        platforms: ['Shopify', 'VTEX', 'Magento', 'WooCommerce', 'Custom'],
+      },
+      scan: {
+        title: 'Running Diagnostic',
+        logs: [
+          '> Detecting GA4 configuration...',
+          '> Checking attribution integrity...',
+          '> Reconciling GA4 vs Media vs Ops...',
+          '> Analyzing journey completeness...',
+          '> Estimating DVQ score...',
+        ],
+      },
+      result: {
+        title: 'Preliminary Analysis',
+        dvqLabel: 'Preliminary DVQ',
+        riskLevels: {
+          high: 'High Risk',
+          medium: 'Medium Risk',
+          low: 'Low Risk',
+        },
+        failureModes: [
+          'Attribution decay detected',
+          'Revenue mismatch likely',
+          'Missing micro-events',
+        ],
+      },
+      final: {
+        cta1: 'Receive full diagnostic report',
+        cta2: 'Schedule diagnostic session',
+      },
+    },
+  },
+
+  auditOS: {
+    badge: 'Powered by AuditOS™',
+    tagline: 'Our diagnostic protocol runs on the AuditOS reliability engine.',
   },
 
   footer: {

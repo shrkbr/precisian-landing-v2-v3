@@ -1,67 +1,136 @@
 import { content } from '@/content/pt';
 
-const layerColors = [
-  'from-cyan-500 to-cyan-600',
-  'from-blue-500 to-blue-600',
-  'from-indigo-500 to-indigo-600',
-  'from-purple-500 to-purple-600',
-  'from-pink-500 to-pink-600',
+const architectureLayers = [
+  {
+    id: '00',
+    title: 'Data Sources',
+    description: 'Raw signals from GA4, media platforms, CRM, ERP, and operational systems',
+    highlighted: true,
+    alwaysShowDescription: true,
+    isFirst: true,
+  },
+  {
+    id: '01',
+    title: 'Journey Mapping',
+    description: 'Complete mapping of all critical user interactions from first touch to post-purchase',
+    indented: true,
+  },
+  {
+    id: '02',
+    title: 'Integration & Centralization',
+    description: 'Connect all data sources into a single source of truth',
+    indented: true,
+  },
+  {
+    id: '03',
+    title: 'Governance & Reliability',
+    description: 'Data always accessible and ready for analysis with compliance built-in',
+    indented: true,
+  },
+  {
+    id: '04',
+    title: 'Attribution & Incrementality',
+    description: 'Precise attribution of value to each marketing channel',
+    indented: true,
+  },
+  {
+    id: '05',
+    title: 'Predictive & AI Insights',
+    description: 'Intuitive dashboards that transform data into decisions',
+    indented: true,
+  },
+  {
+    id: 'DVQ',
+    title: 'Decision Integrity',
+    description: 'The final output: trusted decisions based on validated data',
+    isDVQ: true,
+  },
 ];
 
 export function DVQArchitecture() {
-  const { dvq } = content;
+  const { dvqArchitecture, auditOS } = content;
 
   return (
-    <section id="protocol" className="py-24 px-4 bg-gray-950">
-      <div className="max-w-7xl mx-auto">
+    <section id="protocol" className="py-24 px-6 bg-[#030303]">
+      <div className="max-w-[800px] mx-auto">
         {/* Header */}
-        <header className="text-center mb-16">
-          <span className="font-mono text-sm text-cyan-400 tracking-wider mb-4 block">
-            {dvq.eyebrow}
+        <div className="mb-12">
+          {/* AuditOS Badge */}
+          <div className="inline-flex items-center gap-2 border border-[#FD68B3]/20 bg-[#FD68B3]/5 px-3 py-1.5 rounded-sm mb-6">
+            <svg className="w-4 h-4 text-[#FD68B3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span className="text-[#FD68B3] font-mono text-xs uppercase tracking-wider">
+              {auditOS.badge}
+            </span>
+          </div>
+
+          <span className="font-mono text-sm text-[#FD68B3] tracking-wider mb-6 block">
+            {dvqArchitecture.eyebrow}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            {dvq.h2}
+          <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 leading-tight">
+            {dvqArchitecture.h2}
           </h2>
-          <p className="text-xl text-gray-400 mb-2">{dvq.h2b}</p>
-          <p className="text-lg text-gray-500 max-w-3xl mx-auto">{dvq.text}</p>
-        </header>
+          <p className="text-lg text-gray-500 mb-2">{dvqArchitecture.sub}</p>
+          <p className="text-sm text-gray-600 font-mono">{auditOS.tagline}</p>
+        </div>
 
-        {/* DVQ Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {dvq.pillars.map((pillar, index) => (
+        {/* Architecture Stack */}
+        <div className="space-y-3">
+          {architectureLayers.map((layer) => (
             <div
-              key={pillar.id}
-              className="group relative bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+              key={layer.id}
+              className={`
+                group flex items-center gap-4 rounded-lg p-4 border transition-all duration-300 cursor-pointer
+                ${layer.indented ? 'ml-6' : ''}
+                ${
+                  layer.highlighted
+                    ? 'bg-gradient-to-r from-[#FD68B3]/20 to-transparent border-[#FD68B3]/40 shadow-lg shadow-[#FD68B3]/10'
+                    : layer.isDVQ
+                    ? 'bg-[#0a0a0a] border-white/10 hover:border-[#FD68B3]/30 hover:shadow-lg hover:shadow-[#FD68B3]/5'
+                    : 'bg-[#0a0a0a]/50 border-white/5 hover:border-[#FD68B3]/40 hover:bg-[#0a0a0a] hover:shadow-lg hover:shadow-[#FD68B3]/10'
+                }
+              `}
             >
-              {/* Layer indicator */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${layerColors[index]} rounded-t-xl`}
-              />
+              {/* Badge */}
+              <span
+                className={`
+                  inline-flex items-center justify-center w-12 h-12 text-sm font-bold rounded shrink-0 transition-all duration-300
+                  ${
+                    layer.highlighted
+                      ? 'bg-[#FD68B3] text-black'
+                      : layer.isDVQ
+                      ? 'bg-gray-700 text-gray-300 group-hover:bg-gray-600'
+                      : 'bg-[#FD68B3]/20 text-[#FD68B3] border border-[#FD68B3]/30 group-hover:bg-[#FD68B3]/30 group-hover:border-[#FD68B3]/50'
+                  }
+                `}
+              >
+                {layer.id}
+              </span>
 
-              {/* ID Badge */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-sm text-gray-500">{pillar.id}</span>
-                <span className="text-xs text-gray-600 font-mono">{pillar.subtitle}</span>
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-white font-medium group-hover:text-[#FD68B3] transition-colors duration-300">
+                  {layer.title}
+                </h3>
+                {layer.description && (
+                  <p
+                    className={`text-gray-500 text-sm transition-all duration-300 overflow-hidden ${
+                      layer.alwaysShowDescription
+                        ? 'max-h-20 opacity-100 mt-1'
+                        : 'max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-1'
+                    }`}
+                  >
+                    {layer.description}
+                  </p>
+                )}
               </div>
 
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                {pillar.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm text-gray-400">{pillar.description}</p>
-
-              {/* Hover glow */}
-              <div
-                className={`absolute inset-0 rounded-xl bg-gradient-to-r ${layerColors[index]} opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none`}
-              />
+              {/* Pink dot indicator */}
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FD68B3] shrink-0 group-hover:scale-125 transition-transform duration-300" />
             </div>
           ))}
         </div>
-
-        {/* Trademark */}
-        <p className="text-center text-sm text-gray-600 mt-12 font-mono">{dvq.trademark}</p>
       </div>
     </section>
   );

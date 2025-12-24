@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   TechNav,
   TechHero,
@@ -8,15 +9,18 @@ import {
   ImpactGrid,
   CTAForm,
   TechFooter,
+  DiagnosticConsole,
 } from '@/components/tech';
 import '@/styles/tech.css';
 
 export default function TechPage() {
+  const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
+
   return (
     <div className="tech-page min-h-screen bg-black text-white">
-      <TechNav />
+      <TechNav onDiagnosticClick={() => setIsDiagnosticOpen(true)} />
       <main>
-        <TechHero />
+        <TechHero onDiagnosticClick={() => setIsDiagnosticOpen(true)} />
         <ProblemSection />
         <DVQArchitecture />
         <ModuleSection />
@@ -25,6 +29,12 @@ export default function TechPage() {
         <CTAForm />
       </main>
       <TechFooter />
+
+      {/* Diagnostic Console Modal */}
+      <DiagnosticConsole
+        isOpen={isDiagnosticOpen}
+        onClose={() => setIsDiagnosticOpen(false)}
+      />
     </div>
   );
 }
