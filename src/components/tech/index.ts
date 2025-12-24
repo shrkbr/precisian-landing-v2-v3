@@ -20,6 +20,20 @@ import { TerminalHero, CompactTerminalHero } from './TerminalHero';
 import DVQStepperTech from './DVQStepperTech';
 import CaseStudiesGridTech from './CaseStudiesGridTech';
 import TrustSignalsTech from './TrustSignalsTech';
+
+// TechPage Components
+import { TechNav } from './TechNav';
+import { TechHero } from './TechHero';
+import { ProblemSection } from './ProblemSection';
+import { DVQArchitecture } from './DVQArchitecture';
+import { ModuleSection } from './ModuleSection';
+import { PartnerSection } from './PartnerSection';
+import { ImpactGrid } from './ImpactGrid';
+import { CTAForm } from './CTAForm';
+import { TechFooter } from './TechFooter';
+import { TerminalCard } from './TerminalCard';
+import { SectionHeader } from './SectionHeader';
+import { CaseCard } from './CaseCard';
 import { useTypingEffect, useMultiLineTyping } from '../../hooks/tech/useTypingEffect';
 import { usePrefersReducedMotion, useAnimationConfig } from '../../hooks/tech/usePrefersReducedMotion';
 
@@ -69,6 +83,20 @@ export {
   DVQStepperTech,
   CaseStudiesGridTech,
   TrustSignalsTech,
+
+  // TechPage Components
+  TechNav,
+  TechHero,
+  ProblemSection,
+  DVQArchitecture,
+  ModuleSection,
+  PartnerSection,
+  ImpactGrid,
+  CTAForm,
+  TechFooter,
+  TerminalCard,
+  SectionHeader,
+  CaseCard,
 
   // Hooks
   useTypingEffect,

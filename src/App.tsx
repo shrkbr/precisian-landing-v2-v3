@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import TechPage from "./pages/TechPage";
 import NotFound from "./pages/NotFound";
 import PrecisianEvents from "./pages/PrecisianEvents";
 import PrecisianSKU from "./pages/PrecisianSKU";
@@ -18,7 +19,6 @@ import AIInsights from "./pages/AIInsights";
 import AdTechs from "./pages/AdTechs";
 import IntelligencePartner from "./pages/IntelligencePartner";
 import SobreNos from "./pages/SobreNos";
-import TechDemo from "./pages/TechDemo";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +43,7 @@ const App = () => (
           <Route path="/adtechs" element={<AdTechs />} />
           <Route path="/intelligence-partner" element={<IntelligencePartner />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
-          <Route path="/tech" element={<TechDemo />} />
+          <Route path="/tech" element={<TechPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
