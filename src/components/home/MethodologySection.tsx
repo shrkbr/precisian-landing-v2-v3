@@ -56,7 +56,7 @@ const MethodologySection = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-card overflow-hidden">
+    <section className="py-24 bg-card">
       <div className="container mx-auto px-4">
         {/* Desktop: Two Column Layout */}
         <div className="hidden lg:grid lg:grid-cols-[1fr_1.5fr] gap-12 items-center">
@@ -160,10 +160,10 @@ const MethodologySection = () => {
                     
                     {/* Tooltip Card */}
                     <div
-                      className={`absolute left-1/2 -translate-x-1/2 w-72 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 ${
+                      className={`absolute left-1/2 -translate-x-1/2 w-72 p-4 rounded-xl bg-background border border-border shadow-xl transition-all duration-300 z-50 ${
                         activeStep === index
                           ? "opacity-100 visible"
-                          : "opacity-0 invisible"
+                          : "opacity-0 invisible pointer-events-none"
                       } ${index < 2 ? "top-20" : "bottom-20"}`}
                     >
                       <h4 className="font-display font-semibold text-foreground text-sm mb-1">
