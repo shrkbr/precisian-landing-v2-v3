@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Sora', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +62,23 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Tech Colors for Cyberpunk Theme
+        tech: {
+          primary: "#FD68B3",      // Precisian pink neon
+          secondary: "#7000ff",    // Purple complement
+          success: "#00ff88",      // Matrix green
+          warning: "#ffaa00",      // Amber warning
+          error: "#ff4444",        // Red error neon
+          surface: "#0a0a0a",      // Elevated surfaces
+          elevated: "#151515",     // Highest elevation
+        },
+        neon: {
+          pink: "#FD68B3",
+          purple: "#7000ff",
+          green: "#00ff88",
+          amber: "#ffaa00",
+          red: "#ff4444",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -95,6 +113,35 @@ export default {
           "0%": { transform: "translateY(0)" },
           "100%": { transform: "translateY(-50%)" },
         },
+        // Tech/Cyberpunk Animations
+        "tech-scan": {
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "10%": { opacity: "1" },
+          "90%": { opacity: "1" },
+          "100%": { transform: "translateX(100%)", opacity: "0" },
+        },
+        "tech-blink": {
+          "0%, 50%": { opacity: "1" },
+          "51%, 100%": { opacity: "0" },
+        },
+        "tech-glow": {
+          "0%, 100%": {
+            textShadow: "0 0 5px currentColor, 0 0 10px currentColor",
+            boxShadow: "0 0 5px currentColor, 0 0 10px currentColor",
+          },
+          "50%": {
+            textShadow: "0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor",
+            boxShadow: "0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor",
+          },
+        },
+        "tech-typewriter": {
+          "from": { width: "0" },
+          "to": { width: "100%" },
+        },
+        "tech-pulse-neon": {
+          "0%, 100%": { opacity: "1", filter: "drop-shadow(0 0 5px currentColor)" },
+          "50%": { opacity: "0.7", filter: "drop-shadow(0 0 20px currentColor)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -103,6 +150,12 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "float-fast": "float-fast 2s ease-in-out infinite",
         "scroll-up": "scroll-up 20s linear infinite",
+        // Tech Animations
+        "tech-scan": "tech-scan 3s linear infinite",
+        "tech-blink": "tech-blink 1s infinite",
+        "tech-glow": "tech-glow 2s ease-in-out infinite",
+        "tech-typewriter": "tech-typewriter 2s steps(40, end)",
+        "tech-pulse-neon": "tech-pulse-neon 2s ease-in-out infinite",
       },
     },
   },

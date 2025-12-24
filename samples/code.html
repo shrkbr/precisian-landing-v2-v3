@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuditOS Intelligence System</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#FD68B3","secondary": "#7000ff",
+                    "background-dark": "#050505",
+                    "surface": "#0a0a0a",
+                    "surface-highlight": "#151515",
+                },
+                fontFamily: {
+                    "display": ["Manrope", "sans-serif"],
+                    "mono": ["JetBrains Mono", "monospace"]
+                },
+                backgroundImage: {
+                    "grid-pattern": "linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)",
+                }
+            },
+        },
+    }
+</script>
+<style>
+    .grid-bg-animated {
+        background-size: 50px 50px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    }
+    .scan-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: rgba(253, 104, 179, 0.5);box-shadow: 0 0 10px rgba(253, 104, 179, 0.8);
+        animation: scan 3s linear infinite;
+        opacity: 0.5;
+    }
+    @keyframes scan {
+        0% { top: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 100%; opacity: 0; }
+    }
+    .corner-border {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-color: #FD68B3;border-style: solid;
+        transition: all 0.3s ease;
+    }
+    .corner-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .corner-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+    .corner-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+    .corner-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+</style>
+</head>
+<body class="bg-background-dark text-gray-300 font-display overflow-x-hidden antialiased selection:bg-primary selection:text-black">
+<header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+<div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center border border-primary/30 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary text-xl">memory</span>
+</div>
+<div class="flex flex-col leading-none">
+<h2 class="text-lg font-bold tracking-tight text-white">AuditOS</h2>
+<span class="text-[10px] uppercase text-gray-500 font-mono tracking-widest">System v2.0</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-10 items-center">
+<nav class="flex items-center gap-8 font-mono text-xs uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Modules</a>
+<a class="hover:text-primary transition-colors" href="#">Manifesto</a>
+</nav>
+<button class="flex items-center justify-center border border-primary/50 bg-primary/10 hover:bg-primary text-primary hover:text-black transition-all px-6 py-2 text-xs font-bold font-mono uppercase tracking-wider">
+                Run AuditOS
+            </button>
+</div>
+<div class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</div>
+</header>
+<section class="relative min-h-screen flex items-center pt-20 bg-background-dark overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-background-dark pointer-events-none"></div>
+<div class="max-w-[1400px] mx-auto px-6 w-full z-10 grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 flex flex-col gap-8">
+<div class="inline-flex items-center gap-3 border border-primary/20 bg-primary/5 px-3 py-1 w-fit rounded-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-primary font-mono text-xs uppercase tracking-widest">System Operational</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[0.95]">
+                Stop trusting <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-white">data you haven't</span>
+<span class="text-primary block mt-2">audited.</span>
+</h1>
+<h2 class="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-2xl border-l border-white/10 pl-6">
+                AuditOS is the operating system that audits, validates and orchestrates GA4 data reliability. Replace assumption with verification.
+            </h2>
+<div class="flex flex-col sm:flex-row gap-5 mt-4">
+<button class="group relative flex items-center justify-center px-8 py-4 bg-primary text-black text-sm font-bold uppercase tracking-widest overflow-hidden">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">terminal</span>
+                        Run AuditOS
+                    </span>
+</button>
+<button class="group flex items-center justify-center px-8 py-4 bg-transparent border border-white/20 text-white text-sm font-bold uppercase tracking-widest hover:border-white/50 transition-colors">
+                    Explore Protocol
+                </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative h-[500px] w-full">
+<div class="absolute inset-0 border border-white/10 bg-surface/50 backdrop-blur-sm rounded-sm p-1">
+<div class="corner-border corner-tl"></div>
+<div class="corner-border corner-tr"></div>
+<div class="corner-border corner-bl"></div>
+<div class="corner-border corner-br"></div>
+<div class="h-full w-full bg-black/40 border border-white/5 relative overflow-hidden flex flex-col font-mono text-xs">
+<div class="h-8 border-b border-white/10 flex items-center justify-between px-4 bg-white/5">
+<span class="text-gray-500">TERMINAL: AUDIT_CORE</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-white/20"></div>
+</div>
+</div>
+<div class="p-6 flex-1 overflow-hidden relative">
+<div class="scan-line"></div>
+<div class="space-y-2 text-gray-400">
+<div class="flex gap-4">
+<span class="text-gray-600">001</span>
+<span>&gt; init_sequence --target=ga4_stream</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-600">002</span>
+<span class="text-primary">&gt; Connecting to AuditOS Kernel...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-600">003</span>
+<span>&gt; Access granted. Level 1 Diagnostics.</span>
+</div>
+<div class="my-4 border-l-2 border-primary/20 pl-4 py-2 bg-primary/5">
+<div class="flex justify-between mb-1">
+<span>Scanning Events</span>
+<span class="text-primary">98%</span>
+</div>
+<div class="w-full bg-gray-800 h-1">
+<div class="bg-primary w-[98%] h-full"></div>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-600">004</span>
+<span class="text-red-500">&gt; [CRITICAL] Anomaly detected in purchase_attribution</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-600">005</span>
+<span>&gt; Isolating corrupt signals...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gray-600">006</span>
+<span>&gt; Generating orchestrator logic...</span>
+</div>
+<div class="flex gap-4 mt-4 animate-pulse">
+<span class="text-gray-600">_</span>
+<span class="text-primary">Awaiting command input</span>
+</div>
+</div>
+</div>
+<div class="h-12 border-t border-white/10 grid grid-cols-3 divide-x divide-white/10">
+<div class="flex flex-col justify-center px-4">
+<span class="text-[10px] text-gray-600 uppercase">Latency</span>
+<span class="text-primary">12ms</span>
+</div>
+<div class="flex flex-col justify-center px-4">
+<span class="text-[10px] text-gray-600 uppercase">Uptime</span>
+<span class="text-white">99.99%</span>
+</div>
+<div class="flex flex-col justify-center px-4 bg-red-500/10">
+<span class="text-[10px] text-red-400 uppercase">Errors</span>
+<span class="text-red-500">14 Detected</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-6 -left-6 w-48 bg-surface border border-white/10 p-4 shadow-2xl backdrop-blur-md">
+<div class="flex justify-between text-[10px] text-gray-500 uppercase font-mono mb-2">
+<span>Data Integrity</span>
+<span class="text-primary">Low</span>
+</div>
+<div class="flex items-end gap-1 h-12">
+<div class="w-1/5 bg-gray-800 h-full"></div>
+<div class="w-1/5 bg-gray-800 h-[80%]"></div>
+<div class="w-1/5 bg-red-500 h-[40%] animate-pulse"></div>
+<div class="w-1/5 bg-gray-800 h-[60%]"></div>
+<div class="w-1/5 bg-gray-800 h-[90%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface border-y border-white/5 relative">
+<div class="max-w-[1400px] mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-16">
+<div>
+<span class="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// System Definition</span>
+<h2 class="text-4xl text-white font-medium mb-6">Why AuditOS is <br/>not a tool.</h2>
+<p class="text-gray-400 text-lg leading-relaxed">
+                    Tools are passive utilities waiting for input. AuditOS is an active intelligence layer. It sits between your data collection and your decision making, autonomously policing the stream for anomalies, schema violations, and attribution decay.
+                </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-background-dark border border-white/5 p-6 hover:border-primary/30 transition-colors group">
+<span class="material-symbols-outlined text-gray-600 group-hover:text-primary mb-4 text-3xl">build</span>
+<h3 class="text-white font-mono uppercase text-sm mb-2">Traditional Tools</h3>
+<p class="text-sm text-gray-500">Reactive checks. Manual operation required. Fragmented insights.</p>
+</div>
+<div class="bg-background-dark border border-primary/20 p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20"><span class="material-symbols-outlined text-primary text-4xl">memory</span></div>
+<h3 class="text-white font-mono uppercase text-sm mb-2 text-primary">AuditOS System</h3>
+<p class="text-sm text-gray-400">Continuous, autonomous validation. Self-healing protocols. Unified logic.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark relative">
+<div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+<div class="max-w-[1400px] mx-auto px-6 relative z-10">
+<div class="text-center mb-20">
+<h2 class="text-3xl md:text-5xl font-medium text-white mb-4">Operating Protocols</h2>
+<p class="text-gray-500 max-w-xl mx-auto">The architecture of reliability.</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<div class="group relative bg-surface border border-white/5 p-8 hover:border-primary/50 transition-all duration-500">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-8 flex justify-between items-start">
+<div class="size-12 bg-white/5 border border-white/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">rule</span>
+</div>
+<span class="font-mono text-[10px] text-gray-600">MOD_01</span>
+</div>
+<h3 class="text-xl text-white font-bold mb-3">Rules Engine</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    A comprehensive library of 200+ validation rules checking schema consistency, event parameters, and user properties against GA4 best practices.
+                </p>
+<div class="h-32 bg-black border border-white/10 rounded overflow-hidden relative">
+<div class="absolute inset-0 p-3 font-mono text-[10px] text-green-400/80 leading-loose opacity-60">
+                        if(event_name == 'purchase' &amp;&amp; !currency) {<br/>
+                          flag_error('MISSING_CURRENCY');<br/>
+                        }
+                    </div>
+</div>
+</div>
+<div class="group relative bg-surface border border-white/5 p-8 hover:border-primary/50 transition-all duration-500">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-8 flex justify-between items-start">
+<div class="size-12 bg-white/5 border border-white/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<span class="font-mono text-[10px] text-gray-600">MOD_02</span>
+</div>
+<h3 class="text-xl text-white font-bold mb-3">Orchestration</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Connects disparate data streams to identify cross-platform discrepancies. The orchestrator maps the flow of data from source to reporting interface.
+                </p>
+<div class="h-32 bg-black border border-white/10 rounded flex items-center justify-center relative">
+<div class="flex items-center gap-2">
+<div class="size-2 bg-gray-600 rounded-full"></div>
+<div class="w-8 h-px bg-gray-600"></div>
+<div class="size-3 bg-primary rounded-full shadow-[0_0_10px_#FD68B3]"></div>
+<div class="w-8 h-px bg-gray-600"></div>
+<div class="size-2 bg-gray-600 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="group relative bg-surface border border-white/5 p-8 hover:border-primary/50 transition-all duration-500">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="mb-8 flex justify-between items-start">
+<div class="size-12 bg-white/5 border border-white/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">settings_input_component</span>
+</div>
+<span class="font-mono text-[10px] text-gray-600">MOD_03</span>
+</div>
+<h3 class="text-xl text-white font-bold mb-3">Decision Interface</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Not just alerts, but decisions. The interface prioritizes critical failures based on revenue impact and provides copy-paste fix scripts.
+                </p>
+<div class="h-32 bg-black border border-white/10 rounded p-3 font-mono text-[10px]">
+<div class="flex justify-between border-b border-white/10 pb-1 mb-1">
+<span class="text-gray-500">ACTION</span>
+<span class="text-primary">EXECUTE</span>
+</div>
+<div class="text-gray-300">&gt; Deploy GTM Patch v1.2</div>
+<div class="text-gray-300">&gt; Re-index BigQuery Table</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface border-t border-white/5">
+<div class="max-w-[1400px] mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-medium text-white mb-6">Business Impact Analysis</h2>
+<p class="text-gray-400 mb-8">
+                    When your operating system is flawed, your output is corrupted. AuditOS restores integrity to the metrics that drive your revenue.
+                </p>
+<ul class="space-y-4 font-mono text-sm text-gray-300">
+<li class="flex items-center gap-3">
+<span class="text-primary material-symbols-outlined text-lg">check_circle</span>
+                        Recover lost attribution data
+                    </li>
+<li class="flex items-center gap-3">
+<span class="text-primary material-symbols-outlined text-lg">check_circle</span>
+                        Eliminate "Unassigned" traffic
+                    </li>
+<li class="flex items-center gap-3">
+<span class="text-primary material-symbols-outlined text-lg">check_circle</span>
+                        Validate consent mode implementation
+                    </li>
+</ul>
+</div>
+<div class="grid grid-cols-2 gap-px bg-white/10 border border-white/10">
+<div class="bg-background-dark p-8 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors">
+<span class="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">+23%</span>
+<span class="text-xs text-gray-500 uppercase tracking-widest">Attribution Uplift</span>
+</div>
+<div class="bg-background-dark p-8 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors">
+<span class="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">0%</span>
+<span class="text-xs text-gray-500 uppercase tracking-widest">Data Loss</span>
+</div>
+<div class="bg-background-dark p-8 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors">
+<span class="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">100%</span>
+<span class="text-xs text-gray-500 uppercase tracking-widest">Schema Match</span>
+</div>
+<div class="bg-background-dark p-8 flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-colors">
+<span class="text-4xl font-bold text-white mb-2 group-hover:text-primary transition-colors">24/7</span>
+<span class="text-xs text-gray-500 uppercase tracking-widest">Monitoring</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-background-dark pt-32 pb-12 border-t border-white/10 relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="max-w-[800px] mx-auto px-6 text-center relative z-10">
+<h2 class="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">
+            Initialize your audit sequence.
+        </h2>
+<p class="text-gray-400 mb-10 text-lg">
+            Connect AuditOS to your GA4 property. Receive your intelligence report in minutes.
+        </p>
+<div class="max-w-[480px] mx-auto relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-blue-600 rounded blur opacity-20 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative flex">
+<input class="w-full h-14 bg-black border border-white/20 pl-6 pr-36 text-white placeholder-gray-600 focus:outline-none focus:border-primary font-mono text-sm" placeholder="https://yourwebsite.com" type="text"/>
+<button class="absolute right-1 top-1 h-12 px-6 bg-primary text-black font-bold text-xs uppercase tracking-widest hover:bg-white transition-colors">
+                    Start Scan
+                </button>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 font-mono">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gray-500">memory</span>
+<span class="text-gray-400">AuditOS System</span>
+</div>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">PROTOCOL_PRIVACY</a>
+<a class="hover:text-primary transition-colors" href="#">TERMS_OF_USE</a>
+<a class="hover:text-primary transition-colors" href="#">SECURITY_CLEARANCE</a>
+</div>
+<p>© 2023 AuditOS Intelligence.</p>
+</div>
+</div>
+</footer>
+</body></html>

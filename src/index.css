@@ -3,54 +3,66 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* Import Tech Styles */
+@import './styles/cyberpunk.css';
+@import './styles/animations.css';
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* Cyberpunk Ultra Dark Theme - Precisian DVQ */
+    --background: 2 100% 2%;        /* #050505 - Ultra dark background */
+    --foreground: 0 0% 100%;        /* #ffffff - Pure white text */
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 4%;                /* #0a0a0a - Elevated surfaces */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 270 70% 65%;
-    --primary-foreground: 222 47% 6%;
+    /* Precisian Pink Primary (Neon) #FD68B3 */
+    --primary: 330 88% 70%;          /* #FD68B3 - Precisian pink neon */
+    --primary-foreground: 0 0% 0%;   /* Black text on pink */
 
-    --secondary: 222 30% 14%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 8%;            /* #151515 - Highest elevation */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 12%;               /* #1f1f1f - Muted backgrounds */
+    --muted-foreground: 0 0% 40%;    /* #666666 - Muted text */
 
-    --accent: 270 70% 65%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 330 88% 70%;           /* Same as primary - Precisian pink */
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;        /* #ff4444 - Error red neon */
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 20%;
-    --input: 222 30% 20%;
-    --ring: 270 70% 65%;
+    --border: 0 0% 20%;              /* rgba(255,255,255,0.1) equivalent */
+    --input: 0 0% 20%;
+    --ring: 330 88% 70%;             /* Precisian pink focus ring */
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;                /* Slightly sharper corners for tech look */
 
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(270 70% 65%) 0%, hsl(290 80% 55%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 10%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 8%) 100%);
-    --glow-primary: 0 0 60px hsl(270 70% 65% / 0.3);
-    --shadow-card: 0 8px 32px hsl(222 47% 4% / 0.5);
+    /* Tech Custom Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(330 88% 70%) 0%, hsl(270 100% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(2 100% 2%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 4%) 0%, hsl(0 0% 6%) 100%);
+    --glow-primary: 0 0 20px hsl(330 88% 70% / 0.5);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.8);
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 270 70% 65%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 30% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 20%;
-    --sidebar-ring: 270 70% 65%;
+    /* Terminal/Tech Colors */
+    --success-neon: 120 100% 50%;    /* #00ff88 - Matrix green */
+    --warning-neon: 35 100% 50%;     /* #ffaa00 - Amber warning */
+    --info-neon: 270 100% 50%;       /* #7000ff - Purple secondary */
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 330 88% 70%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 330 88% 70%;
   }
 
   .light {

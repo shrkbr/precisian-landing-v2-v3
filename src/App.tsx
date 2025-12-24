@@ -18,6 +18,7 @@ import AIInsights from "./pages/AIInsights";
 import AdTechs from "./pages/AdTechs";
 import IntelligencePartner from "./pages/IntelligencePartner";
 import SobreNos from "./pages/SobreNos";
+import TechDemo from "./pages/TechDemo";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/adtechs" element={<AdTechs />} />
           <Route path="/intelligence-partner" element={<IntelligencePartner />} />
           <Route path="/sobre-nos" element={<SobreNos />} />
+          <Route path="/tech" element={<TechDemo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

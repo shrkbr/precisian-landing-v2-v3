@@ -1,0 +1,394 @@
+/* ===================================
+   CYBERPUNK THEME - PRECISIAN DVQ
+   ================================= */
+
+:root {
+  /* Background Layers - Ultra Dark */
+  --bg-primary: #050505;      /* Main background - deepest black */
+  --bg-surface: #0a0a0a;      /* Elevated surfaces - cards, modals */
+  --bg-elevated: #151515;     /* Highest elevation - tooltips, dropdowns */
+
+  /* Precisian Brand (adaptado para neon) */
+  --accent-primary: #FD68B3;   /* Rosa Precisian (neon) */
+  --accent-secondary: #7000ff; /* Roxo complementar */
+  --accent-success: #00ff88;   /* Verde success neon */
+  --accent-warning: #ffaa00;   /* Laranja warning neon */
+  --accent-error: #ff4444;     /* Vermelho error neon */
+
+  /* Text Hierarchy */
+  --text-primary: #ffffff;     /* Títulos, texto importante */
+  --text-secondary: #a0a0a0;   /* Texto secundário */
+  --text-muted: #666666;       /* Labels, placeholders */
+
+  /* Borders & Outlines */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-focus: rgba(253, 104, 179, 0.5);
+  --border-active: rgba(253, 104, 179, 0.8);
+
+  /* Glow Effects */
+  --glow-primary: 0 0 10px var(--accent-primary);
+  --glow-primary-intense: 0 0 20px var(--accent-primary);
+  --glow-secondary: 0 0 10px var(--accent-secondary);
+  --glow-success: 0 0 10px var(--accent-success);
+}
+
+/* ===================================
+   GRID PATTERN BACKGROUND
+   ================================= */
+.tech-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.tech-grid-animated {
+  animation: techGridFloat 20s ease-in-out infinite;
+}
+
+@keyframes techGridFloat {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 25px 25px; }
+}
+
+/* ===================================
+   NEON GLOW EFFECTS
+   ================================= */
+.tech-glow-primary {
+  box-shadow:
+    0 0 5px var(--accent-primary),
+    0 0 10px var(--accent-primary),
+    0 0 15px var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  transition: all 0.3s ease;
+}
+
+.tech-glow-primary:hover {
+  box-shadow:
+    0 0 10px var(--accent-primary),
+    0 0 20px var(--accent-primary),
+    0 0 30px var(--accent-primary);
+}
+
+.tech-glow-secondary {
+  box-shadow: 0 0 10px var(--accent-secondary);
+  border: 1px solid var(--accent-secondary);
+}
+
+.tech-glow-success {
+  box-shadow: 0 0 10px var(--accent-success);
+  border: 1px solid var(--accent-success);
+}
+
+/* ===================================
+   SCANNING LINE ANIMATION
+   ================================= */
+.tech-scanning-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  animation: techScan 3s linear infinite;
+  z-index: 10;
+}
+
+@keyframes techScan {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* ===================================
+   TERMINAL TEXT EFFECTS
+   ================================= */
+.tech-terminal-text {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--accent-success);
+  text-shadow: 0 0 10px currentColor;
+  line-height: 1.4;
+}
+
+.tech-terminal-cursor {
+  display: inline-block;
+  background: var(--accent-primary);
+  animation: techBlink 1s infinite;
+}
+
+@keyframes techBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.tech-terminal-prompt {
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.tech-terminal-error {
+  color: var(--accent-error);
+}
+
+.tech-terminal-success {
+  color: var(--accent-success);
+}
+
+.tech-terminal-warning {
+  color: var(--accent-warning);
+}
+
+/* ===================================
+   TECH BUTTONS
+   ================================= */
+.tech-button {
+  background: linear-gradient(135deg,
+    rgba(253, 104, 179, 0.1),
+    rgba(112, 0, 255, 0.1)
+  );
+  border: 1px solid var(--accent-primary);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(253, 104, 179, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.tech-button:hover::before {
+  left: 100%;
+}
+
+.tech-button:hover {
+  background: var(--accent-primary);
+  color: #000000;
+  box-shadow: 0 0 20px var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.tech-button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-default);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.tech-button-secondary:hover {
+  border-color: var(--accent-primary);
+  background: rgba(253, 104, 179, 0.1);
+  box-shadow: 0 0 15px rgba(253, 104, 179, 0.3);
+}
+
+/* ===================================
+   TECH CARDS
+   ================================= */
+.tech-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow:
+    0 0 20px rgba(253, 104, 179, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.tech-card-elevated {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-focus);
+  box-shadow: 0 0 30px rgba(253, 104, 179, 0.1);
+}
+
+/* ===================================
+   PROGRESS INDICATORS
+   ================================= */
+.tech-progress-bar {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-progress-fill {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  box-shadow: 0 0 10px var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+.tech-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: techProgressScan 2s linear infinite;
+}
+
+@keyframes techProgressScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===================================
+   STATUS BADGES
+   ================================= */
+.tech-badge {
+  background: rgba(253, 104, 179, 0.1);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.tech-badge-success {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: var(--accent-success);
+  color: var(--accent-success);
+}
+
+.tech-badge-error {
+  background: rgba(255, 68, 68, 0.1);
+  border-color: var(--accent-error);
+  color: var(--accent-error);
+}
+
+.tech-badge-warning {
+  background: rgba(255, 170, 0, 0.1);
+  border-color: var(--accent-warning);
+  color: var(--accent-warning);
+}
+
+/* ===================================
+   CORNER BORDERS (AuditOS Style)
+   ================================= */
+.tech-corner-borders {
+  position: relative;
+}
+
+.tech-corner-borders::before,
+.tech-corner-borders::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: var(--accent-primary);
+  border-style: solid;
+  transition: all 0.3s ease;
+}
+
+.tech-corner-borders::before {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.tech-corner-borders::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+.tech-corner-borders:hover::before,
+.tech-corner-borders:hover::after {
+  width: 25px;
+  height: 25px;
+  border-color: var(--accent-primary);
+  filter: drop-shadow(0 0 8px var(--accent-primary));
+}
+
+/* ===================================
+   UTILITIES
+   ================================= */
+.tech-text-neon {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.tech-text-terminal {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-success);
+}
+
+.tech-backdrop-blur {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.tech-border-glow {
+  border: 1px solid var(--accent-primary);
+  box-shadow: inset 0 0 10px rgba(253, 104, 179, 0.1);
+}
+
+/* ===================================
+   RESPONSIVE ADJUSTMENTS
+   ================================= */
+@media (max-width: 768px) {
+  .tech-glow-primary,
+  .tech-glow-secondary,
+  .tech-glow-success {
+    box-shadow: 0 0 5px currentColor; /* Reduzir glow em mobile */
+  }
+
+  .tech-scanning-line {
+    animation-duration: 4s; /* Slower animation em mobile */
+  }
+
+  .tech-grid-pattern {
+    background-size: 30px 30px; /* Menor grid em mobile */
+  }
+}
+
+/* ===================================
+   REDUCE MOTION SUPPORT
+   ================================= */
+@media (prefers-reduced-motion: reduce) {
+  .tech-scanning-line,
+  .tech-grid-animated,
+  .tech-progress-bar::after {
+    animation: none;
+  }
+
+  .tech-button::before {
+    transition: none;
+  }
+
+  .tech-terminal-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}

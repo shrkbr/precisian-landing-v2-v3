@@ -1,0 +1,429 @@
+/* ===================================
+   TECH ANIMATIONS - PRECISIAN DVQ
+   ================================= */
+
+/* ===================================
+   TERMINAL TYPING EFFECTS
+   ================================= */
+@keyframes techTypewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.tech-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: techTypewriter 2s steps(40, end);
+  border-right: 2px solid var(--accent-primary);
+}
+
+@keyframes techCursorBlink {
+  0%, 50% { border-color: var(--accent-primary); }
+  51%, 100% { border-color: transparent; }
+}
+
+.tech-cursor-blink {
+  animation: techCursorBlink 1s infinite;
+}
+
+/* ===================================
+   SCANNING & RADAR EFFECTS
+   ================================= */
+@keyframes techRadarSweep {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+.tech-radar-sweep {
+  animation: techRadarSweep 3s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes techPulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.tech-pulse-ring {
+  animation: techPulseRing 2s ease-out infinite;
+}
+
+/* ===================================
+   GLITCH EFFECTS
+   ================================= */
+@keyframes techGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.tech-glitch {
+  animation: techGlitch 0.3s ease-in-out infinite;
+}
+
+.tech-glitch:hover {
+  animation-duration: 0.1s;
+}
+
+@keyframes techGlitchText {
+  0% {
+    text-shadow:
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+      0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow:
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+      0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  16% {
+    text-shadow:
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow:
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow:
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow:
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow:
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+      0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.tech-glitch-text {
+  animation: techGlitchText 0.5s ease-in-out infinite alternate;
+}
+
+/* ===================================
+   LOADING ANIMATIONS
+   ================================= */
+@keyframes techMatrixRain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.tech-matrix-rain {
+  animation: techMatrixRain 4s linear infinite;
+  color: var(--accent-success);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes techSpinner {
+  0% {
+    transform: rotate(0deg);
+    border-color: var(--accent-primary) transparent transparent transparent;
+  }
+  25% {
+    border-color: transparent var(--accent-primary) transparent transparent;
+  }
+  50% {
+    border-color: transparent transparent var(--accent-primary) transparent;
+  }
+  75% {
+    border-color: transparent transparent transparent var(--accent-primary);
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: var(--accent-primary) transparent transparent transparent;
+  }
+}
+
+.tech-spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: techSpinner 1s linear infinite;
+}
+
+/* ===================================
+   HOLOGRAM EFFECTS
+   ================================= */
+@keyframes techHologram {
+  0%, 100% {
+    opacity: 0.8;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    filter: hue-rotate(90deg);
+  }
+}
+
+.tech-hologram {
+  animation: techHologram 3s ease-in-out infinite;
+  background: linear-gradient(
+    45deg,
+    rgba(253, 104, 179, 0.1),
+    rgba(112, 0, 255, 0.1),
+    rgba(0, 255, 136, 0.1)
+  );
+  border: 1px solid var(--accent-primary);
+  position: relative;
+}
+
+.tech-hologram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.03) 2px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* ===================================
+   FLOATING PARTICLES
+   ================================= */
+@keyframes techFloatUp {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+.tech-float-particle {
+  animation: techFloatUp 8s ease-in-out infinite;
+  width: 2px;
+  height: 2px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-primary);
+  border-radius: 50%;
+}
+
+.tech-float-particle:nth-child(2n) {
+  animation-delay: -2s;
+  animation-duration: 6s;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 6px var(--accent-secondary);
+}
+
+.tech-float-particle:nth-child(3n) {
+  animation-delay: -4s;
+  animation-duration: 10s;
+  background: var(--accent-success);
+  box-shadow: 0 0 6px var(--accent-success);
+}
+
+/* ===================================
+   DATA STREAM ANIMATION
+   ================================= */
+@keyframes techDataStream {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+.tech-data-stream {
+  animation: techDataStream 3s linear infinite;
+  color: var(--accent-success);
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+/* ===================================
+   NEON PULSING
+   ================================= */
+@keyframes techNeonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px var(--accent-primary),
+      0 0 10px var(--accent-primary),
+      0 0 15px var(--accent-primary);
+    box-shadow:
+      0 0 5px var(--accent-primary),
+      0 0 10px var(--accent-primary);
+  }
+  50% {
+    text-shadow:
+      0 0 10px var(--accent-primary),
+      0 0 20px var(--accent-primary),
+      0 0 30px var(--accent-primary);
+    box-shadow:
+      0 0 10px var(--accent-primary),
+      0 0 20px var(--accent-primary),
+      0 0 30px var(--accent-primary);
+  }
+}
+
+.tech-neon-pulse {
+  animation: techNeonPulse 2s ease-in-out infinite;
+}
+
+/* ===================================
+   MATRIX DIGITAL RAIN
+   ================================= */
+@keyframes techDigitalRain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.tech-digital-rain {
+  position: absolute;
+  color: var(--accent-success);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1;
+  animation: techDigitalRain 5s linear infinite;
+  opacity: 0.6;
+}
+
+/* ===================================
+   RESPONSIVE & ACCESSIBILITY
+   ================================= */
+@media (max-width: 768px) {
+  .tech-glitch {
+    animation-duration: 0.5s; /* Slower glitch on mobile */
+  }
+
+  .tech-spinner {
+    width: 30px;
+    height: 30px; /* Smaller spinner on mobile */
+  }
+
+  .tech-float-particle {
+    animation-duration: 12s; /* Slower particles on mobile */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-typewriter,
+  .tech-cursor-blink,
+  .tech-radar-sweep,
+  .tech-pulse-ring,
+  .tech-glitch,
+  .tech-glitch-text,
+  .tech-matrix-rain,
+  .tech-spinner,
+  .tech-hologram,
+  .tech-float-particle,
+  .tech-data-stream,
+  .tech-neon-pulse,
+  .tech-digital-rain {
+    animation: none;
+  }
+
+  .tech-typewriter {
+    width: 100%;
+    border-right: none;
+  }
+}
+
+/* ===================================
+   HOVER ACTIVATION ANIMATIONS
+   ================================= */
+.tech-activate-on-hover {
+  animation-play-state: paused;
+}
+
+.tech-activate-on-hover:hover {
+  animation-play-state: running;
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATION
+   ================================= */
+.tech-will-change {
+  will-change: transform, opacity, filter;
+}
+
+.tech-gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

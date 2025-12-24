@@ -1,24 +1,230 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precisian | Data Analytics & Marketing Intelligence</title>
-    <meta name="description" content="Precisian traz clareza e certeza de todos os dados de investimento e performance para todos os canais de atuação dos nossos clientes. Soluções em GA4, GTM, Attribution e AI." />
-    <meta name="author" content="Precisian" />
-    <meta name="keywords" content="data analytics, google analytics, GA4, GTM, marketing attribution, data visualization, AI insights, marketing mix modeling" />
+    <title>Precisian – AI-Powered GA4 Audit Platform | DVQ Framework by Nação Digital</title>
 
-    <meta property="og:title" content="Precisian | Data Analytics & Marketing Intelligence" />
-    <meta property="og:description" content="Clareza e certeza em todos os dados de investimento e performance. Soluções customizadas em analytics." />
+    <!-- GEO: Canonical URL -->
+    <link rel="canonical" href="https://precisian.io" />
+
+    <!-- GEO: Entity-rich meta description for LLM understanding -->
+    <meta name="description" content="Precisian is an AI-powered data integrity platform by Nação Digital (FCamara group). Uses proprietary DVQ (Data Value Quotient) framework to audit GA4 analytics, fix 50%+ data discrepancies between GA4 and ERP, and enable confident marketing decisions. Free diagnostic available." />
+
+    <!-- GEO: Comprehensive keywords with entities -->
+    <meta name="keywords" content="Precisian, DVQ Framework, Data Value Quotient, GA4 audit, Google Analytics 4, data integrity, marketing attribution, Marketing Mix Modeling, MMM, Nação Digital, FCamara, data governance, server-side tracking, e-commerce analytics, ROAS optimization" />
+
+    <meta name="author" content="Precisian by Nação Digital (FCamara Group)" />
+
+    <!-- GEO: Robots directive for indexing -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- GEO: Open Graph with entity context -->
+    <meta property="og:title" content="Precisian – AI-Powered GA4 Audit Platform | DVQ Framework" />
+    <meta property="og:description" content="Stop trusting data you haven't audited. Precisian uses the DVQ framework to validate GA4 data, eliminate 50%+ discrepancies, and enable evidence-based marketing decisions. By Nação Digital (FCamara)." />
+    <meta property="og:site_name" content="Precisian" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Precisian | Data Analytics & Marketing Intelligence" />
-    <meta name="twitter:description" content="Clareza e certeza em todos os dados de investimento e performance." />
+    <meta name="twitter:site" content="@nacaodigital" />
+    <meta name="twitter:title" content="Precisian – AI-Powered GA4 Audit Platform | DVQ Framework" />
+    <meta name="twitter:description" content="Stop trusting data you haven't audited. Precisian uses the DVQ framework to validate GA4 data." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
-    <link rel="canonical" href="https://precisian.com" />
+
+    <!-- GEO: Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Precisian",
+      "alternateName": "ND Precisian",
+      "url": "https://precisian.io",
+      "logo": "https://precisian.io/logo.png",
+      "description": "Precisian is an AI-powered data integrity platform that audits, validates, and orchestrates GA4 analytics data using the proprietary DVQ (Data Value Quotient) framework.",
+      "foundingDate": "2024",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Nação Digital",
+        "url": "https://nacaodigital.com",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "FCamara",
+          "url": "https://fcamara.com"
+        }
+      },
+      "knowsAbout": [
+        "Google Analytics 4 (GA4)",
+        "Data Quality Assurance",
+        "Marketing Attribution",
+        "Marketing Mix Modeling (MMM)",
+        "Data Governance",
+        "Server-Side Tracking",
+        "E-commerce Analytics"
+      ],
+      "sameAs": [
+        "https://linkedin.com/company/nacaodigital",
+        "https://twitter.com/nacaodigital"
+      ]
+    }
+    </script>
+
+    <!-- GEO: SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Precisian",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Analytics Audit Platform",
+      "description": "AI-Powered data integrity system for GA4 analytics. Transform analytics chaos into decision confidence with the DVQ (Data Value Quotient) framework.",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free GA4 diagnostic audit available"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "47",
+        "bestRating": "5"
+      },
+      "featureList": [
+        "Full Journey Mapping - Complete tracking from first touch to post-purchase",
+        "Data Integration - Connect GA4, ERP, CRM into single source of truth",
+        "Data Governance - GDPR-compliant with encryption by design",
+        "Smart Attribution - Beyond last-click with Marketing Mix Modeling",
+        "Real-time Insights - AI analyst available 24/7",
+        "Catalog Intelligence - Universal feed management for Google, Meta, TikTok"
+      ]
+    }
+    </script>
+
+    <!-- GEO: FAQ Schema - Critical for LLM visibility -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is DVQ (Data Value Quotient)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DVQ (Data Value Quotient) is a proprietary decision integrity framework developed by Precisian. It measures the value of having 100% correct data across the full customer journey. DVQ consists of 5 pillars: Full Journey Mapping, Data Integration & Centralization, Data Governance & Availability, Smart Attribution Modeling, and Real-time & Predictive Insights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is GA4 data often unreliable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GA4 data is often unreliable because: 1) Whoever delivers performance data is intrinsically biased - platforms optimize for their incentives, not truth. 2) Discrepancies of 50%+ commonly exist between GA4 and ERP systems. 3) Last-click attribution ignores the full customer journey. 4) Missing micro-events and post-purchase data create blind spots."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Precisian?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Precisian is an AI-powered data integrity platform by Nação Digital (FCamara group) that audits, validates, and orchestrates GA4 analytics data. It uses the proprietary DVQ framework to ensure 100% data accuracy across the customer journey, enabling confident marketing decisions based on verified data rather than assumptions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Precisian fix GA4 vs ERP data discrepancies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Precisian Core creates a reconciliation layer that: 1) Integrates multiple platforms with unique IDs, 2) Reconciles attribution across GA4, ERP, and media platforms, 3) Implements GDPR-compliant encryption by design, 4) Provides real-time sync to eliminate data drift. Case study: Nuvio Foods reduced 50%+ discrepancy to 100% data consistency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Marketing Mix Modeling (MMM)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Marketing Mix Modeling (MMM) is an AI-powered attribution approach offered by Precisian that goes beyond last-click attribution. It creates a single source of truth combining online and offline data, measures incrementality of each channel, provides budget optimization simulation, and enables evidence-based marketing decisions."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- GEO: HowTo Schema for DVQ Implementation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Achieve 100% Data Integrity with DVQ Framework",
+      "description": "Step-by-step guide to implementing the Data Value Quotient (DVQ) framework for complete analytics data integrity.",
+      "totalTime": "P30D",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Run Free Diagnostic",
+          "text": "Connect your GA4 property and run the free diagnostic to identify data integrity gaps.",
+          "url": "https://precisian.io/#cta"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Map Full Customer Journey",
+          "text": "Implement Precisian Journey to capture all micro-events from first touch to post-purchase, including server-side tracking for reliability.",
+          "url": "https://precisian.io/#journey"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Integrate Data Sources",
+          "text": "Use Precisian Core to connect GA4, ERP, CRM, and media platforms into a single source of truth with unique IDs.",
+          "url": "https://precisian.io/#core"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Implement Smart Attribution",
+          "text": "Deploy Marketing Mix Modeling (MMM) to measure true channel incrementality beyond last-click attribution.",
+          "url": "https://precisian.io/#attribution"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Enable Real-time Insights",
+          "text": "Activate Precisian Clarity for 24/7 AI analyst access, smart alerts, and multi-level depth analysis.",
+          "url": "https://precisian.io/#clarity"
+        }
+      ]
+    }
+    </script>
+
+    <!-- GEO: WebSite Schema with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Precisian",
+      "url": "https://precisian.io",
+      "description": "AI-Powered GA4 Audit Platform with DVQ Framework",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nação Digital"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://precisian.io/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
 
   <body>

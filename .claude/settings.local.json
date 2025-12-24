@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(plan)",
+      "Skill(plan:*)",
+      "Skill(impl-feature)",
+      "Skill(impl-feature:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
