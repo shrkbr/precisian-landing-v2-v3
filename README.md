@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# Precisian - AI-Powered GA4 Audit Platform
 
-## Project info
+> **DVQ Framework** - Data Value Quotient for Decision Integrity
 
-**URL**: https://lovable.dev/projects/ca098d43-286a-4ca2-b3ec-8af987188389
+Precisian is an AI-powered data integrity platform by [Nação Digital](https://nacaodigital.com) (FCamara group) that audits, validates, and orchestrates GA4 analytics data.
 
-## How can I edit this code?
+## Live Site
 
-There are several ways of editing your application.
+- **Production**: https://precisian.io
+- **Preview**: https://precisian-insight-forge.lovable.app
 
-**Use Lovable**
+## Quick Start
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ca098d43-286a-4ca2-b3ec-8af987188389) and start prompting.
+```bash
+# Install dependencies
+npm install
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server (http://localhost:8080)
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## Tech Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Technology | Purpose |
+|------------|---------|
+| **Vite** | Build tool with SWC |
+| **React 18** | UI framework |
+| **TypeScript** | Type safety |
+| **Tailwind CSS** | Styling |
+| **shadcn/ui** | Component library |
+| **Zustand** | State management |
+| **React Hook Form + Zod** | Forms & validation |
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── home/           # Homepage sections
+│   ├── layout/         # Navbar, Footer, Layout
+│   ├── tech/           # Tech/cyberpunk UI components
+│   ├── interactive/    # ROI Calculator, DVQ Stepper
+│   ├── forms/          # Contact, Lead qualification
+│   └── ui/             # shadcn/ui primitives
+├── pages/              # Route pages
+├── hooks/              # Custom hooks
+├── services/           # API services (CRM, email, analytics)
+├── store/              # Zustand stores
+├── styles/             # Global CSS (animations, cyberpunk)
+├── types/              # TypeScript types
+└── utils/              # Helpers, constants, validation
+```
 
-## What technologies are used for this project?
+## Key Features
 
-This project is built with:
+### DVQ Framework (Data Value Quotient)
+Proprietary decision integrity framework with 5 pillars:
+1. **Full Journey Mapping** - Micro-events from first touch to post-purchase
+2. **Data Integration** - Single source of truth across GA4, ERP, CRM
+3. **Data Governance** - GDPR-compliant with encryption by design
+4. **Smart Attribution** - Beyond last-click with Marketing Mix Modeling
+5. **Real-time Insights** - AI analyst available 24/7
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Operating Modules
+- **Precisian Journey** - End-to-end customer journey mapping
+- **Precisian Catalog** - Universal feed management (Google, Meta, TikTok)
+- **Precisian Core** - GA4-ERP reconciliation layer
+- **Precisian Attribution & MMM** - Marketing Mix Modeling
+- **Precisian Clarity** - 24/7 AI-powered insights
 
-## How can I deploy this project?
+### GEO Optimization (Generative Engine Optimization)
+Site optimized for LLM visibility with:
+- JSON-LD schemas (Organization, FAQ, HowTo, WebSite)
+- Entity-rich meta descriptions
+- Semantic HTML5 structure
+- Quotable content blocks
 
-Simply open [Lovable](https://lovable.dev/projects/ca098d43-286a-4ca2-b3ec-8af987188389) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+### VPS Deployment
 
-Yes, you can!
+```bash
+# 1. Build locally
+npm run build
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# 2. Upload to VPS
+rsync -avz --delete dist/ user@vps:/var/www/precisian.io/
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# 3. Nginx config (SPA routing required!)
+server {
+    listen 80;
+    server_name precisian.io www.precisian.io;
+    root /var/www/precisian.io;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff2)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+
+# 4. SSL with Certbot
+sudo certbot --nginx -d precisian.io -d www.precisian.io
+```
+
+### Vercel/Netlify
+Connect GitHub repo for automatic deployments.
+
+## Environment Variables
+
+No environment variables required for the landing page.
+
+## Related Projects
+
+| Project | Description | Repo |
+|---------|-------------|------|
+| **AuditOS** | GA4 Audit SaaS Platform | [nd-trusty](https://github.com/shrkbr/nd-trusty) |
+| **Precisian** | Landing Page (this repo) | precisian-insight-forge |
+
+## Development with Lovable
+
+This project was bootstrapped with [Lovable](https://lovable.dev).
+
+- **Lovable Project**: https://lovable.dev/projects/ca098d43-286a-4ca2-b3ec-8af987188389
+- Changes via Lovable auto-commit to this repo
+- Local changes push back to Lovable
+
+## License
+
+Proprietary - Nação Digital Solutions S.A.
+
+---
+
+**A product by [Nação Digital](https://nacaodigital.com)** | Part of FCamara Group
