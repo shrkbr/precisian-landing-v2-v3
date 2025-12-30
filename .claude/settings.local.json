@@ -8,7 +8,13 @@
       "Bash(npm install:*)",
       "Bash(npm run lint)",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(copy \"C:\\\\Users\\\\Naçao Digital\\\\Downloads\\\\precisian_logo_black.png\" \"c:\\\\Github\\\\precisian-insight-forge\\\\public\\\\precisian_logo_black.png\")",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)"
     ]
   }
 }

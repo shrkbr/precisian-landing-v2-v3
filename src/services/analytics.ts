@@ -202,3 +202,97 @@ class AnalyticsService {
 }
 
 export const analyticsService = new AnalyticsService();
+
+// DataLayer integration for GA4
+export function pushToDataLayer(event: Record<string, unknown>): void {
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      ...event,
+      timestamp: Date.now(),
+    });
+
+    if (process.env.NODE_ENV === 'development') {
+      console.info('[DataLayer] Event pushed:', event);
+    }
+  } catch (error) {
+    console.error('[DataLayer] Push error:', error);
+  }
+}
+
+// Diagnostic-specific tracking
+export function trackDiagnosticStart(source: 'hero' | 'nav' | 'cta', platform?: string): void {
+  pushToDataLayer({
+    event: 'diagnostic_start',
+    source,
+    platform: platform || 'unknown',
+  });
+}
+
+export function trackDiagnosticComplete(
+  dvqScore: number,
+  riskLevel: 'high' | 'medium' | 'low',
+  failureModesCount: number
+): void {
+  pushToDataLayer({
+    event: 'diagnostic_complete',
+    dvq_score: dvqScore,
+    risk_level: riskLevel,
+    failure_modes_count: failureModesCount,
+  });
+}
+
+export function trackDiagnosticLeadCapture(email: string, platform: string): void {
+  pushToDataLayer({
+    event: 'diagnostic_lead_capture',
+    email_domain: email.split('@')[1], // Only domain for privacy
+    platform,
+  });
+}
+
+// Video tracking
+export function trackVideoEvent(
+  action: 'play' | 'pause' | 'complete',
+  videoId: string,
+  videoTitle: string,
+  percentWatched?: number
+): void {
+  pushToDataLayer({
+    event: `video_${action}`,
+    video_id: videoId,
+    video_title: videoTitle,
+    percent_watched: percentWatched,
+  });
+}
+
+// Section visibility tracking
+export function trackSectionView(sectionId: string, sectionName: string): void {
+  pushToDataLayer({
+    event: 'section_view',
+    section_id: sectionId,
+    section_name: sectionName,
+  });
+}
+
+// DVQ diagram interaction
+export function trackDVQInteraction(
+  action: 'click' | 'hover',
+  layerId: string,
+  layerName: string
+): void {
+  pushToDataLayer({
+    event: `dvq_layer_${action}`,
+    layer_id: layerId,
+    layer_name: layerName,
+  });
+}
+
+// CTA tracking
+export function trackCTAClick(ctaId: string, ctaText: string, location: string): void {
+  pushToDataLayer({
+    event: 'cta_click',
+    cta_id: ctaId,
+    cta_text: ctaText,
+    cta_location: location,
+  });
+}

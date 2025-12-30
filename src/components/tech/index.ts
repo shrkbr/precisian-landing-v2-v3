@@ -35,6 +35,13 @@ import { TerminalCard } from './TerminalCard';
 import { SectionHeader } from './SectionHeader';
 import { CaseCard } from './CaseCard';
 import { DiagnosticConsole } from './DiagnosticConsole';
+
+// V1 Components
+import { VideoSection } from './VideoSection';
+import { ClientLogos } from './ClientLogos';
+import { PainCards } from './PainCards';
+import { DVQDiagram } from './DVQDiagram';
+import { DVQSection } from './DVQSection';
 import { useTypingEffect, useMultiLineTyping } from '../../hooks/tech/useTypingEffect';
 import { usePrefersReducedMotion, useAnimationConfig } from '../../hooks/tech/usePrefersReducedMotion';
 
@@ -99,6 +106,13 @@ export {
   SectionHeader,
   CaseCard,
   DiagnosticConsole,
+
+  // V1 Components
+  VideoSection,
+  ClientLogos,
+  PainCards,
+  DVQDiagram,
+  DVQSection,
 
   // Hooks
   useTypingEffect,

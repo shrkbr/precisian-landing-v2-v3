@@ -2,6 +2,8 @@
 export * from './lead';
 export * from './calculator';
 export * from './api';
+export * from './diagnostic';
+export * from './analytics';
 
 // Re-export commonly used types
 export type {
