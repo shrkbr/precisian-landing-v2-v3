@@ -914,10 +914,10 @@ function CTASection() {
           className="text-center mb-12"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            Quanto seus dados estão custando para você?
+            Quanto seus dados estão<br />custando para você?
           </h2>
           <p className="text-[#9CA3AF]">
-            Em 48 horas, você vai saber exatamente onde está o vazamento. Diagnóstico gratuito. Sem compromisso. Sem enrolação.
+            Em 48 horas, você vai saber exatamente onde está o vazamento.<br /> Diagnóstico gratuito. Sem compromisso. Sem enrolação.
           </p>
         </motion.div>
 

@@ -1,17 +1,18 @@
 /**
- * LandingV3 - Precisian Landing Page
- * Based on V2 with expanded DVQ modules as full-width sections
+ * LandingV4 - Precisian Landing Page
+ * Based on V3 with new DVQ circuit connector section
  *
  * Sections:
  * 1. Hero - "Seus dados estão mentindo para você"
- * 2. Clientes - Social proof
- * 3. DVQ Intro - Metodologia
- * 4. DVQ Modules - 6 full-width sections with Problem/System/Case
- * 5. Data Intelligence Partner
- * 6. AuditOS - Audit tool
- * 7. Partners - Tech logos
- * 8. CTA Final - Form
- * 9. Footer
+ * 2. DVQ Framework - Circuit connector cards (NEW)
+ * 3. Clientes - Social proof
+ * 4. DVQ Intro - Metodologia
+ * 5. DVQ Modules - 6 full-width sections with Problem/System/Case
+ * 6. Data Intelligence Partner
+ * 7. AuditOS - Audit tool
+ * 8. Partners - Tech logos
+ * 9. CTA Final - Form
+ * 10. Footer
  */
 
 import { useState, useEffect, useRef } from 'react';
@@ -47,22 +48,22 @@ const colors = {
 };
 
 const styles = `
-  .landing-v3 {
+  .landing-v4 {
     background-color: ${colors.background};
     color: ${colors.textPrimary};
     font-family: 'Inter', sans-serif;
   }
 
-  .landing-v3 .font-display {
+  .landing-v4 .font-display {
     font-family: 'Space Grotesk', sans-serif;
   }
 
-  .landing-v3 .font-mono {
+  .landing-v4 .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
 
   /* Grid Background */
-  .landing-v3 .bg-grid {
+  .landing-v4 .bg-grid {
     background-image:
       linear-gradient(rgba(253, 104, 179, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(253, 104, 179, 0.03) 1px, transparent 1px);
@@ -70,27 +71,27 @@ const styles = `
   }
 
   /* Glow Effects */
-  .landing-v3 .glow-primary {
+  .landing-v4 .glow-primary {
     box-shadow: 0 0 30px rgba(253, 104, 179, 0.3);
   }
 
-  .landing-v3 .glow-primary-subtle {
+  .landing-v4 .glow-primary-subtle {
     box-shadow: 0 0 15px rgba(253, 104, 179, 0.2);
   }
 
-  .landing-v3 .text-glow {
+  .landing-v4 .text-glow {
     text-shadow: 0 0 10px rgba(253, 104, 179, 0.5);
   }
 
   /* Glassmorphism */
-  .landing-v3 .glass {
+  .landing-v4 .glass {
     background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(253, 104, 179, 0.2);
   }
 
   /* Button Primary - Precisian Style */
-  .landing-v3 .btn-primary {
+  .landing-v4 .btn-primary {
     position: relative;
     background: #FD68B3;
     color: black;
@@ -99,9 +100,10 @@ const styles = `
     letter-spacing: 0.1em;
     overflow: hidden;
     transition: all 0.3s ease;
+    border-radius: 4px;
   }
 
-  .landing-v3 .btn-primary::before {
+  .landing-v4 .btn-primary::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -112,17 +114,18 @@ const styles = `
     transition: transform 0.3s ease;
   }
 
-  .landing-v3 .btn-primary:hover::before {
+  .landing-v4 .btn-primary:hover::before {
     transform: translateY(-100%);
   }
 
-  .landing-v3 .btn-primary:hover {
+  .landing-v4 .btn-primary:hover {
     background: #ff8dc7;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(253, 104, 179, 0.4);
   }
 
   /* Button Outline - Precisian Style */
-  .landing-v3 .btn-outline {
+  .landing-v4 .btn-outline {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
@@ -130,28 +133,30 @@ const styles = `
     text-transform: uppercase;
     letter-spacing: 0.1em;
     transition: all 0.3s ease;
+    border-radius: 4px;
   }
 
-  .landing-v3 .btn-outline:hover {
+  .landing-v4 .btn-outline:hover {
     border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
   }
 
   /* Custom scrollbar */
-  .landing-v3::-webkit-scrollbar {
+  .landing-v4::-webkit-scrollbar {
     width: 8px;
   }
-  .landing-v3::-webkit-scrollbar-track {
+  .landing-v4::-webkit-scrollbar-track {
     background: ${colors.background};
   }
-  .landing-v3::-webkit-scrollbar-thumb {
+  .landing-v4::-webkit-scrollbar-thumb {
     background: ${colors.surfaceLight};
   }
-  .landing-v3::-webkit-scrollbar-thumb:hover {
+  .landing-v4::-webkit-scrollbar-thumb:hover {
     background: ${colors.primary};
   }
 
   /* Noise overlay */
-  .landing-v3 .noise-overlay {
+  .landing-v4 .noise-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -174,11 +179,11 @@ const styles = `
     50% { box-shadow: 0 0 40px rgba(255, 45, 120, 0.8); }
   }
 
-  .landing-v3 .animate-float {
+  .landing-v4 .animate-float {
     animation: float 3s ease-in-out infinite;
   }
 
-  .landing-v3 .animate-pulse-glow {
+  .landing-v4 .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
 `;
@@ -195,7 +200,7 @@ const clients = [
 const dvqModules = [
   {
     id: '01',
-    code: 'MOD_01',
+    code: 'MOD_01 - Behavior Mapping',
     tag: 'CAPTURE',
     // Provocação do V2
     title: 'Você sabe o que está medindo?',
@@ -234,7 +239,7 @@ const dvqModules = [
   },
   {
     id: '02',
-    code: 'MOD_02',
+    code: 'MOD_02 - Data Integration',
     tag: 'CONNECT',
     title: 'Seus dados conversam entre si?',
     provocation: 'Google Ads diz 200 conversões. Meta diz 180. GA4 diz 150. Vtex diz 120 pedidos. Financeiro diz que faturou 95. Quem está certo? Todos. E nenhum. Se cada plataforma conta uma história diferente, você não tem dados. Tem opiniões.',
@@ -269,7 +274,7 @@ const dvqModules = [
   },
   {
     id: '03',
-    code: 'MOD_03',
+    code: 'MOD_03 - Governance',
     tag: 'GOVERN',
     title: 'Alguém cuida disso ou só reza?',
     provocation: 'Tag de conversão parou de disparar há 2 semanas. Ninguém viu. Desenvolvedor subiu código novo e quebrou o dataLayer. Ninguém testou. Você descobre quando o ROAS despenca. Sem governança, seus dados têm prazo de validade.',
@@ -304,7 +309,7 @@ const dvqModules = [
   },
   {
     id: '04',
-    code: 'MOD_04',
+    code: 'MOD_04 - Smart Attribution',
     tag: 'ATTRIBUTE',
     title: 'Você sabe quem realmente vendeu?',
     provocation: 'Google Ads mostra ROAS de 8. Meta mostra ROAS de 6. Os dois reivindicando a mesma conversão. Last click diz que foi branded search. Mas o cara só pesquisou sua marca porque viu 3 anúncios no Instagram. Se você só olha last click, você está premiando quem chegou por último.',
@@ -340,7 +345,7 @@ const dvqModules = [
   },
   {
     id: '05',
-    code: 'MOD_05',
+    code: 'MOD_05 - Predictive Insights',
     tag: 'DECIDE',
     title: 'Quem na sua empresa consegue usar esses dados?',
     provocation: 'Dashboard com 47 gráficos. Ninguém sabe o que olhar primeiro. Analista apresenta. Diretor pergunta "o que eu faço com isso?". Silêncio. Dados que não viram decisão são só custo de armazenamento.',
@@ -375,7 +380,7 @@ const dvqModules = [
   },
   {
     id: '06',
-    code: 'MOD_06',
+    code: 'PLUS MOD_06 - Catalog Intelligence',
     tag: 'CATALOG',
     title: 'Seus produtos estão prontos para vender?',
     provocation: '50.000 SKUs. Google reprova 30%. Meta rejeita 20%. TikTok nem sincroniza. Produto em ruptura? Ad continua rodando. Preço mudou? Feed mostra o antigo. Você está pagando para perder dinheiro.',
@@ -408,13 +413,6 @@ const dvqModules = [
     },
     icon: Package,
   },
-];
-
-const dvqScores = [
-  { range: '0-20%', status: 'CEGO', desc: 'Você toma decisões no escuro', color: '#666666' },
-  { range: '21-50%', status: 'FRAGMENTADO', desc: 'Dados existem, mas não servem', color: '#888888' },
-  { range: '51-80%', status: 'FUNCIONAL', desc: 'Opera, mas perde oportunidades', color: '#aaaaaa' },
-  { range: '81-100%', status: 'PRECISIAN', desc: 'Dados viram vantagem competitiva', color: '#FD68B3' },
 ];
 
 const auditosFeatures = [
@@ -545,7 +543,7 @@ function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
             Seus dados estão{' '}
             <span className="text-glow" style={{ color: colors.primary }}>
               mentindo
@@ -553,8 +551,8 @@ function HeroSection() {
             para você.
           </h1>
 
-          <p className="text-lg md:text-xl text-[#9CA3AF] leading-relaxed mb-8 max-w-xl">
-            Quem entrega os dados está intrinsecamente enviesado. Google quer que você invista mais no Google. Meta quer que você invista mais na Meta. A Precisian quer que você saiba a verdade. E tome a melhor decisão.
+          <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8 max-w-xl font-light">
+            Quem vende a mídia não deveria auditar o resultado. Google e Meta são otimizados para o faturamento deles, não para o seu lucro. A Precisian é a camada de integridade que elimina esse conflito de interesse, para que você decida com a verdade.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5">
@@ -615,117 +613,539 @@ function HeroSection() {
   );
 }
 
+// DVQ Steps data with descriptions
+const dvqSteps = [
+  {
+    id: 1,
+    title: 'Behavior Mapping',
+    shortTitle: 'Behavior\nMapping',
+    icon: '01',
+    description: 'Mapeamento completo de micro-eventos e jornadas reais do usuário.',
+    details: 'Capturamos cada interação significativa: cliques, scrolls, tempo de permanência, eventos de e-commerce. Identificamos padrões de comportamento que revelam a verdadeira jornada do cliente.',
+  },
+  {
+    id: 2,
+    title: 'Data Integration',
+    shortTitle: 'Data\nIntegration',
+    icon: '02',
+    description: 'Integração de dados de múltiplas fontes em uma visão unificada.',
+    details: 'Conectamos GA4, CRM, ERP, plataformas de mídia e dados offline. Eliminamos silos e criamos uma fonte única de verdade para suas decisões.',
+  },
+  {
+    id: 3,
+    title: 'Governance',
+    shortTitle: 'Governance',
+    icon: '03',
+    description: 'Governança de dados com consistência e compliance.',
+    details: 'Estabelecemos políticas de qualidade, nomenclatura padronizada e processos de validação. Garantimos que seus dados sejam confiáveis e auditáveis.',
+  },
+  {
+    id: 4,
+    title: 'Smart Attribution',
+    shortTitle: 'Smart\nAttribution',
+    icon: '04',
+    description: 'Atribuição inteligente que revela o papel real de cada canal.',
+    details: 'Utilizamos modelos de atribuição avançados (MMM, MTA) para entender o verdadeiro impacto de cada touchpoint na conversão. Fim dos créditos duplicados.',
+  },
+  {
+    id: 5,
+    title: 'Predictive Insights',
+    shortTitle: 'Predictive\nInsights',
+    icon: '05',
+    description: 'Insights preditivos que antecipam resultados e guiam ações.',
+    details: 'Transformamos dados históricos em previsões acionáveis. Identifique oportunidades antes da concorrência e otimize investimentos com base em cenários futuros.',
+  },
+];
+
+// Circuit connector between hexagons
+function CircuitConnector({ isAnimated = true }: { isAnimated?: boolean }) {
+  return (
+    <div className="flex items-center h-full mx-1">
+      {/* Left solder dot */}
+      <div
+        className="w-2 h-2 rounded-full flex-shrink-0"
+        style={{
+          backgroundColor: colors.primary,
+          boxShadow: `0 0 8px ${colors.primary}`,
+        }}
+      />
+      {/* Connecting line */}
+      <div className="relative w-8 md:w-12 h-0.5 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: `${colors.primary}40` }}
+        />
+        {isAnimated && (
+          <motion.div
+            className="absolute top-0 left-0 h-full w-4"
+            style={{
+              background: `linear-gradient(90deg, transparent, ${colors.primary}, transparent)`,
+            }}
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        )}
+      </div>
+      {/* Right solder dot */}
+      <div
+        className="w-2 h-2 rounded-full flex-shrink-0"
+        style={{
+          backgroundColor: colors.primary,
+          boxShadow: `0 0 8px ${colors.primary}`,
+        }}
+      />
+    </div>
+  );
+}
+
+// Hexagon module component using CSS clip-path
+function HexagonModule({
+  step,
+  delay = 0,
+  isInView,
+  isActive,
+  onHover,
+}: {
+  step: typeof dvqSteps[0];
+  delay?: number;
+  isInView: boolean;
+  isActive: boolean;
+  onHover: (active: boolean) => void;
+}) {
+  // Flat-top hexagon clip-path for perfect symmetry
+  const hexClipPath = 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)';
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ delay, duration: 0.5 }}
+      onMouseEnter={() => onHover(true)}
+      onMouseLeave={() => onHover(false)}
+      className="relative cursor-pointer group"
+    >
+      {/* Hexagon container - square for symmetry */}
+      <div
+        className="w-[110px] h-[110px] md:w-[130px] md:h-[130px] lg:w-[140px] lg:h-[140px] relative transition-all duration-300"
+        style={{
+          clipPath: hexClipPath,
+          backgroundColor: isActive ? colors.primary : colors.surface,
+          filter: isActive
+            ? `drop-shadow(0 0 20px ${colors.primary}80)`
+            : `drop-shadow(0 0 8px ${colors.primary}40)`,
+        }}
+      >
+        {/* Inner content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-3 transition-all duration-300">
+          {/* Step number */}
+          <span
+            className="font-mono text-[10px] md:text-xs mb-1 transition-colors"
+            style={{ color: isActive ? colors.surface : colors.primary }}
+          >
+            {step.icon}
+          </span>
+          {/* Title */}
+          <span
+            className={`text-[10px] md:text-xs font-bold text-center leading-tight whitespace-pre-line transition-colors ${
+              isActive ? 'text-black' : 'text-white'
+            }`}
+          >
+            {step.shortTitle}
+          </span>
+        </div>
+      </div>
+
+      {/* Border effect */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon
+          points="50,0 100,25 100,75 50,100 0,75 0,25"
+          fill="none"
+          stroke={colors.primary}
+          strokeWidth="2"
+          className="transition-all duration-300"
+          style={{
+            filter: isActive ? `drop-shadow(0 0 4px ${colors.primary})` : 'none',
+          }}
+        />
+      </svg>
+    </motion.div>
+  );
+}
+
+function DVQFrameworkSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
+  const activeStepData = activeStep !== null ? dvqSteps.find(s => s.id === activeStep) : null;
+
+  return (
+    <section
+      ref={ref}
+      className="py-20 md:py-28 px-4 md:px-6 relative overflow-hidden"
+      style={{ backgroundColor: '#050505' }}
+    >
+      {/* Background grid pattern */}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `
+            linear-gradient(${colors.primary}20 1px, transparent 1px),
+            linear-gradient(90deg, ${colors.primary}20 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* ZONE 1: Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-12 md:mb-16"
+        >
+          <span
+            className="inline-block font-mono text-xs uppercase tracking-widest px-4 py-2 rounded mb-6"
+            style={{ border: `1px solid ${colors.primary}`, color: colors.primary }}
+          >
+            Framework Proprietário
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
+            Data Value Quotient (DVQ)
+          </h2>
+          <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Um framework para transformar dados confusos em decisões claras.
+          </p>
+        </motion.div>
+
+        {/* ZONE 2: Hexagon Diagram - Horizontal Row (Desktop) */}
+        <div className="hidden md:flex justify-center items-center mb-12">
+          {dvqSteps.map((step, index) => (
+            <div key={step.id} className="flex items-center">
+              <HexagonModule
+                step={step}
+                delay={index * 0.15}
+                isInView={isInView}
+                isActive={activeStep === step.id}
+                onHover={(active) => setActiveStep(active ? step.id : null)}
+              />
+              {/* Circuit connector between hexagons */}
+              {index < dvqSteps.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
+                  transition={{ delay: index * 0.15 + 0.3 }}
+                >
+                  <CircuitConnector isAnimated={isInView} />
+                </motion.div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* ZONE 2: Hexagon Diagram - Vertical Stack (Mobile) */}
+        <div className="md:hidden flex flex-col items-center gap-2 mb-8">
+          {dvqSteps.map((step, index) => (
+            <div key={step.id} className="flex flex-col items-center">
+              <HexagonModule
+                step={step}
+                delay={index * 0.1}
+                isInView={isInView}
+                isActive={activeStep === step.id}
+                onHover={(active) => setActiveStep(active ? step.id : null)}
+              />
+              {/* Vertical connector */}
+              {index < dvqSteps.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0, scaleY: 0 }}
+                  animate={isInView ? { opacity: 1, scaleY: 1 } : {}}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                  className="flex flex-col items-center py-1"
+                >
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{
+                      backgroundColor: colors.primary,
+                      boxShadow: `0 0 8px ${colors.primary}`,
+                    }}
+                  />
+                  <div
+                    className="w-0.5 h-6 relative overflow-hidden"
+                    style={{ backgroundColor: `${colors.primary}40` }}
+                  >
+                    <motion.div
+                      className="absolute left-0 w-full h-3"
+                      style={{
+                        background: `linear-gradient(180deg, transparent, ${colors.primary}, transparent)`,
+                      }}
+                      animate={{ y: ['-100%', '200%'] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{
+                      backgroundColor: colors.primary,
+                      boxShadow: `0 0 8px ${colors.primary}`,
+                    }}
+                  />
+                </motion.div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* ZONE 3: System Readout Box (Below Hexagons) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div
+            className="relative p-6 md:p-8 rounded-lg border transition-all duration-300"
+            style={{
+              backgroundColor: '#0F0F0F',
+              borderColor: activeStepData ? colors.primary : '#1a1a1a',
+              boxShadow: activeStepData ? `0 0 30px ${colors.primary}30` : 'none',
+            }}
+          >
+            {/* Terminal header */}
+            <div
+              className="flex items-center gap-3 pb-4 mb-4 border-b"
+              style={{ borderColor: '#1a1a1a' }}
+            >
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/60" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
+                <div className="w-3 h-3 rounded-full bg-green-500/60" />
+              </div>
+              <span
+                className="font-mono text-xs uppercase tracking-wider"
+                style={{ color: colors.primary }}
+              >
+                {activeStepData ? `STEP ${activeStepData.icon}` : 'SYSTEM READOUT'}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="min-h-[120px] flex flex-col justify-center">
+              {activeStepData ? (
+                <motion.div
+                  key={activeStepData.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h4
+                    className="text-xl md:text-2xl font-bold mb-3"
+                    style={{ color: colors.primary }}
+                  >
+                    {activeStepData.title}
+                  </h4>
+                  <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-3">
+                    {activeStepData.description}
+                  </p>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {activeStepData.details}
+                  </p>
+                </motion.div>
+              ) : (
+                <div className="text-center">
+                  <p className="text-gray-500 text-sm font-mono mb-2">
+                    [ AWAITING INPUT ]
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    Passe o mouse sobre um módulo para ver detalhes
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Progress indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {dvqSteps.map((step) => (
+                <div
+                  key={step.id}
+                  className="w-2 h-2 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: activeStep === step.id ? colors.primary : '#2a2a2a',
+                    boxShadow: activeStep === step.id ? `0 0 10px ${colors.primary}` : 'none',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* DVQ Score Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="mt-20 pt-16 border-t border-[#262626]"
+        >
+          {/* Header */}
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
+              Qual é o seu DVQ Score?
+            </h3>
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
+              <span className="text-white font-semibold block mb-2">
+                Quanto você paga por confiar no dado errado?
+              </span>
+              O gap entre "ter dados" e "decidir com segurança" é onde o lucro se perde. Essa falha não é humana, é sistêmica. O DVQ mapeia os cinco pontos cegos da sua operação para mostrar não apenas o que aconteceu, mas se você pode confiar no que está vendo.
+            </p>
+          </div>
+
+          {/* Score Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* Cego */}
+            <div className="bg-[#0F0F0F] border border-[#262626] p-8 rounded-sm text-center group hover:border-gray-600 transition-all duration-300 opacity-60 hover:opacity-100">
+              <div className="font-mono text-3xl font-bold text-gray-500 mb-2">0-20%</div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-red-500 mb-4">Cego</div>
+              <p className="text-gray-500 text-xs">Você toma decisões no escuro.</p>
+            </div>
+
+            {/* Fragmentado */}
+            <div className="bg-[#0F0F0F] border border-[#262626] p-8 rounded-sm text-center group hover:border-gray-600 transition-all duration-300 opacity-80 hover:opacity-100">
+              <div className="font-mono text-3xl font-bold text-gray-400 mb-2">21-50%</div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-yellow-600 mb-4">Fragmentado</div>
+              <p className="text-gray-500 text-xs">Dados existem, mas não servem para decisão.</p>
+            </div>
+
+            {/* Funcional */}
+            <div className="bg-[#0F0F0F] border border-[#262626] p-8 rounded-sm text-center group hover:border-white transition-all duration-300">
+              <div className="font-mono text-3xl font-bold text-white mb-2">51-80%</div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-blue-400 mb-4">Funcional</div>
+              <p className="text-gray-400 text-xs">Opera bem, mas perde oportunidades de escala.</p>
+            </div>
+
+            {/* Precisian - Destaque */}
+            <div
+              className="bg-[#0F0F0F] border border-[#E94E9A] p-8 rounded-sm text-center relative transform lg:-translate-y-2 transition-all duration-300"
+              style={{ boxShadow: '0 0 20px rgba(233, 78, 154, 0.15)' }}
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E94E9A] text-white text-[10px] font-mono px-2 py-1 rounded-sm">
+                TARGET
+              </div>
+              <div
+                className="font-mono text-3xl font-bold mb-2"
+                style={{ color: '#E94E9A', textShadow: '0 0 5px rgba(233, 78, 154, 0.8)' }}
+              >
+                81-100%
+              </div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-white mb-4">Precisian</div>
+              <p className="text-gray-300 text-xs">Dados viram vantagem competitiva injusta.</p>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex justify-center">
+            <a
+              href="#cta"
+              className="group relative bg-[#E94E9A] hover:bg-[#D63385] text-white font-bold py-4 px-10 uppercase tracking-widest text-sm transition-all rounded-sm"
+              style={{
+                boxShadow: '0 0 20px rgba(233, 78, 154, 0.3)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 30px rgba(233, 78, 154, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(233, 78, 154, 0.3)';
+              }}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Discover My Score
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function ClientsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  // Duplicate clients array for seamless loop
+  const duplicatedClients = [...clients, ...clients, ...clients];
+
   return (
-    <section ref={ref} className="py-20 border-y" style={{ borderColor: colors.surfaceLight, backgroundColor: colors.surface }}>
+    <section ref={ref} className="py-20 border-y overflow-hidden" style={{ borderColor: colors.surfaceLight, backgroundColor: colors.surface }}>
+      {/* Marquee animation keyframes */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); }
+        }
+      `}</style>
+
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">
             Empresas que pararam de adivinhar
           </h2>
-          <p className="text-[#9CA3AF]">
+          <p className="text-gray-400 text-lg">
             +200 projetos de dados implementados. +R$500M em receita corretamente atribuída.
           </p>
         </motion.div>
+      </div>
 
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-          {clients.map((client, i) => (
-            <motion.div
-              key={client}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1 }}
-              className="text-2xl font-bold text-white/30 hover:text-white transition-colors cursor-default"
+      {/* Marquee container with fade edges */}
+      <div className="relative">
+        {/* Left fade gradient */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+          style={{
+            background: `linear-gradient(to right, ${colors.surface}, transparent)`,
+          }}
+        />
+
+        {/* Right fade gradient */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+          style={{
+            background: `linear-gradient(to left, ${colors.surface}, transparent)`,
+          }}
+        />
+
+        {/* Scrolling content */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          className="flex whitespace-nowrap"
+          style={{
+            animation: isInView ? 'marquee 30s linear infinite' : 'none',
+          }}
+        >
+          {duplicatedClients.map((client, i) => (
+            <span
+              key={`${client}-${i}`}
+              className="text-2xl md:text-3xl font-bold text-white/40 mx-8 md:mx-12 inline-block"
             >
               {client}
-            </motion.div>
+            </span>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function DVQIntroSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section id="dvq" ref={ref} className="py-24 md:py-32 bg-grid relative">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <span
-            className="inline-block font-mono text-xs uppercase tracking-widest px-4 py-2 rounded mb-6"
-            style={{ border: `1px solid ${colors.primary}`, color: colors.primary }}
-          >
-            Metodologia Proprietária
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            DVQ: Data Value Quotient
-          </h2>
-          <p className="text-lg text-[#9CA3AF] max-w-2xl mx-auto">
-            O índice que revela quanto você está perdendo por confiar nos dados errados.
-          </p>
-        </motion.div>
-
-        {/* Intro text */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-          className="text-center text-[#9CA3AF] max-w-3xl mx-auto mb-16 leading-relaxed"
-        >
-          A maioria das empresas coleta dados. Poucas confiam neles. O gap entre "ter dados" e "decidir com dados" é enorme. E ele não está na ferramenta, no dashboard ou no analista. Está em cinco pontos críticos que raramente são tratados como sistema. O DVQ mapeia cada um e mostra onde o valor está vazando.
-        </motion.p>
-
-        {/* DVQ Score Visual */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.4 }}
-          className="glass rounded-xl p-8"
-        >
-          <h3 className="font-display text-2xl font-semibold text-center mb-8">
-            Qual é o seu DVQ Score?
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {dvqScores.map((score, i) => (
-              <div
-                key={i}
-                className="text-center p-4 rounded-lg"
-                style={{ backgroundColor: `${score.color}10`, border: `1px solid ${score.color}30` }}
-              >
-                <div className="text-2xl font-bold mb-1" style={{ color: score.color }}>
-                  {score.range}
-                </div>
-                <div className="font-mono text-sm font-semibold mb-2" style={{ color: score.color }}>
-                  {score.status}
-                </div>
-                <p className="text-xs text-[#9CA3AF]">{score.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <a
-              href="#cta"
-              className="inline-flex items-center gap-2 px-8 py-4 btn-primary text-sm"
-            >
-              Discover My Score
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </div>
         </motion.div>
       </div>
     </section>
@@ -754,15 +1174,15 @@ function DVQModuleSection({ module, index }: { module: typeof dvqModules[0]; ind
             className={isEven ? 'order-1' : 'order-1 lg:order-2'}
           >
             {/* Module Badge */}
-            <span className="font-mono text-sm tracking-wider mb-4 block" style={{ color: colors.primary }}>
+            <span className="font-mono text-xs uppercase tracking-widest mb-4 block" style={{ color: colors.primary }}>
               {module.code}
             </span>
 
             {/* Title - Provocação */}
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{module.title}</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">{module.title}</h3>
 
             {/* Provocation text */}
-            <p className="text-[#9CA3AF] mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               {module.provocation}
             </p>
 
@@ -904,10 +1324,10 @@ function DataIntelligencePartnerSection() {
             >
               // Continuous Operation
             </span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
               Data Intelligence Partner
             </h2>
-            <p className="text-lg text-[#a0a0a0] leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
               Continuous operation. Always-on governance. Continuous releases. Your data infrastructure evolves with your business.
             </p>
           </motion.div>
@@ -965,13 +1385,13 @@ function AuditOSSection() {
             >
               // Sistema Proprietário
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
               AuditOS
             </h2>
-            <p className="text-lg text-[#9CA3AF] mb-6">
+            <p className="text-lg md:text-xl text-gray-400 mb-6 font-light">
               O sistema operacional lógico da Precisian para auditoria do GA4.
             </p>
-            <p className="text-[#9CA3AF] mb-8 leading-relaxed">
+            <p className="text-gray-400 mb-8 leading-relaxed">
               Ele não substitui o GA4. Ele opera acima dele. Antes de um dado virar insight, ele passa pelo AuditOS. Antes de você confiar num número, o AuditOS já validou.
             </p>
 
@@ -1064,7 +1484,7 @@ function PartnersSection() {
           >
             Parceiros e Ferramentas
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             Tecnologias que Dominamos
           </h2>
         </motion.div>
@@ -1120,10 +1540,10 @@ function CTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
             Quanto seus dados estão<br />custando para você?
           </h2>
-          <p className="text-[#9CA3AF]">
+          <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed">
             Em 48 horas, você vai saber exatamente onde está o vazamento. Diagnóstico gratuito. Sem compromisso. Sem enrolação.
           </p>
         </motion.div>
@@ -1296,18 +1716,18 @@ function Footer() {
 // MAIN PAGE
 // ============================================
 
-export default function LandingV3() {
+export default function LandingV4() {
   return (
     <>
       <style>{styles}</style>
-      <div className="landing-v3 min-h-screen">
+      <div className="landing-v4 min-h-screen">
         {/* Noise overlay */}
         <div className="noise-overlay" />
 
         <Header />
         <HeroSection />
+        <DVQFrameworkSection />
         <ClientsSection />
-        <DVQIntroSection />
 
         {/* DVQ Modules - Full-width sections */}
         {dvqModules.map((module, index) => (

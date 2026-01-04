@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 const Index = lazy(() => import("./pages/Index"));
 const LandingV2 = lazy(() => import("./pages/LandingV2"));
 const LandingV3 = lazy(() => import("./pages/LandingV3"));
+const LandingV4 = lazy(() => import("./pages/LandingV4"));
 
 // Solution pages at /solutions/*
 const JourneyPage = lazy(() => import("./pages/solutions/JourneyPage"));
@@ -45,8 +46,11 @@ const App = () => (
             {/* Landing V2 - New design */}
             <Route path="/v2" element={<LandingV2 />} />
 
-            {/* Landing V3 - Latest design */}
+            {/* Landing V3 - Expanded DVQ modules */}
             <Route path="/v3" element={<LandingV3 />} />
+
+            {/* Landing V4 - Circuit connector design */}
+            <Route path="/v4" element={<LandingV4 />} />
 
             {/* Solution pages at /solutions/* */}
             <Route path="/solutions/journey" element={<JourneyPage />} />
