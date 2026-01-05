@@ -192,8 +192,19 @@ const styles = `
 // DATA
 // ============================================
 
-const clients = [
-  'BCMed', 'Pague Menos', 'Nuvio Foods', 'Venancio', 'Drogasil'
+const clientLogos = [
+  { name: 'Alltech', logo: '/marcas/alltech.png' },
+  { name: 'C&C', logo: '/marcas/CeC.png' },
+  { name: 'Dr. Consulta', logo: '/marcas/dr-consulta-41.png' },
+  { name: 'Drogaria São Paulo', logo: '/marcas/drogaria-sao-paulo-41.png' },
+  { name: 'Drogarias Pacheco', logo: '/marcas/drogarias-pacheco-41.png' },
+  { name: 'Gipsyy', logo: '/marcas/gipsyy-41.png' },
+  { name: 'NVIDIA', logo: '/marcas/nvidia-41.png' },
+  { name: 'Ricca', logo: '/marcas/ricca.png' },
+  { name: 'Surya', logo: '/marcas/surya.png' },
+  { name: 'Tilibra', logo: '/marcas/tilibra.png' },
+  { name: 'Tramontina', logo: '/marcas/tramontina.png' },
+  { name: 'Três Corações', logo: '/marcas/tres-coracoes-41.png' },
 ];
 
 // DVQ Modules with expanded structure (Problem/System/Case)
@@ -1083,8 +1094,8 @@ function ClientsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  // Duplicate clients array for seamless loop
-  const duplicatedClients = [...clients, ...clients, ...clients];
+  // Duplicate logos array for seamless loop
+  const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
     <section ref={ref} className="py-20 border-y overflow-hidden" style={{ borderColor: colors.surfaceLight, backgroundColor: colors.surface }}>
@@ -1133,18 +1144,18 @@ function ClientsSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          className="flex whitespace-nowrap"
+          className="flex items-center whitespace-nowrap"
           style={{
-            animation: isInView ? 'marquee 30s linear infinite' : 'none',
+            animation: isInView ? 'marquee 40s linear infinite' : 'none',
           }}
         >
-          {duplicatedClients.map((client, i) => (
-            <span
-              key={`${client}-${i}`}
-              className="text-2xl md:text-3xl font-bold text-white/40 mx-8 md:mx-12 inline-block"
-            >
-              {client}
-            </span>
+          {duplicatedLogos.map((client, i) => (
+            <img
+              key={`${client.name}-${i}`}
+              src={client.logo}
+              alt={client.name}
+              className="h-8 md:h-10 w-auto mx-8 md:mx-12 inline-block opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+            />
           ))}
         </motion.div>
       </div>
@@ -1153,6 +1164,7 @@ function ClientsSection() {
 }
 
 // DVQ Module Section - Full-width layout for each module
+
 function DVQModuleSection({ module, index }: { module: typeof dvqModules[0]; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
