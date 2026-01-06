@@ -40,16 +40,13 @@ const App = () => (
       <BrowserRouter>
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            {/* Main landing page (DVQ-first) */}
-            <Route path="/" element={<Index />} />
+            {/* Main landing page - V4 */}
+            <Route path="/" element={<LandingV4 />} />
 
-            {/* Landing V2 - New design */}
+            {/* Legacy versions */}
+            <Route path="/v1" element={<Index />} />
             <Route path="/v2" element={<LandingV2 />} />
-
-            {/* Landing V3 - Expanded DVQ modules */}
             <Route path="/v3" element={<LandingV3 />} />
-
-            {/* Landing V4 - Circuit connector design */}
             <Route path="/v4" element={<LandingV4 />} />
 
             {/* Solution pages at /solutions/* */}
