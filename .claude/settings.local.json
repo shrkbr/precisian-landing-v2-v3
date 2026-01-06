@@ -14,7 +14,12 @@
       "Bash(curl:*)",
       "Bash(copy \"C:\\\\Users\\\\Naçao Digital\\\\Downloads\\\\precisian_logo_black.png\" \"c:\\\\Github\\\\precisian-insight-forge\\\\public\\\\precisian_logo_black.png\")",
       "Bash(gh repo create:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(cp:*)",
+      "Bash(powershell:*)"
     ]
   }
 }

@@ -217,7 +217,7 @@ const dvqModules = [
     title: 'Você sabe o que está medindo?',
     provocation: 'Seu GA4 diz que teve 500 conversões. Mas quantas eram duplicadas? Quantas eram bots? Quantas aconteceram de verdade? Se você não mapeia micro-eventos reais, você está medindo ruído.',
     // Solução
-    solution: 'DVQ - Precisian Journey',
+    solution: 'Precisian Journey',
     dvqLayers: ['Journey Mapping'],
     // Problem section
     problem: {
@@ -254,7 +254,7 @@ const dvqModules = [
     tag: 'CONNECT',
     title: 'Seus dados conversam entre si?',
     provocation: 'Google Ads diz 200 conversões. Meta diz 180. GA4 diz 150. Vtex diz 120 pedidos. Financeiro diz que faturou 95. Quem está certo? Todos. E nenhum. Se cada plataforma conta uma história diferente, você não tem dados. Tem opiniões.',
-    solution: 'DVQ - Precisian Core',
+    solution: 'Precisian Core',
     dvqLayers: ['Integration', 'Governance', 'Attribution'],
     problem: {
       headline: 'GA4 diz uma coisa. ERP diz outra.',
@@ -289,7 +289,7 @@ const dvqModules = [
     tag: 'GOVERN',
     title: 'Alguém cuida disso ou só reza?',
     provocation: 'Tag de conversão parou de disparar há 2 semanas. Ninguém viu. Desenvolvedor subiu código novo e quebrou o dataLayer. Ninguém testou. Você descobre quando o ROAS despenca. Sem governança, seus dados têm prazo de validade.',
-    solution: 'DVQ - Precisian AuditOS + Intelligence Partner',
+    solution: 'Precisian AuditOS + Intelligence Partner',
     dvqLayers: ['Governance'],
     problem: {
       headline: 'Seus dados quebram sem você saber.',
@@ -324,7 +324,7 @@ const dvqModules = [
     tag: 'ATTRIBUTE',
     title: 'Você sabe quem realmente vendeu?',
     provocation: 'Google Ads mostra ROAS de 8. Meta mostra ROAS de 6. Os dois reivindicando a mesma conversão. Last click diz que foi branded search. Mas o cara só pesquisou sua marca porque viu 3 anúncios no Instagram. Se você só olha last click, você está premiando quem chegou por último.',
-    solution: 'DVQ - Precisian MMM (Marketing Mix Modeling)',
+    solution: 'Precisian MMM (Marketing Mix Modeling)',
     dvqLayers: ['Attribution', 'Insights'],
     problem: {
       headline: 'Last click não é estratégia.',
@@ -360,7 +360,7 @@ const dvqModules = [
     tag: 'DECIDE',
     title: 'Quem na sua empresa consegue usar esses dados?',
     provocation: 'Dashboard com 47 gráficos. Ninguém sabe o que olhar primeiro. Analista apresenta. Diretor pergunta "o que eu faço com isso?". Silêncio. Dados que não viram decisão são só custo de armazenamento.',
-    solution: 'DVQ - Precisian Clarity',
+    solution: 'Precisian Clarity',
     dvqLayers: ['Insights'],
     problem: {
       headline: 'Ver não é decidir.',
@@ -395,7 +395,7 @@ const dvqModules = [
     tag: 'CATALOG',
     title: 'Seus produtos estão prontos para vender?',
     provocation: '50.000 SKUs. Google reprova 30%. Meta rejeita 20%. TikTok nem sincroniza. Produto em ruptura? Ad continua rodando. Preço mudou? Feed mostra o antigo. Você está pagando para perder dinheiro.',
-    solution: 'DVQ - Precisian Catalog',
+    solution: 'Precisian Catalog',
     dvqLayers: ['Integration', 'Governance'],
     problem: {
       headline: 'Mídia depende de dados de catálogo que você não controla.',
@@ -478,13 +478,18 @@ function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {['DVQ', 'Soluções', 'AuditOS', 'Cases', 'Contato'].map((item) => (
+          {[
+            { label: 'Soluções', href: '#soluções' },
+            { label: 'Enterprise', href: '#enterprise' },
+            { label: 'Clientes', href: '#clientes' },
+            { label: 'Contato', href: '#cta' },
+          ].map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               className="text-sm text-[#9CA3AF] hover:text-white transition-colors"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -494,7 +499,7 @@ function Header() {
           href="#cta"
           className="hidden md:flex items-center gap-2 px-8 py-3 btn-primary text-sm"
         >
-          Run Diagnostic
+          Agende diagnóstico
           <ArrowRight className="w-4 h-4" />
         </a>
 
@@ -515,14 +520,19 @@ function Header() {
           className="md:hidden glass border-t border-white/10"
         >
           <nav className="flex flex-col p-6 gap-4">
-            {['DVQ', 'Soluções', 'AuditOS', 'Cases', 'Contato'].map((item) => (
+            {[
+              { label: 'Soluções', href: '#soluções' },
+              { label: 'Enterprise', href: '#enterprise' },
+              { label: 'Clientes', href: '#clientes' },
+              { label: 'Contato', href: '#cta' },
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="text-lg text-[#9CA3AF] hover:text-white transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
             <a
@@ -530,7 +540,7 @@ function Header() {
               className="flex items-center justify-center gap-2 px-8 py-4 btn-primary text-sm mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Run Diagnostic
+              Agende diagnóstico
               <ArrowRight className="w-4 h-4" />
             </a>
           </nav>
@@ -555,15 +565,15 @@ function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-            Seus dados estão{' '}
+            Clareza e confiança nos seus{' '}
             <span className="text-glow" style={{ color: colors.primary }}>
-              mentindo
+              dados de marketing
             </span>{' '}
-            para você.
+            e vendas
           </h1>
 
           <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8 max-w-xl font-light">
-            Quem vende a mídia não deveria auditar o resultado. Google e Meta são otimizados para o faturamento deles, não para o seu lucro. A Precisian é a camada de integridade que elimina esse conflito de interesse, para que você decida com a verdade.
+            Somos um time sênior de Web Analytics e Data que garante dados precisos, integrados e acionáveis, para você decidir com segurança, otimizar CAC e escalar o que realmente funciona
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5">
@@ -571,7 +581,7 @@ function HeroSection() {
               href="#cta"
               className="group relative flex items-center justify-center gap-2 px-8 py-4 btn-primary text-sm"
             >
-              <span className="relative z-10">Run Diagnostic</span>
+              <span className="relative z-10">Agende diagnóstico</span>
               <ArrowRight className="w-5 h-5 relative z-10" />
             </a>
             <a
@@ -1098,7 +1108,7 @@ function ClientsSection() {
   const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section ref={ref} className="py-20 border-y overflow-hidden" style={{ borderColor: colors.surfaceLight, backgroundColor: colors.surface }}>
+    <section id="clientes" ref={ref} className="py-20 border-y overflow-hidden" style={{ borderColor: colors.surfaceLight, backgroundColor: colors.surface }}>
       {/* Marquee animation keyframes */}
       <style>{`
         @keyframes marquee {
@@ -1114,7 +1124,7 @@ function ClientsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">
-            Empresas que pararam de adivinhar
+            Empresas que confiam na Precisian
           </h2>
           <p className="text-gray-400 text-lg">
             +200 projetos de dados implementados. +R$500M em receita corretamente atribuída.
@@ -1154,9 +1164,99 @@ function ClientsSection() {
               key={`${client.name}-${i}`}
               src={client.logo}
               alt={client.name}
-              className="h-8 md:h-10 w-auto mx-8 md:mx-12 inline-block opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              className="h-12 md:h-16 w-auto mx-10 md:mx-16 inline-block opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
             />
           ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Manifesto Section - Bridge to services
+function ManifestoSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section ref={ref} className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: colors.background }}>
+      {/* Subtle gradient accent */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-10 blur-[150px] pointer-events-none"
+        style={{ background: `radial-gradient(ellipse, ${colors.primary}, transparent)` }}
+      />
+
+      <div className="max-w-[900px] mx-auto px-6 md:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] mb-8 tracking-tight">
+            Precisian é o time de dados da{' '}
+            <span style={{ color: colors.primary }}>Nação Digital</span>{' '}
+            criado para transformar informação em decisão que dá resultado.
+          </h2>
+
+          {/* Divider */}
+          <div className="w-16 h-1 mx-auto mb-10 rounded-full" style={{ backgroundColor: colors.primary + '60' }} />
+
+          {/* Text blocks */}
+          <div className="space-y-6 text-lg md:text-xl text-gray-400 leading-relaxed font-light text-left md:text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3 }}
+            >
+              Nascemos dentro da operação, resolvendo na prática o que mais destrói performance:{' '}
+              <span className="text-white font-medium">tracking quebrado, atribuição frágil, dados desconectados</span>{' '}
+              e relatórios que não viram ação.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+            >
+              Ao longo de anos atuando com e-commerces e operações de crescimento complexas, consolidamos um jeito de trabalhar que combina{' '}
+              <span className="text-white font-medium">mão na massa + rigor técnico + visão de negócio</span>.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5 }}
+            >
+              Você não está contratando "mais uma ferramenta". Está colocando um{' '}
+              <span className="text-white font-medium">time sênior</span> para garantir que seus dados de marketing e vendas sejam confiáveis, acessíveis e prontos para otimização.
+            </motion.p>
+          </div>
+
+          {/* Bridge text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6 }}
+            className="mt-12 pt-10 border-t"
+            style={{ borderColor: colors.surfaceLight }}
+          >
+            <p className="text-base md:text-lg text-gray-500 italic">
+              A partir daqui, mostramos como fazemos isso: os{' '}
+              <span style={{ color: colors.primary }}>módulos de solução</span>{' '}
+              e a metodologia que garante consistência e resultado.
+            </p>
+
+            {/* Arrow indicator */}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="mt-8"
+            >
+              <ChevronDown className="w-6 h-6 mx-auto text-gray-600" />
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -1198,16 +1298,43 @@ function DVQModuleSection({ module, index }: { module: typeof dvqModules[0]; ind
               {module.provocation}
             </p>
 
-            {/* Solution name + DVQ Layer Tag */}
-            <div className="mb-8">
-              <span className="text-lg font-semibold text-white">{module.solution}</span>
-              <div className="flex items-center gap-2 mt-2">
-                <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">
-                  DVQ {module.dvqLayers.length > 1 ? 'Layers' : 'Layer'}:
+            {/* Solution Card - Highlighted */}
+            <div
+              className="mb-8 p-5 rounded-lg border-l-4 relative overflow-hidden"
+              style={{
+                borderLeftColor: colors.primary,
+                backgroundColor: colors.surface,
+                boxShadow: `0 0 30px ${colors.primary}10`
+              }}
+            >
+              {/* Subtle gradient accent */}
+              <div
+                className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{ background: `linear-gradient(135deg, ${colors.primary}20, transparent 50%)` }}
+              />
+
+              <div className="relative z-10">
+                <span className="text-xs font-mono uppercase tracking-widest mb-2 block" style={{ color: colors.primary }}>
+                  Solução
                 </span>
-                <span className="text-xs font-mono" style={{ color: colors.primary }}>
-                  {module.dvqLayers.join(' • ')}
+                <span className="text-xl md:text-2xl font-bold text-white block mb-3">
+                  {module.solution}
                 </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  {module.dvqLayers.map((layer, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-full text-xs font-mono"
+                      style={{
+                        backgroundColor: colors.primary + '15',
+                        color: colors.primary,
+                        border: `1px solid ${colors.primary}30`
+                      }}
+                    >
+                      {layer}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -1303,76 +1430,152 @@ function DataIntelligencePartnerSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const features = [
-    {
-      num: '01',
-      title: 'Integrated Infrastructure',
-      desc: 'Multiple assets working together',
-    },
-    {
-      num: '02',
-      title: 'Continuous Releases',
-      desc: 'New capabilities deployed regularly',
-    },
-    {
-      num: '03',
-      title: 'Always-on Governance',
-      desc: 'Uptime and compliance guaranteed',
-    },
+  const benefits = [
+    'Um ponto de contato que fala "marketing e tecnologia"',
+    'Always-on: monitoramento, validação de deploys e auditoria de campanhas',
+    'Acesso completo ao stack de soluções Precisian',
   ];
 
   return (
-    <section ref={ref} className="py-24 md:py-32" style={{ backgroundColor: colors.surface }}>
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-          >
-            <span
-              className="inline-block font-mono text-xs uppercase tracking-widest mb-6"
-              style={{ color: colors.primary }}
-            >
-              // Continuous Operation
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
-              Data Intelligence Partner
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
-              Continuous operation. Always-on governance. Continuous releases. Your data infrastructure evolves with your business.
-            </p>
-          </motion.div>
+    <section id="enterprise" ref={ref} className="py-24 md:py-32 relative overflow-hidden">
+      {/* Premium gradient background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `linear-gradient(135deg, ${colors.background} 0%, ${colors.surface} 50%, ${colors.background} 100%)`,
+        }}
+      />
 
-          {/* Right: Features */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="space-y-6"
+      {/* Glowing orbs */}
+      <div
+        className="absolute top-1/2 left-1/4 w-[600px] h-[600px] -translate-y-1/2 rounded-full opacity-15 blur-[150px] pointer-events-none"
+        style={{ backgroundColor: colors.primary }}
+      />
+      <div
+        className="absolute top-1/2 right-1/4 w-[400px] h-[400px] -translate-y-1/2 rounded-full opacity-10 blur-[120px] pointer-events-none"
+        style={{ backgroundColor: colors.secondary }}
+      />
+
+      <div className="max-w-[1100px] mx-auto px-6 md:px-12 relative z-10">
+        {/* Premium Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          {/* Gradient border effect */}
+          <div
+            className="absolute -inset-[1px] rounded-2xl opacity-60"
+            style={{
+              background: `linear-gradient(135deg, ${colors.primary}, ${colors.secondary}, ${colors.primary})`,
+            }}
+          />
+
+          {/* Card content */}
+          <div
+            className="relative rounded-2xl p-8 md:p-12 lg:p-16"
+            style={{ backgroundColor: colors.surface }}
           >
-            {features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className="flex items-start gap-4"
+            {/* Enterprise Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.2 }}
+              className="flex justify-center mb-8"
+            >
+              <div
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full"
+                style={{
+                  background: `linear-gradient(135deg, ${colors.primary}20, ${colors.secondary}20)`,
+                  border: `1px solid ${colors.primary}40`,
+                }}
               >
-                <div
-                  className="w-12 h-12 flex items-center justify-center font-mono font-bold text-sm shrink-0"
-                  style={{ backgroundColor: colors.primary, color: colors.background }}
+                <Sparkles className="w-5 h-5" style={{ color: colors.primary }} />
+                <span className="font-mono text-sm uppercase tracking-widest font-semibold" style={{ color: colors.primary }}>
+                  Enterprise Service
+                </span>
+                <Sparkles className="w-5 h-5" style={{ color: colors.primary }} />
+              </div>
+            </motion.div>
+
+            {/* Title */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-6 tracking-tight"
+            >
+              Dedicated Analytics Team
+            </motion.h2>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-400 text-center max-w-3xl mx-auto mb-10 leading-relaxed font-light"
+            >
+              Um analista sênior dedicado para operar sua mensuração e dados de marketing com padrão enterprise.
+              Ele coordena mídia, CRM e dev para garantir{' '}
+              <span className="text-white font-medium">tracking consistente</span>,{' '}
+              <span className="text-white font-medium">integrações confiáveis</span>,{' '}
+              <span className="text-white font-medium">atribuição clara</span> e{' '}
+              <span className="text-white font-medium">governança de mudanças</span>{' '}
+              — usando todos os módulos e aceleradores Precisian.
+            </motion.p>
+
+            {/* Divider */}
+            <div className="w-24 h-1 mx-auto mb-10 rounded-full" style={{ background: `linear-gradient(90deg, ${colors.primary}, ${colors.secondary})` }} />
+
+            {/* Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5 }}
+              className="grid md:grid-cols-3 gap-6 mb-10"
+            >
+              {benefits.map((benefit, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.6 + i * 0.1 }}
+                  className="flex items-start gap-4 p-5 rounded-xl"
+                  style={{ backgroundColor: colors.background + '80' }}
                 >
-                  {feature.num}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg mb-1">{feature.title}</h4>
-                  <p className="text-sm" style={{ color: colors.primary }}>{feature.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: colors.primary }}
+                  >
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">{benefit}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.9 }}
+              className="text-center"
+            >
+              <a
+                href="#cta"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:scale-105"
+                style={{
+                  background: `linear-gradient(135deg, ${colors.primary}, ${colors.primary}cc)`,
+                  boxShadow: `0 0 40px ${colors.primary}40`,
+                }}
+              >
+                Falar com especialista
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -1532,6 +1735,7 @@ function CTASection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    whatsapp: '',
     site: '',
     pain: '',
   });
@@ -1590,15 +1794,27 @@ function CTASection() {
             </div>
           </div>
 
-          <div className="mb-6">
-            <label className="block text-sm font-medium mb-2">Site da empresa</label>
-            <input
-              type="url"
-              value={formData.site}
-              onChange={(e) => setFormData({ ...formData, site: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] focus:border-[#FF2D78] focus:outline-none transition-colors"
-              placeholder="https://suaempresa.com.br"
-            />
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label className="block text-sm font-medium mb-2">WhatsApp</label>
+              <input
+                type="tel"
+                value={formData.whatsapp}
+                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] focus:border-[#FF2D78] focus:outline-none transition-colors"
+                placeholder="(11) 99999-9999"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Site da empresa</label>
+              <input
+                type="url"
+                value={formData.site}
+                onChange={(e) => setFormData({ ...formData, site: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg bg-[#1A1A1A] border border-[#2A2A2A] focus:border-[#FF2D78] focus:outline-none transition-colors"
+                placeholder="https://suaempresa.com.br"
+              />
+            </div>
           </div>
 
           <div className="mb-8">
@@ -1619,7 +1835,7 @@ function CTASection() {
             type="submit"
             className="w-full flex items-center justify-center gap-2 px-8 py-4 btn-primary text-sm"
           >
-            Request Diagnostic
+            Solicitar diagnóstico
             <ArrowRight className="w-5 h-5" />
           </button>
         </motion.form>
@@ -1662,7 +1878,7 @@ function Footer() {
               <img src="/precisian_logo_black.png" alt="Precisian" className="h-8" />
             </div>
             <p className="text-sm text-[#9CA3AF] mb-4">
-              Trust Your Data. A Precisian é a vertical de Data Analytics da Nação Digital, parte do ecossistema FCamara.
+              O time de dados da Nação Digital criado para transformar informação em decisão que dá resultado.
             </p>
             <p className="text-xs text-[#9CA3AF]">
               +200 projetos implementados | +R$500M em receita atribuída corretamente
@@ -1673,23 +1889,40 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Soluções</h4>
             <ul className="space-y-2 text-sm text-[#9CA3AF]">
-              {['Precisian Journey', 'Precisian Core', 'Precisian Catalog', 'Precisian MMM', 'Precisian Clarity', 'Intelligence Partner', 'AuditOS'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">{item}</a>
+              {[
+                { name: 'Precisian Journey', href: '#soluções' },
+                { name: 'Precisian Core', href: '#soluções' },
+                { name: 'Precisian Catalog', href: '#soluções' },
+                { name: 'Precisian MMM', href: '#soluções' },
+                { name: 'Precisian Clarity', href: '#soluções' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="hover:text-white transition-colors">{item.name}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Recursos</h4>
+            <h4 className="font-semibold mb-4">Serviços</h4>
             <ul className="space-y-2 text-sm text-[#9CA3AF]">
-              {['Blog', 'Cases', 'Metodologia DVQ', 'Diagnóstico Gratuito'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-white transition-colors">{item}</a>
-                </li>
-              ))}
+              <li>
+                <a href="#enterprise" className="hover:text-white transition-colors">Dedicated Analytics Team</a>
+              </li>
+              <li>
+                <a href="#cta" className="hover:text-white transition-colors">Diagnóstico Gratuito</a>
+              </li>
+            </ul>
+
+            <h4 className="font-semibold mb-4 mt-6">Ecossistema</h4>
+            <ul className="space-y-2 text-sm text-[#9CA3AF]">
+              <li>
+                <a href="https://nacaodigital.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Nação Digital</a>
+              </li>
+              <li>
+                <a href="https://fcamara.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Grupo FCamara</a>
+              </li>
             </ul>
           </div>
 
@@ -1698,8 +1931,12 @@ function Footer() {
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-2 text-sm text-[#9CA3AF]">
               <li>contato@precisian.io</li>
-              <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">WhatsApp</a></li>
+              <li>
+                <a href="https://linkedin.com/company/precisian" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+              </li>
+              <li>
+                <a href="#cta" className="hover:text-white transition-colors">Fale conosco</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -1707,7 +1944,7 @@ function Footer() {
         {/* Closing quote */}
         <div className="text-center py-8 border-t border-b mb-8" style={{ borderColor: colors.surfaceLight }}>
           <p className="text-lg italic text-[#9CA3AF]">
-            "Você não precisa de mais dados. Precisa confiar nos que tem."
+            "Clareza e confiança nos seus dados de marketing e vendas."
           </p>
         </div>
 
@@ -1738,8 +1975,9 @@ export default function LandingV4() {
 
         <Header />
         <HeroSection />
-        <DVQFrameworkSection />
         <ClientsSection />
+        <ManifestoSection />
+        {/* <DVQFrameworkSection /> */}
 
         {/* DVQ Modules - Full-width sections */}
         {dvqModules.map((module, index) => (
@@ -1747,7 +1985,7 @@ export default function LandingV4() {
         ))}
 
         <DataIntelligencePartnerSection />
-        <AuditOSSection />
+        {/* <AuditOSSection /> */}
         <PartnersSection />
         <CTASection />
         <Footer />
